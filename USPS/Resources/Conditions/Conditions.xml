@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Conditions>
+	<Condition>
+		<Name>Time of Day</Name>
+		<Type>Time</Type>
+		<Description>This condition allows the end user to choose when services are active</Description>
+		<Possible_Values>
+			00:00 to 01:00,
+			01:00 to 02:00,
+			02:00 to 03:00,
+			03:00 to 04:00,
+			04:00 to 05:00,
+			05:00 to 06:00,
+			06:00 to 07:00,
+			07:00 to 08:00,
+			08:00 to 09:00,
+			09:00 to 10:00,
+			10:00 to 11:00,
+			11:00 to 12:00,
+			12:00 to 13:00,
+			13:00 to 14:00,
+			14:00 to 15:00,
+			15:00 to 16:00,
+			16:00 to 17:00,
+			17:00 to 18:00,
+			18:00 to 19:00,
+			19:00 to 20:00,
+			20:00 to 21:00,
+			21:00 to 22:00,
+			22:00 to 23:00,
+			23:00 to 00:00,
+			Default
+		</Possible_Values>
+	</Condition>
+	<Condition>
+		<Name>Status of End User</Name>
+		<Type>Presence</Type>
+		<Description>This condition allows the end user's status to influence when services are active</Description>
+		<Possible_Values>
+			Available,
+			Busy,
+			Offline,
+			Default
+		</Possible_Values>
+	</Condition>
+	<Condition>
+		<Name>Calling Party</Name>
+		<Type>Contact</Type>
+		<Description>This condition allows the calling party to influence which services are activated</Description>
+		<Possible_Values>
+			Alice,
+			Bob,
+			Eve,
+			John,
+			Default
+		</Possible_Values>
+	</Condition>
+</Conditions>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USPS", "USPS\USPS.csproj", "{C276E5AD-ABBE-42A8-A49F-96506E4EB105}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C276E5AD-ABBE-42A8-A49F-96506E4EB105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C276E5AD-ABBE-42A8-A49F-96506E4EB105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C276E5AD-ABBE-42A8-A49F-96506E4EB105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C276E5AD-ABBE-42A8-A49F-96506E4EB105}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
