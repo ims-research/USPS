@@ -17,7 +17,7 @@
 		<WRITE></WRITE>
 	</SIP_Headers>
 	<SIP_Responses>
-	<SIP_200_OK>Successfully accepted notification, will email end user IM</SIP_200_OK>
+	<SIP_200_OK>Successfully accepted message, will email end user its contents</SIP_200_OK>
 	</SIP_Responses>
 	<Capabalities>
 		<audio>false</audio>
