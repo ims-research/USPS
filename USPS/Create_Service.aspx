@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Creante New Service Chain" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Create_Service.aspx.cs" Inherits="USPS.CreateService" %>
-<%@ Register TagPrefix="asp" Namespace="USPS.Code" Assembly="USPS" %>
+﻿<%@ Page Title="Creante New Service Chain" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Create_Service.aspx.cs" Inherits="USPS.Create_Service" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 <asp:ScriptManager runat="server"></asp:ScriptManager>
+   
 <asp:UpdatePanel runat="server" ID="UpdatePanel">
 <ContentTemplate>
  <asp:Panel ID="pnlInstruction" runat="server" CssClass="text-instruction" 
@@ -29,7 +29,7 @@
     <asp:Table runat="server">
     <asp:TableRow>
     <asp:TableCell RowSpan="2">
-    <asp:TreeView ID="tvServiceFlow" SelectedNodeStyle-CssClass="selectedTreeNode" runat="server" ShowLines="True" OnSelectedNodeChanged="TvServiceFlowNodeChange" Width="200" CssClass="tree" Visible="True">
+    <asp:TreeView ID="tvServiceFlow" SelectedNodeStyle-CssClass="selectedTreeNode" runat="server" ShowLines="True" OnSelectedNodeChanged="tvServiceFlow_NodeChange" Width="200" CssClass="tree">
     <NodeStyle NodeSpacing="3" HorizontalPadding="3" VerticalPadding="3" BorderColor="Black" BorderWidth="1"/>
     </asp:TreeView>
     </asp:TableCell>
@@ -40,7 +40,7 @@
     <asp:Label runat="server" Text="Please Choose Service"></asp:Label>
     </asp:TableCell>
     <asp:TableCell>
-    <asp:DropDownList ID="ddlstService" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlstServiceSelectedIndexChanged" Width="200"><asp:ListItem>Choose a Service</asp:ListItem></asp:DropDownList>
+    <asp:DropDownList ID="ddlstService" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlstService_SelectedIndexChanged" Width="200"><asp:ListItem>Choose a Service</asp:ListItem></asp:DropDownList>
     </asp:TableCell>
     </asp:TableRow>
     <asp:TableRow>
@@ -75,7 +75,7 @@
     <asp:Label ID="lblCondition" runat="server" Text="Please Choose Condition"></asp:Label>
     </asp:TableCell>
     <asp:TableCell>
-    <asp:DropDownList ID="ddlstCondition" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlstConditionSelectedIndexChanged" Width="200"><asp:ListItem>Choose a Condition</asp:ListItem></asp:DropDownList>
+    <asp:DropDownList ID="ddlstCondition" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlstCondition_SelectedIndexChanged" Width="200"><asp:ListItem>Choose a Condition</asp:ListItem></asp:DropDownList>
     </asp:TableCell>
     </asp:TableRow>
     <asp:TableRow>
@@ -104,7 +104,7 @@
     <asp:TableRow><asp:TableCell><asp:Label ID="lblChooseAnother" runat="server" Text="Please click on the node you wish to add another block to" Visible="false"></asp:Label></asp:TableCell></asp:TableRow>
     </asp:Table>
         <asp:Button ID="btnSaveFlow" runat="server" Text="Save Service Flow" 
-            onclick="BtnSaveFlowClick" />
+            onclick="btnSaveFlow_Click" />
     </asp:Panel>
     </ContentTemplate>
     </asp:UpdatePanel>

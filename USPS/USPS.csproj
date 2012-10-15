@@ -13,7 +13,6 @@
     <RootNamespace>USPS</RootNamespace>
     <AssemblyName>USPS</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -119,7 +118,6 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Condition.cs" />
-    <Compile Include="Code\TagTreeView.cs" />
     <Compile Include="Code\Service.cs" />
     <Compile Include="Code\ServiceBlock.cs" />
     <Compile Include="Code\ServiceFlow.cs" />

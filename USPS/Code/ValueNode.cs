@@ -1,22 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI.WebControls;
 
 namespace USPS.Code
 {
-    public class ValueNode
+    public class ValueNode : TreeNode
     {
-        public List<string> Values { get; set; }
+        public List<string> values { get; set; }
 
         public enum Types { ConditionValue, ServiceResponse }
 
-        public Types ValueType;
-        public TypeNode Parent;
-        public List<TypeNode> ChildNodes;
+        public Types value_type;
 
         public ValueNode(Types type)
         {
-            ValueType = type;
-            Values = new List<string>();
-            ChildNodes = new List<TypeNode>();
+            value_type = type;
+            values = new List<string>();
         }
 
     }

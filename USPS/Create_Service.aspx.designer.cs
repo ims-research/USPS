@@ -10,7 +10,7 @@
 namespace USPS {
     
     
-    public partial class CreateService {
+    public partial class Create_Service {
         
         /// <summary>
         /// UpdatePanel control.
