@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 using USPS.Code;
 namespace USPS
 {
@@ -12,8 +7,8 @@ namespace USPS
 
         void Application_Start(object sender, EventArgs e)
         {
-            Service_Manager.Load_Services(Server.MapPath("Resources\\Services\\"));
-            Service_Manager.Load_Conditions(Server.MapPath("Resources\\Conditions\\Conditions.xml"));
+            ServiceManager.LoadServices(Server.MapPath("Resources\\Services\\"));
+            ServiceManager.LoadConditions(Server.MapPath("Resources\\Conditions\\Conditions.xml"));
         }
 
         void Application_End(object sender, EventArgs e)
@@ -47,6 +42,5 @@ namespace USPS
             // or SQLServer, the event is not raised.
 
         }
-
     }
 }

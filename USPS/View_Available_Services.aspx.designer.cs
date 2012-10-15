@@ -10,7 +10,7 @@
 namespace USPS {
     
     
-    public partial class View_Available_Services {
+    public partial class ViewAvailableServices {
         
         /// <summary>
         /// serviceGrid control.

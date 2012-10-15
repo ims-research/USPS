@@ -5,7 +5,7 @@ namespace USPS.Code
 {
     public class UserProfile : ProfileBase
     {
-        public List<ServiceFlow> service_flows;
+        public List<ServiceFlow> ServiceFlows;
 
         public static UserProfile GetUserProfile(string username)
         {
@@ -23,18 +23,5 @@ namespace USPS.Code
             set { base["Description"] = value; }
         }
 
-        [SettingsAllowAnonymous(false)]
-        public string Location
-        {
-            get { return base["Location"] as string; }
-            set { base["Location"] = value; }
-        }
-
-        [SettingsAllowAnonymous(false)]
-        public string FavoriteMovie
-        {
-            get { return base["FavoriteMovie"] as string; }
-            set { base["FavoriteMovie"] = value; }
-        }
     }
 }
