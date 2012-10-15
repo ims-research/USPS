@@ -1,56 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using USPS.Code;
 namespace USPS
 {
-    public partial class Create_Service : System.Web.UI.Page
+    public partial class CreateService : System.Web.UI.Page
     {
-        ServiceFlow sf;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 ddlstService.Items.Clear();
-                foreach (KeyValuePair<string, Service> kvp in Service_Manager.service_list)
+                foreach (KeyValuePair<string, Service> kvp in ServiceManager.ServiceList)
                 {
-                    ListItem service = new ListItem();
-                    service.Text = kvp.Value.Service_Information["Name"];
-                    service.Value = kvp.Value.Service_Config["GUID"];
+                    ListItem service = new ListItem
+                                           {
+                                               Text = kvp.Value.ServiceInformation["Name"],
+                                               Value = kvp.Value.ServiceConfig["GUID"]
+                                           };
                     ddlstService.Items.Add(service);
                 }
 
                 ddlstCondition.Items.Clear();
-                foreach (KeyValuePair<string, Condition> kvp in Service_Manager.condition_list)
+                foreach (KeyValuePair<string, Condition> kvp in ServiceManager.ConditionList)
                 {
-                    ListItem condition = new ListItem();
-                    condition.Text = kvp.Value.Name;
-                    condition.Value = kvp.Value.Name;
+                    ListItem condition = new ListItem {Text = kvp.Value.Name, Value = kvp.Value.Name};
                     ddlstCondition.Items.Add(condition);
                 }
-
-                sf = new ServiceFlow();
-
+                Session["service"] = new ServiceFlow();
+                Session["nodes"] = new Dictionary<string, object>();
             }
             else
             {
-
             }
         }
 
-        protected void ddlstService_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlstServiceSelectedIndexChanged(object sender, EventArgs e)
         {
             lstbxAvalRes.Items.Clear();
             lstbxSelRes.Items.Clear();
-            foreach (KeyValuePair<string, string> kvp in Service_Manager.service_list[ddlstService.SelectedValue].SIP_Responses)
+            foreach (KeyValuePair<string, string> kvp in ServiceManager.ServiceList[ddlstService.SelectedValue].SIPResponses)
             {
-                ListItem service = new ListItem();
-                service.Value = kvp.Value;
-                service.Text = kvp.Key;
+                ListItem service = new ListItem {Value = kvp.Value, Text = kvp.Key};
                 service.Attributes.Add("Title", kvp.Value);
                 lstbxAvalRes.Items.Add(service);
             }
@@ -77,17 +68,25 @@ namespace USPS
             }
             else if (rdblstChoice.SelectedIndex == 2)
             {
-                TypeNode tn = new TypeNode(ServiceBlock.Types.Terminating);
-                tn.Text = "Service Terminated";
-                tn.NavigateUrl = "";
-                tn.SelectAction = TreeNodeSelectAction.Select;
+                string guid = Guid.NewGuid().ToString();
+                TypeNode tn = new TypeNode(ServiceBlock.Types.Terminating)
+                                  {
+                                      Text = "Service Terminated",
+                                      NavigateUrl = "",
+                                      SelectAction = TreeNodeSelectAction.Select,
+                                      Value = guid,
+                                      InstanceGUID = Guid.NewGuid().ToString()
+                                  };
+                
                 if (tvServiceFlow.SelectedNode != null)
                 {
                     tvServiceFlow.SelectedNode.ChildNodes.Add(tn);
+                    ((Dictionary<string, object>)Session["nodes"]).Add(guid,tn);
                 }
                 else
                 {
                     tvServiceFlow.Nodes.Add(tn);
+                    ((Dictionary<string, object>)Session["nodes"]).Add(guid,tn);
                 }
                 tvServiceFlow.ExpandAll();
             }
@@ -95,11 +94,9 @@ namespace USPS
             {
                 if (tvServiceFlow.SelectedNode != null)
                 {
-
                     if (tvServiceFlow.SelectedNode is TypeNode)
                     {
                         TypeNode temp_node = (TypeNode)tvServiceFlow.SelectedNode;
-
                     }
                 }
 
@@ -107,16 +104,14 @@ namespace USPS
             rdblstChoice.ClearSelection();
         }
 
-        protected void ddlstCondition_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlstConditionSelectedIndexChanged(object sender, EventArgs e)
         {
             lstbxAvaValues.Items.Clear();
             lstbxSelValues.Items.Clear();
-            foreach (string possible_value in Service_Manager.condition_list[ddlstCondition.SelectedValue].possible_values)
+            foreach (string possibleValue in ServiceManager.ConditionList[ddlstCondition.SelectedValue].PossibleValues)
             {
-                ListItem service = new ListItem();
-                service.Value = possible_value;
-                service.Text = possible_value;
-                service.Attributes.Add("Title", Service_Manager.condition_list[ddlstCondition.SelectedValue].Description);
+                ListItem service = new ListItem {Value = possibleValue, Text = possibleValue};
+                service.Attributes.Add("Title", ServiceManager.ConditionList[ddlstCondition.SelectedValue].Description);
                 lstbxAvaValues.Items.Add(service);
             }
 
@@ -124,7 +119,7 @@ namespace USPS
 
         protected void btnAddResponses_OnClick(object sender, EventArgs e)
         {
-            List<ListItem> item_list = new List<ListItem>();
+            List<ListItem> itemList = new List<ListItem>();
 
             if (lstbxAvalRes.SelectedIndex >= 0)
             {
@@ -132,15 +127,15 @@ namespace USPS
                 {
                     if (lstbxAvalRes.Items[i].Selected)
                     {
-                        if (!item_list.Contains(lstbxAvalRes.Items[i]))
-                            item_list.Add(lstbxAvalRes.Items[i]);
+                        if (!itemList.Contains(lstbxAvalRes.Items[i]))
+                            itemList.Add(lstbxAvalRes.Items[i]);
                     }
                 }
-                for (int i = 0; i < item_list.Count; i++)
+                foreach (ListItem t in itemList)
                 {
-                    if (!lstbxSelRes.Items.Contains((ListItem)item_list[i]))
-                        lstbxSelRes.Items.Add((ListItem)item_list[i]);
-                    lstbxAvalRes.Items.Remove((ListItem)item_list[i]);
+                    if (!lstbxSelRes.Items.Contains(t))
+                        lstbxSelRes.Items.Add(t);
+                    lstbxAvalRes.Items.Remove(t);
                 }
             }
             lstbxAvalRes.ClearSelection();
@@ -149,7 +144,7 @@ namespace USPS
 
         protected void btnDelResponses_OnClick(object sender, EventArgs e)
         {
-            List<ListItem> item_list = new List<ListItem>();
+            List<ListItem> itemList = new List<ListItem>();
 
             if (lstbxSelRes.SelectedIndex >= 0)
             {
@@ -157,15 +152,15 @@ namespace USPS
                 {
                     if (lstbxSelRes.Items[i].Selected)
                     {
-                        if (!item_list.Contains(lstbxSelRes.Items[i]))
-                            item_list.Add(lstbxSelRes.Items[i]);
+                        if (!itemList.Contains(lstbxSelRes.Items[i]))
+                            itemList.Add(lstbxSelRes.Items[i]);
                     }
                 }
-                for (int i = 0; i < item_list.Count; i++)
+                foreach (ListItem t in itemList)
                 {
-                    if (!lstbxAvalRes.Items.Contains((ListItem)item_list[i]))
-                        lstbxAvalRes.Items.Add((ListItem)item_list[i]);
-                    lstbxSelRes.Items.Remove((ListItem)item_list[i]);
+                    if (!lstbxAvalRes.Items.Contains(t))
+                        lstbxAvalRes.Items.Add(t);
+                    lstbxSelRes.Items.Remove(t);
                 }
             }
             lstbxAvalRes.ClearSelection();
@@ -174,7 +169,7 @@ namespace USPS
 
         protected void btnAddValue_OnClick(object sender, EventArgs e)
         {
-            List<ListItem> item_list = new List<ListItem>();
+            List<ListItem> itemList = new List<ListItem>();
 
             if (lstbxAvaValues.SelectedIndex >= 0)
             {
@@ -182,15 +177,15 @@ namespace USPS
                 {
                     if (lstbxAvaValues.Items[i].Selected)
                     {
-                        if (!item_list.Contains(lstbxAvaValues.Items[i]))
-                            item_list.Add(lstbxAvaValues.Items[i]);
+                        if (!itemList.Contains(lstbxAvaValues.Items[i]))
+                            itemList.Add(lstbxAvaValues.Items[i]);
                     }
                 }
-                for (int i = 0; i < item_list.Count; i++)
+                foreach (ListItem t in itemList)
                 {
-                    if (!lstbxSelValues.Items.Contains((ListItem)item_list[i]))
-                        lstbxSelValues.Items.Add((ListItem)item_list[i]);
-                    lstbxAvaValues.Items.Remove((ListItem)item_list[i]);
+                    if (!lstbxSelValues.Items.Contains(t))
+                        lstbxSelValues.Items.Add(t);
+                    lstbxAvaValues.Items.Remove(t);
                 }
             }
             lstbxAvaValues.ClearSelection();
@@ -199,7 +194,7 @@ namespace USPS
 
         protected void btnDelValue_OnClick(object sender, EventArgs e)
         {
-            List<ListItem> item_list = new List<ListItem>();
+            List<ListItem> itemList = new List<ListItem>();
 
             if (lstbxSelValues.SelectedIndex >= 0)
             {
@@ -207,15 +202,15 @@ namespace USPS
                 {
                     if (lstbxSelValues.Items[i].Selected)
                     {
-                        if (!item_list.Contains(lstbxSelValues.Items[i]))
-                            item_list.Add(lstbxSelValues.Items[i]);
+                        if (!itemList.Contains(lstbxSelValues.Items[i]))
+                            itemList.Add(lstbxSelValues.Items[i]);
                     }
                 }
-                for (int i = 0; i < item_list.Count; i++)
+                foreach (ListItem t in itemList)
                 {
-                    if (!lstbxAvaValues.Items.Contains((ListItem)item_list[i]))
-                        lstbxAvaValues.Items.Add((ListItem)item_list[i]);
-                    lstbxSelValues.Items.Remove((ListItem)item_list[i]);
+                    if (!lstbxAvaValues.Items.Contains(t))
+                        lstbxAvaValues.Items.Add(t);
+                    lstbxSelValues.Items.Remove(t);
                 }
             }
             lstbxAvaValues.ClearSelection();
@@ -226,35 +221,35 @@ namespace USPS
         {
             ServiceTable.Visible = false;
             lblChooseAnother.Visible = true;
-            TypeNode service_node = new TypeNode(ServiceBlock.Types.Service);
-            Service initial_service = Service_Manager.service_list[ddlstService.SelectedValue];
-            service_node.Text = initial_service.Service_Information["Name"];
-            service_node.Value = initial_service.Service_Config["GUID"];
-            service_node.SelectAction = TreeNodeSelectAction.Select;
+            TypeNode serviceNode = new TypeNode(ServiceBlock.Types.Service);
+            Service initialService = ServiceManager.ServiceList[ddlstService.SelectedValue];
+            serviceNode.Text = initialService.ServiceInformation["Name"];
+            serviceNode.Value = initialService.ServiceConfig["GUID"];
+            serviceNode.SelectAction = TreeNodeSelectAction.Select;
 
-            service_node.Name = initial_service.Service_Information["Name"];
-            service_node.GlobalGUID = initial_service.Service_Config["GUID"];
-            service_node.InstanceGUID = Guid.NewGuid().ToString();
+            serviceNode.Name = initialService.ServiceInformation["Name"];
+            serviceNode.GlobalGUID = initialService.ServiceConfig["GUID"];
+            serviceNode.InstanceGUID = Guid.NewGuid().ToString();
 
             if (lstbxSelRes.Items.Count > 0)
             {
-                ValueNode temp_node = new ValueNode(ValueNode.Types.ServiceResponse);
-                temp_node.SelectAction = TreeNodeSelectAction.Select;
-                temp_node.NavigateUrl = "";
+                ValueNode tempNode = new ValueNode(ValueNode.Types.ServiceResponse)
+                                         {SelectAction = TreeNodeSelectAction.Select, NavigateUrl = ""};
                 for (int i = 0; i < lstbxSelRes.Items.Count; i++)
                 {
-                    temp_node.values.Add(lstbxSelRes.Items[i].Text);
+                    tempNode.Values.Add(lstbxSelRes.Items[i].Text);
                 }
-                temp_node.Text = string.Join("<br/>", temp_node.values);
-
-                service_node.ChildNodes.Add(temp_node);
+                tempNode.Text = string.Join("<br/>", tempNode.Values);
+                serviceNode.ChildNodes.Add(tempNode);
                 if (tvServiceFlow.SelectedNode != null)
                 {
-                    tvServiceFlow.SelectedNode.ChildNodes.Add(service_node);
+                    tvServiceFlow.SelectedNode.ChildNodes.Add(serviceNode);
+                    ((Dictionary<string, object>)Session["nodes"]).Add(initialService.ServiceConfig["GUID"], serviceNode);
                 }
                 else
                 {
-                    tvServiceFlow.Nodes.Add(service_node);
+                    tvServiceFlow.Nodes.Add(serviceNode);
+                    ((Dictionary<string, object>)Session["nodes"]).Add(initialService.ServiceConfig["GUID"], serviceNode);
                 }
                 tvServiceFlow.ExpandAll();
             }
@@ -264,42 +259,45 @@ namespace USPS
         {
             ConditionTable.Visible = false;
             lblChooseAnother.Visible = true;
-            TypeNode condition_node = new TypeNode(ServiceBlock.Types.Condition);
-            Condition condition = Service_Manager.condition_list[ddlstCondition.SelectedValue];
-            condition_node.Text = condition.Name;
-            condition_node.Value = condition.Name;
+            TypeNode conditionNode = new TypeNode(ServiceBlock.Types.Condition);
+            Condition condition = ServiceManager.ConditionList[ddlstCondition.SelectedValue];
+            conditionNode.Text = condition.Name;
+            conditionNode.Value = Guid.NewGuid().ToString();
 
-            condition_node.SelectAction = TreeNodeSelectAction.Select;
+            conditionNode.SelectAction = TreeNodeSelectAction.Select;
 
-            condition_node.Name = condition.Name;
-            condition_node.InstanceGUID = Guid.NewGuid().ToString();
+            conditionNode.Name = condition.Name;
+            conditionNode.InstanceGUID = Guid.NewGuid().ToString();
 
             if (lstbxSelValues.Items.Count > 0)
             {
-                ValueNode temp_node = new ValueNode(ValueNode.Types.ConditionValue);
-                temp_node.SelectAction = TreeNodeSelectAction.Select;
-                temp_node.NavigateUrl = "";
+                ValueNode tempNode = new ValueNode(ValueNode.Types.ConditionValue) {Value = Guid.NewGuid().ToString()};
+                ((Dictionary<string, object>)Session["nodes"]).Add(tempNode.Value, tempNode);
+                tempNode.SelectAction = TreeNodeSelectAction.Select;
+                tempNode.NavigateUrl = "";
                 for (int i = 0; i < lstbxSelValues.Items.Count; i++)
                 {
-                    temp_node.values.Add(lstbxSelValues.Items[i].Text);
+                    tempNode.Values.Add(lstbxSelValues.Items[i].Text);
 
                 }
-                temp_node.Text = string.Join("<br/>", temp_node.values);
-                condition_node.ChildNodes.Add(temp_node);
+                tempNode.Text = string.Join("<br/>", tempNode.Values);
+                conditionNode.ChildNodes.Add(tempNode);
                 if (tvServiceFlow.SelectedNode != null)
                 {
-                    tvServiceFlow.SelectedNode.ChildNodes.Add(condition_node);
+                    tvServiceFlow.SelectedNode.ChildNodes.Add(conditionNode);
+                    ((Dictionary<string, object>)Session["nodes"]).Add(conditionNode.Value, conditionNode);
                 }
                 else
                 {
-                    tvServiceFlow.Nodes.Add(condition_node);
+                    tvServiceFlow.Nodes.Add(conditionNode);
+                    ((Dictionary<string, object>)Session["nodes"]).Add(conditionNode.Value, conditionNode);
                 }
                 tvServiceFlow.ExpandAll();
 
             }
         }
 
-        protected void tvServiceFlow_NodeChange(object sender, EventArgs e)
+        protected void TvServiceFlowNodeChange(object sender, EventArgs e)
         {
             ConditionTable.Visible = false;
             ServiceTable.Visible = false;
@@ -307,36 +305,84 @@ namespace USPS
             ConditionPanel.Visible = true;
         }
 
-        protected void btnSaveFlow_Click(object sender, EventArgs e)
+        protected void BtnSaveFlowClick(object sender, EventArgs e)
         {
-            sf = new ServiceFlow();
+            Session["service"] = new ServiceFlow();
             TreeNodeCollection nodes = tvServiceFlow.Nodes;
             foreach (TreeNode n in nodes)
             {
-                AddTypeNodes(n);
+                AddNode(n);
             }
-            foreach (TreeNode n in nodes)
-            {
-                AddValueNodes(n);
-            }
-            foreach (KeyValuePair<string,ServiceBlock> kvp  in sf.blocks)
+            foreach (KeyValuePair<string, ServiceBlock> kvp in ((ServiceFlow)Session["service"]).Blocks)
             {
                 string key = kvp.Key;
                 ServiceBlock value = kvp.Value;
             }
+
+            //TODO Add service flow to user profile
+        }
+
+        private void AddNode(TreeNode n)
+        {
+            Dictionary<string, object> nodes = (Dictionary<string, object>) Session["nodes"];
+            Object node = nodes[n.Value];
+            if (node is TypeNode)
+            {
+                AddTypeNode((TypeNode)node);
+            }
+            else if (node is ValueNode)
+            {
+                AddValueNode((ValueNode)node, n);
+            }
+            foreach (TreeNode tn in n.ChildNodes)
+            {
+                AddNode(tn);
+            }
+
+        }
+
+        private void AddTypeNode(TypeNode typeNode)
+        {
+            ServiceBlock sb = new ServiceBlock
+                                  {
+                                      Name = typeNode.Name,
+                                      GlobalGUID = typeNode.GlobalGUID,
+                                      InstanceGUID = typeNode.InstanceGUID,
+                                      BlockType = typeNode.BlockType
+                                  };
+            ((ServiceFlow)Session["service"]).Blocks.Add(typeNode.InstanceGUID, sb);
+        }
+
+        private void AddValueNode(ValueNode valueNode, TreeNode tn)
+        {
+            Dictionary<string, object> nodes = (Dictionary<string, object>)Session["nodes"];
+            Object parent = nodes[tn.Parent.Value];
+            Object child = null;
+            if (tn.ChildNodes.Count > 0)
+            {
+                child = nodes[tn.ChildNodes[0].Value];    
+            }
+            ServiceBlock sb = ((ServiceFlow)Session["service"]).Blocks[((TypeNode)parent).InstanceGUID];
+            if (child !=null)
+            {
+                sb.NextBlock.Add(valueNode.Values[0].ToString(), ((TypeNode)child).InstanceGUID);    
+            }
+            ((ServiceFlow)Session["service"]).Blocks[((TypeNode)parent).InstanceGUID] = sb;
         }
 
         private void AddTypeNodes(TreeNode treeNode)
         {
             if (treeNode is TypeNode)
             {
-                TypeNode temp_node = (TypeNode)treeNode;
-                ServiceBlock sb = new ServiceBlock();
-                sb.Name = temp_node.Name;
-                sb.GlobalGUID = temp_node.GlobalGUID;
-                sb.InstanceGUID = temp_node.InstanceGUID;
-                sb.block_type = temp_node.block_type;
-                sf.blocks.Add(temp_node.InstanceGUID, sb);
+                TypeNode tempNode = (TypeNode)treeNode;
+                ServiceBlock sb = new ServiceBlock
+                                      {
+                                          Name = tempNode.Name,
+                                          GlobalGUID = tempNode.GlobalGUID,
+                                          InstanceGUID = tempNode.InstanceGUID,
+                                          BlockType = tempNode.BlockType
+                                      };
+                ((ServiceFlow)Session["service"]).Blocks.Add(tempNode.InstanceGUID, sb);
             }
             foreach (TreeNode tn in treeNode.ChildNodes)
             {
@@ -348,12 +394,12 @@ namespace USPS
         {
            if (treeNode is ValueNode)
             {
-               ValueNode temp_node = (ValueNode)treeNode;
+               ValueNode tempNode = (ValueNode)treeNode;
                TypeNode parent = (TypeNode)treeNode.Parent;
                TypeNode child = (TypeNode)treeNode.ChildNodes[0];
-               ServiceBlock sb = sf.blocks[parent.InstanceGUID];
-               sb.nextBlock.Add(temp_node.values.ToString(), child.InstanceGUID);
-               sf.blocks[parent.InstanceGUID] = sb;
+               ServiceBlock sb = ((ServiceFlow)Session["service"]).Blocks[parent.InstanceGUID];
+               sb.NextBlock.Add(tempNode.Values.ToString(), child.InstanceGUID);
+               ((ServiceFlow)Session["service"]).Blocks[parent.InstanceGUID] = sb;
             }
             foreach (TreeNode tn in treeNode.ChildNodes)
             {
