@@ -4,6 +4,7 @@ namespace USPS.Code
 {
     public class ServiceFlow
     {
+
         public Dictionary<string, ServiceBlock> Blocks;
         public ServiceFlow()
         {

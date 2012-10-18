@@ -1,12 +1,12 @@
-﻿using System.Web.Profile;
+﻿using System;
+using System.Web.Profile;
 using System.Web.Security;
 using System.Collections.Generic;
 namespace USPS.Code
 {
+    [Serializable]
     public class UserProfile : ProfileBase
     {
-        public List<ServiceFlow> ServiceFlows;
-
         public static UserProfile GetUserProfile(string username)
         {
             return Create(username) as UserProfile;
@@ -17,10 +17,10 @@ namespace USPS.Code
         }
 
         [SettingsAllowAnonymous(false)]
-        public string Description
+        public string ServiceFlows
         {
-            get { return base["Description"] as string; }
-            set { base["Description"] = value; }
+            get { return base["ServiceFlows"] as string; }
+            set { base["ServiceFlows"] = value; }
         }
 
     }

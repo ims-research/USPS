@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Web.UI.WebControls;
 using USPS.Code;
 namespace USPS
@@ -233,13 +234,13 @@ namespace USPS
 
             if (lstbxSelRes.Items.Count > 0)
             {
-                ValueNode tempNode = new ValueNode(ValueNode.Types.ServiceResponse)
-                                         {SelectAction = TreeNodeSelectAction.Select, NavigateUrl = ""};
+                ValueNode tempNode = new ValueNode(ValueNode.Types.ServiceResponse) { SelectAction = TreeNodeSelectAction.Select, NavigateUrl = "", Value = Guid.NewGuid().ToString() };
                 for (int i = 0; i < lstbxSelRes.Items.Count; i++)
                 {
                     tempNode.Values.Add(lstbxSelRes.Items[i].Text);
                 }
                 tempNode.Text = string.Join("<br/>", tempNode.Values);
+                ((Dictionary<string, object>)Session["nodes"]).Add(tempNode.Value, tempNode);
                 serviceNode.ChildNodes.Add(tempNode);
                 if (tvServiceFlow.SelectedNode != null)
                 {
@@ -280,8 +281,10 @@ namespace USPS
                     tempNode.Values.Add(lstbxSelValues.Items[i].Text);
 
                 }
+                tempNode.Value = Guid.NewGuid().ToString();
                 tempNode.Text = string.Join("<br/>", tempNode.Values);
                 conditionNode.ChildNodes.Add(tempNode);
+                ((Dictionary<string, object>)Session["nodes"]).Add(tempNode.Value, tempNode);
                 if (tvServiceFlow.SelectedNode != null)
                 {
                     tvServiceFlow.SelectedNode.ChildNodes.Add(conditionNode);
@@ -318,7 +321,19 @@ namespace USPS
                 string key = kvp.Key;
                 ServiceBlock value = kvp.Value;
             }
-
+            UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
+            List<ServiceFlow> sf;
+            try
+            {
+                 sf = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
+            }
+            catch (Exception)
+            {
+                sf = new List<ServiceFlow>();
+            }
+            sf.Add((ServiceFlow) Session["service"]);
+            profile.ServiceFlows = sf.Serialize();
+            profile.Save();
             //TODO Add service flow to user profile
         }
 
