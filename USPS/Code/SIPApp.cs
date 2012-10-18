@@ -6,9 +6,8 @@ using System.Net.Sockets;
 using SIPLib.SIP;
 using SIPLib.Utils;
 using log4net;
-using Timer = SIPLib.SIP.Timer;
 
-namespace USPS_Sip
+namespace USPS.Code
 {
     public class SIPApp : SIPLib.SIPApp
     {

@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Security;
 
-//namespace TechInfoSystems.Data.SQLite
+
 namespace USPS.Code.SQLite
 {
 	/// <summary>

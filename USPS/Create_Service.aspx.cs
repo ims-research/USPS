@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Principal;
 using System.Web.UI.WebControls;
 using USPS.Code;
 namespace USPS
@@ -334,7 +333,6 @@ namespace USPS
             sf.Add((ServiceFlow) Session["service"]);
             profile.ServiceFlows = sf.Serialize();
             profile.Save();
-            //TODO Add service flow to user profile
         }
 
         private void AddNode(TreeNode n)

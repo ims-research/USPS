@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -67,6 +71,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Create_Service.aspx" />
     <Content Include="Debug_View_Service_From_XML.aspx" />
+    <Content Include="Libs\log4net.dll" />
     <Content Include="Resources\Services\3600f74a-a5b1-4e47-a2e7-04b12116a670.xml" />
     <Content Include="Resources\Services\3ea7b719-36fb-457d-a295-83edc6d0f1ce.xml" />
     <Content Include="Resources\Services\4616f2cd-6471-4d65-8337-5d6e63dbf1c8.xml" />
@@ -81,8 +86,12 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Debug_Add_Service.aspx" />
-    <Content Include="System.Data.SQLite.dll" />
-    <Content Include="System.Data.SQLite.Linq.dll" />
+    <Content Include="System.Data.SQLite.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System.Data.SQLite.Linq.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="View_Available_Services.aspx" />
     <Content Include="View_Existing_Chains.aspx" />
     <Content Include="Web.config" />
@@ -133,11 +142,14 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Condition.cs" />
+    <Compile Include="Code\SIPHandler.cs" />
     <Compile Include="Code\SerializationExtensions.cs" />
     <Compile Include="Code\Service.cs" />
     <Compile Include="Code\ServiceBlock.cs" />
     <Compile Include="Code\ServiceFlow.cs" />
     <Compile Include="Code\Service_Manager.cs" />
+    <Compile Include="Code\SIPApp.cs" />
+    <Compile Include="Code\SQLiteDatabase.cs" />
     <Compile Include="Code\SQLite\SQLiteMembershipProvider.cs" />
     <Compile Include="Code\SQLite\SQLiteProfileProvider.cs" />
     <Compile Include="Code\SQLite\SQLiteRoleProvider.cs" />
@@ -204,6 +216,12 @@
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\C-Sharp-Sip-Lib\SIPLib\SIPLib.csproj">
+      <Project>{BCB5CEA8-22E7-470C-B566-CFEA2D051C9B}</Project>
+      <Name>SIPLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

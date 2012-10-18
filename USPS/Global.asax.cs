@@ -1,20 +1,25 @@
 ﻿using System;
+using System.Threading;
 using USPS.Code;
+
 namespace USPS
 {
     public class Global : System.Web.HttpApplication
     {
-
+        private Thread _sipThread;
         void Application_Start(object sender, EventArgs e)
         {
             ServiceManager.LoadServices(Server.MapPath("Resources\\Services\\"));
             ServiceManager.LoadConditions(Server.MapPath("Resources\\Conditions\\Conditions.xml"));
+            SIPHandler sh = new SIPHandler();
+            _sipThread = new Thread(new ThreadStart(sh.Start));
+            _sipThread.Start();
         }
 
         void Application_End(object sender, EventArgs e)
         {
             //  Code that runs on application shutdown
-
+            _sipThread.Abort();
         }
 
         void Application_EndRequest(object sender, EventArgs e)
