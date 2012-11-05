@@ -25,7 +25,16 @@ namespace USPS.Code
 
         public void ParseXMLFile(string filename)
         {
-            XDocument doc = XDocument.Load(filename);
+            ParseXML(XDocument.Load(filename));
+        }
+
+        public void ParseXMLString(string XML)
+        {
+            ParseXML(XDocument.Parse(XML));
+        }
+
+        public void ParseXML(XDocument doc)
+        {
             foreach (XElement block in doc.Elements("Service"))
             {
                 foreach (XElement element in block.Elements("Service_Information").Elements())
