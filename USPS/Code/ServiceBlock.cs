@@ -10,11 +10,18 @@ namespace USPS.Code
         public Types BlockType { get; set; }
 
         public enum Types { Condition, Service, Terminating }
-        public Dictionary<string, string> NextBlock { get; set; }
-        
-        public ServiceBlock()
+        public Dictionary<string, ServiceBlock> NextBlocks { get; set; }
+        public ServiceBlock ParentBlock { get; set; }
+
+        public ServiceBlock(Types type)
         {
-            NextBlock = new Dictionary<string, string>();
+            NextBlocks = new Dictionary<string, ServiceBlock>();
+            BlockType = type;
+        }
+
+        public void AddChild(string key, ServiceBlock block)
+        {
+            NextBlocks.Add(key,block);
         }
     }
 }

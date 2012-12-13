@@ -1,111 +1,60 @@
-﻿<%@ Page Title="Creante New Service Chain" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Create_Service.aspx.cs" Inherits="USPS.CreateService" %>
+﻿<%@ Page Title="Create New Service Chain" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Create_Service.aspx.cs" Inherits="USPS.CreateService" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <div id="addNodeDialog" class="basic-dialog" title="Adding a condition or service" runat="server">
+    <p>Please add either a service to be activated (voicemail, email notification etc) or a condition (presence of end user, time of day etc)</p>
+    </div>
+    <div class="centre">
+    <juice:dialog ID="Dialog1" TargetControlID="addNodeDialog" AutoOpen="false" runat="server"
+                  Buttons="{'Add Service': function() { AddServiceClick(); }, 'Add Condition': function() { AddConditionClick(); } }"/>
+    <p>
+    <button id="addNodeDialogBtn" class="addNodeDialog" runat="server">Add a new service or condition</button>
+    <juice:button ID="Button1" TargetControlID="addNodeDialogBtn" runat="server" />
+    </p>
+    </div>
+
+    <script src="Scripts/D3/d3.v2.js" type="text/javascript"></script>
+    <script src="Scripts/D3/D3Tree.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    // Respond to the click
+        $(".addNodeDialog").click(function (e) {
+        e.preventDefault();
+        // Open the dialog
+        $("#MainContent_addNodeDialog").dialog("open");
+    });
+
+    function AddServiceClick() {
+        $("#MainContent_addNodeDialog").dialog("close");
+        AddNode("service");
+        restart();
+    }
+
+
+    function AddConditionClick() {
+        $("#MainContent_addNodeDialog").dialog("close");
+        AddNode("condition");
+        restart();
+    }
+
+    function AddNode(Type) {
+        var node = { "label": Type}
+        var n = nodes.push(node);
+        vis.selectAll("node").append("svg:path")
+       .attr("d", function (d) {
+           switch (d.label) {
+               case 'service':
+                   return "M15.5,3.029l-10.8,6.235L4.7,21.735L15.5,27.971l10.8-6.235V9.265L15.5,3.029zM15.5,7.029l6.327,3.652L15.5,14.334l-6.326-3.652L15.5,7.029zM24.988,10.599L16,15.789v10.378c0,0.275-0.225,0.5-0.5,0.5s-0.5-0.225-0.5-0.5V15.786l-8.987-5.188c-0.239-0.138-0.321-0.444-0.183-0.683c0.138-0.238,0.444-0.321,0.683-0.183l8.988,5.189l8.988-5.189c0.238-0.138,0.545-0.055,0.684,0.184C25.309,10.155,25.227,10.461,24.988,10.599z";
+                   break;
+               case 'condition':
+                   return "M21.786,12.876l7.556-4.363l-7.556-4.363v2.598H2.813v3.5h18.973V12.876zM10.368,18.124l-7.556,4.362l7.556,4.362V24.25h18.974v-3.501H10.368V18.124z";
+                   break;
+           }
+       });
+    };
+
+</script>
 <asp:ScriptManager runat="server"></asp:ScriptManager>
-   
-<asp:UpdatePanel runat="server" ID="UpdatePanel">
-<ContentTemplate>
- <asp:Panel ID="pnlInstruction" runat="server" CssClass="text-instruction" 
-        HorizontalAlign="Center">
-        <asp:Label ID="lblInstruction" runat="server" 
-            Text="Creating New Service - Please Select Starting Point (Condition or Service)"></asp:Label>
-    </asp:Panel>
-<asp:Panel runat="server" HorizontalAlign="Center" Width="100%">
-    <asp:Panel ID="ConditionPanel" runat="server" HorizontalAlign="Center" Width="100%">
-        <asp:RadioButtonList ID="rdblstChoice" runat="server" 
-            OnSelectedIndexChanged="rdblstChoice_OnSelectedIndexChanged" 
-            AutoPostBack="True" Width="100%" TextAlign="Left" 
-            RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="Black" 
-            BorderStyle="Groove" BorderWidth="1px">
-        <asp:ListItem>Add Service Block</asp:ListItem>
-        <asp:ListItem>Add Condition Block</asp:ListItem>
-        <asp:ListItem>Add Terminating Block</asp:ListItem>
-        <asp:ListItem>Add Another Value to Existing Block</asp:ListItem>
-        </asp:RadioButtonList>
-    </asp:Panel>
-    </asp:Panel>
-    <asp:Panel ID="OverallPanel" runat="server" HorizontalAlign="Center">
-    <asp:Table runat="server">
-    <asp:TableRow>
-    <asp:TableCell RowSpan="2">
-    <asp:TreeView ID="tvServiceFlow" SelectedNodeStyle-CssClass="selectedTreeNode" runat="server" ShowLines="True" OnSelectedNodeChanged="TvServiceFlowNodeChange" Width="200" CssClass="tree">
-    <NodeStyle NodeSpacing="3" HorizontalPadding="3" VerticalPadding="3" BorderColor="Black" BorderWidth="1"/>
-    </asp:TreeView>
-    </asp:TableCell>
-    <asp:TableCell>
-    <asp:Table ID="ServiceTable" runat="server" Visible="false">
-    <asp:TableRow>
-    <asp:TableCell>
-    <asp:Label runat="server" Text="Please Choose Service"></asp:Label>
-    </asp:TableCell>
-    <asp:TableCell>
-    <asp:DropDownList ID="ddlstService" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlstServiceSelectedIndexChanged" Width="200"><asp:ListItem>Choose a Service</asp:ListItem></asp:DropDownList>
-    </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell>
-    <asp:Label ID="Label1" runat="server" Text="Available Responses"></asp:Label>
-    </asp:TableCell>
-    <asp:TableCell>
-    </asp:TableCell>
-    <asp:TableCell>
-    <asp:Label ID="Label2" runat="server" Text="Selected Responses"></asp:Label>
-    </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell RowSpan="2" HorizontalAlign="Center"><asp:ListBox ID="lstbxAvalRes" runat="server" Width="200" SelectionMode="Multiple"><asp:ListItem>Please select service to see available responses</asp:ListItem></asp:ListBox></asp:TableCell>
-    <asp:TableCell HorizontalAlign="Center"><asp:Button ID="btnAddResponses" runat="server" Text=">>" OnClick="btnAddResponses_OnClick"  /></asp:TableCell>
-    <asp:TableCell RowSpan="2" HorizontalAlign="Center"><asp:ListBox ID="lstbxSelRes" runat="server" Width="200" SelectionMode="Multiple"><asp:ListItem>Please choose a response</asp:ListItem></asp:ListBox></asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell HorizontalAlign="Center"><asp:Button ID="btnDelResponses" runat="server" Text="<<" OnClick="btnDelResponses_OnClick"  /></asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell ColumnSpan="3" HorizontalAlign="Center"><asp:Button ID="btnAddService" runat="server" Text="Add Service to Flow" OnClick="btnAddService_OnClick"  /></asp:TableCell>
-    </asp:TableRow>
-    </asp:Table>
-    </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell>
-    <asp:Table ID="ConditionTable" runat="server"  Visible="false">
-    <asp:TableRow>
-    <asp:TableCell>
-    <asp:Label ID="lblCondition" runat="server" Text="Please Choose Condition"></asp:Label>
-    </asp:TableCell>
-    <asp:TableCell>
-    <asp:DropDownList ID="ddlstCondition" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlstConditionSelectedIndexChanged" Width="200"><asp:ListItem>Choose a Condition</asp:ListItem></asp:DropDownList>
-    </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell>
-    <asp:Label ID="lblAvaConditions" runat="server" Text="Available Values"></asp:Label>
-    </asp:TableCell>
-    <asp:TableCell>
-    </asp:TableCell>
-    <asp:TableCell>
-    <asp:Label ID="lblSelConditions" runat="server" Text="Selected Values"></asp:Label>
-    </asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell RowSpan="2" HorizontalAlign="Center"><asp:ListBox ID="lstbxAvaValues" runat="server" Width="200" AutoPostBack="False" SelectionMode="Multiple"><asp:ListItem>Please select a condition to see available values</asp:ListItem></asp:ListBox></asp:TableCell>
-    <asp:TableCell HorizontalAlign="Center"><asp:Button ID="btnAddValue" runat="server" Text=">>" OnClick="btnAddValue_OnClick"  /></asp:TableCell>
-    <asp:TableCell RowSpan="2" HorizontalAlign="Center"><asp:ListBox ID="lstbxSelValues" runat="server" Width="200" AutoPostBack="False" SelectionMode="Multiple"><asp:ListItem>Please choose a value</asp:ListItem></asp:ListBox></asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell HorizontalAlign="Center"><asp:Button ID="btnDelValue" runat="server" Text="<<" OnClick="btnDelValue_OnClick"  /></asp:TableCell>
-    </asp:TableRow>
-    <asp:TableRow>
-    <asp:TableCell ColumnSpan="3" HorizontalAlign="Center"><asp:Button ID="btnAddCondition" runat="server" Text="Add Condition" OnClick="btnAddCondition_OnClick"  /></asp:TableCell>
-    </asp:TableRow>
-    </asp:Table>
-    </asp:TableCell></asp:TableRow>
-    <asp:TableRow><asp:TableCell><asp:Label ID="lblChooseAnother" runat="server" Text="Please click on the node you wish to add another block to" Visible="false"></asp:Label></asp:TableCell></asp:TableRow>
-    </asp:Table>
-        <asp:Button ID="btnSaveFlow" runat="server" Text="Save Service Flow" 
-            onclick="BtnSaveFlowClick" />
-    </asp:Panel>
-    </ContentTemplate>
-    </asp:UpdatePanel>
 </asp:Content>

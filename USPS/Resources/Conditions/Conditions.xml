@@ -31,6 +31,7 @@
 			23:00 to 00:00,
 			Default
 		</Possible_Values>
+        <GUID>a16bc34f-b1a6-4b19-9692-e87b37611c5d</GUID>
 	</Condition>
 	<Condition>
 		<Name>Status of End User</Name>
@@ -42,6 +43,7 @@
 			Offline,
 			Default
 		</Possible_Values>
+        <GUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GUID>
 	</Condition>
 	<Condition>
 		<Name>Calling Party</Name>
@@ -54,5 +56,6 @@
 			John,
 			Default
 		</Possible_Values>
+        <GUID>4cda3266-165a-4fe4-8298-db9ee2481349</GUID>
 	</Condition>
 </Conditions>

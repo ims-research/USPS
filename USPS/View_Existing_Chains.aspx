@@ -9,7 +9,21 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+    <asp:Repeater ID="rpt1" Runat="server">
+ <HeaderTemplate>
+  <ul>
+ </HeaderTemplate>
+
+  <ItemTemplate>
+    <li>
+      <%# DataBinder.Eval(Container.DataItem, "Value.ToString()")%>
+   </li>
+  </ItemTemplate>
+
+  <FooterTemplate>
+    </ul>
+  </FooterTemplate>
+ </asp:Repeater>
     </div>
     </form>
 </body>

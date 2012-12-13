@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USPS", "USPS\USPS.csproj", "{C276E5AD-ABBE-42A8-A49F-96506E4EB105}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIPLib", "..\C-Sharp-Sip-Lib\SIPLib\SIPLib.csproj", "{BCB5CEA8-22E7-470C-B566-CFEA2D051C9B}"

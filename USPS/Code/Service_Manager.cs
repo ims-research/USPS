@@ -27,12 +27,7 @@ namespace USPS.Code
             XDocument doc = XDocument.Load(file_name);
             foreach (XElement block in doc.Elements("Conditions").Elements("Condition"))
             {
-                Condition newCondition = new Condition();
-                newCondition.Name = block.Element("Name").Value;
-                newCondition.Type = block.Element("Type").Value;
-                newCondition.Description = block.Element("Description").Value;
-                List<string> possibleValues = new List<string>(block.Element("Possible_Values").Value.Split(',').Select(p => p.Trim()).ToList());
-                newCondition.PossibleValues = possibleValues;
+                Condition newCondition = new Condition(block);
                 ConditionList.Add(newCondition.Name, newCondition);
             }
         }

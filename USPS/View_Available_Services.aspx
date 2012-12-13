@@ -1,13 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="View_Available_Services.aspx.cs" Inherits="USPS.ViewAvailableServices" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="View_Available_Services.aspx.cs" Inherits="USPS.ViewAvailableServices" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form runat="server">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:GridView ID="serviceGrid" runat="server" AutoGenerateColumns="false">
     <Columns>
      <asp:TemplateField HeaderText="Service Name">
@@ -33,6 +28,4 @@
     </Columns></asp:GridView>
     <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True" 
         ontextchanged="TextBox1TextChanged"></asp:TextBox>
-    </form>
-</body>
-</html>
+    </asp:Content>

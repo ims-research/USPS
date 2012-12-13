@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using Juice.Framework;
 using USPS.Code;
 
 namespace USPS
@@ -9,6 +10,10 @@ namespace USPS
         private Thread _sipThread;
         void Application_Start(object sender, EventArgs e)
         {
+            CssManager.CssResourceMapping.AddDefinition("juice-ui", new CssResourceDefinition
+            {
+                Path = "~/Content/themes/Supercharged/jquery-ui-1.9.0.custom.css",
+            });
             ServiceManager.LoadServices(Server.MapPath("Resources\\Services\\"));
             ServiceManager.LoadConditions(Server.MapPath("Resources\\Conditions\\Conditions.xml"));
             SIPHandler sh = new SIPHandler();
