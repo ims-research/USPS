@@ -16,105 +16,75 @@
     <script src="Scripts/D3/d3.v2.js" type="text/javascript"></script>
     <script src="Scripts/D3/D3Tree.js" type="text/javascript"></script>
 <script type="text/javascript">
-    var w = 920,
-       h = 500,
-       fill = d3.scale.category20(),
-       nodes = [],
-       links = [];
-
-    var vis = d3.select("div.main").append("svg:svg")
-        .attr("width", w)
-        .attr("height", h);
-
-    vis.append("svg:rect")
-        .attr("width", w)
-        .attr("height", h);
-
-    var force = d3.layout.force()
-                .gravity(.05)
-                .distance(100)
-                .charge(-100)
-                .nodes(nodes)
-                .links(links)
-                .size([w, h]);
-
-    force.on("tick", function () {
-        vis.selectAll("line.link")
-            .attr("x1", function (d) { return d.source.x; })
-            .attr("y1", function (d) { return d.source.y; })
-            .attr("x2", function (d) { return d.target.x; })
-            .attr("y2", function (d) { return d.target.y; });
-
-        vis.selectAll("circle.node")
-            .attr("cx", function (d) { return d.x; })
-            .attr("cy", function (d) { return d.y; })
-            node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
-    });
-
-
-    restart();
-
-
-    function restart() {
-
-        vis.selectAll("line.link")
-          .data(links)
-        .enter().insert("svg:line", "circle.node")
-          .attr("class", "link")
-          .attr("x1", function (d) { return d.source.x; })
-          .attr("y1", function (d) { return d.source.y; })
-          .attr("x2", function (d) { return d.target.x; })
-          .attr("y2", function (d) { return d.target.y; });
-
-        force.start();
-    }
-
-    // Respond to the click
-    $("#MainContent_addNodeDialogBtn").click(function (e) {
+       $("#MainContent_addNodeDialogBtn").click(function (e) {
         e.preventDefault();
-        // Open the dialog
-        $("#MainContent_addNodeDialog").dialog("open");
+       $("#MainContent_addNodeDialog").dialog("open");
     });
 
     function AddServiceClick() {
         $("#MainContent_addNodeDialog").dialog("close");
-        AddNode("servicaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaae");
+        AddNode("Service");
     }
 
 
     function AddConditionClick() {
         $("#MainContent_addNodeDialog").dialog("close");
-        AddNode("conditiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaon");
+        AddNode("Condition");
        
     }
 
     function AddNode(Type) {
-        var node = { "label": Type }
-        nodes.push(node);
-        UpdateTree()
-        restart();
+        var new_node = { "name": Type, "children": [] }
+        treeData.children.push(new_node);
+        Update();
     };
-    function UpdateTree() {
-        var container = vis.selectAll("g").data(nodes).enter().append("g").attr("class", "circle.node")
-        container.append("svg:circle")
-            .attr("class", "circle.node")
-            .attr("r", 15)
-            .attr("cx", function (d) { return d.x; })
-            .attr("cy", function (d) { return d.y; })
-            .style("fill", "steelblue")
-            .style("stroke", "white")
-            .style("stroke-width", "1.5px")
-            .call(force.drag);
-        
-        container.append("text")
-            .attr("cx", function (d) { return d.x; })
-            .attr("cy", function (d) { return d.y; })
-            .text(function (d) { return d.label })
-            .call(force.drag);
+</script>
+<script type="text/javascript">
 
-        container.exit().remove()
+    function Update()
+    {
+        var nodes = tree.nodes(treeData);
+
+        var link = vis.selectAll("pathlink")
+        .data(tree.links(nodes))
+        .enter().append("svg:path")
+        .attr("class", "link")
+        .attr("d", diagonal);
+
+        var node = vis.selectAll("g.node")
+        .data(nodes)
+        .enter().append("svg:g")
+        .attr("transform", function (d) { return "translate(" + d.y + "," + d.x + ")"; })
+
+        node.append("svg:circle")
+        .attr("r", 4.5);
+
+        node.append("svg:text")
+        .attr("dx", function (d) { return d.children ? -8 : 8; })
+        .attr("dy", 3)
+        .attr("text-anchor", function (d) { return d.children ? "end" : "start"; })
+        .text(function (d) { return d.name; });
+
+        nodes.exit().remove();
     }
 
+    var treeData = {
+        "name": "Root", "children": []
+    };
+    var vis = d3.select("div.main").append("svg:svg")
+    .attr("width", 920)
+    .attr("height", 500)
+    .append("svg:g")
+    .attr("transform", "translate(40, 0)");
+
+    var tree = d3.layout.tree()
+    .size([800, 400]);
+
+    var diagonal = d3.svg.diagonal()
+    .projection(function (d) { return [d.y, d.x]; });
+
+    Update()
 </script>
+
 <asp:ScriptManager runat="server"></asp:ScriptManager>
 </asp:Content>
