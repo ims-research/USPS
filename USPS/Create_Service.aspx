@@ -13,14 +13,64 @@
     <juice:button ID="Button1" TargetControlID="addNodeDialogBtn" runat="server" />
     </p>
     </div>
-
     <script src="Scripts/D3/d3.v2.js" type="text/javascript"></script>
     <script src="Scripts/D3/D3Tree.js" type="text/javascript"></script>
-
 <script type="text/javascript">
+    var w = 920,
+       h = 500,
+       fill = d3.scale.category20(),
+       nodes = [],
+       links = [];
+
+    var vis = d3.select("div.main").append("svg:svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    vis.append("svg:rect")
+        .attr("width", w)
+        .attr("height", h);
+
+    var force = d3.layout.force()
+                .gravity(.05)
+                .distance(100)
+                .charge(-100)
+                .nodes(nodes)
+                .links(links)
+                .size([w, h]);
+
+    force.on("tick", function () {
+        vis.selectAll("line.link")
+            .attr("x1", function (d) { return d.source.x; })
+            .attr("y1", function (d) { return d.source.y; })
+            .attr("x2", function (d) { return d.target.x; })
+            .attr("y2", function (d) { return d.target.y; });
+
+        vis.selectAll("circle.node")
+            .attr("cx", function (d) { return d.x; })
+            .attr("cy", function (d) { return d.y; })
+            node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+    });
+
+
+    restart();
+
+
+    function restart() {
+
+        vis.selectAll("line.link")
+          .data(links)
+        .enter().insert("svg:line", "circle.node")
+          .attr("class", "link")
+          .attr("x1", function (d) { return d.source.x; })
+          .attr("y1", function (d) { return d.source.y; })
+          .attr("x2", function (d) { return d.target.x; })
+          .attr("y2", function (d) { return d.target.y; });
+
+        force.start();
+    }
 
     // Respond to the click
-        $(".addNodeDialog").click(function (e) {
+    $("#MainContent_addNodeDialogBtn").click(function (e) {
         e.preventDefault();
         // Open the dialog
         $("#MainContent_addNodeDialog").dialog("open");
@@ -28,32 +78,42 @@
 
     function AddServiceClick() {
         $("#MainContent_addNodeDialog").dialog("close");
-        AddNode("service");
-        restart();
+        AddNode("servicaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaae");
     }
 
 
     function AddConditionClick() {
         $("#MainContent_addNodeDialog").dialog("close");
-        AddNode("condition");
-        restart();
+        AddNode("conditiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaon");
+       
     }
 
     function AddNode(Type) {
-        var node = { "label": Type}
-        var n = nodes.push(node);
-        vis.selectAll("node").append("svg:path")
-       .attr("d", function (d) {
-           switch (d.label) {
-               case 'service':
-                   return "M15.5,3.029l-10.8,6.235L4.7,21.735L15.5,27.971l10.8-6.235V9.265L15.5,3.029zM15.5,7.029l6.327,3.652L15.5,14.334l-6.326-3.652L15.5,7.029zM24.988,10.599L16,15.789v10.378c0,0.275-0.225,0.5-0.5,0.5s-0.5-0.225-0.5-0.5V15.786l-8.987-5.188c-0.239-0.138-0.321-0.444-0.183-0.683c0.138-0.238,0.444-0.321,0.683-0.183l8.988,5.189l8.988-5.189c0.238-0.138,0.545-0.055,0.684,0.184C25.309,10.155,25.227,10.461,24.988,10.599z";
-                   break;
-               case 'condition':
-                   return "M21.786,12.876l7.556-4.363l-7.556-4.363v2.598H2.813v3.5h18.973V12.876zM10.368,18.124l-7.556,4.362l7.556,4.362V24.25h18.974v-3.501H10.368V18.124z";
-                   break;
-           }
-       });
+        var node = { "label": Type }
+        nodes.push(node);
+        UpdateTree()
+        restart();
     };
+    function UpdateTree() {
+        var container = vis.selectAll("g").data(nodes).enter().append("g").attr("class", "circle.node")
+        container.append("svg:circle")
+            .attr("class", "circle.node")
+            .attr("r", 15)
+            .attr("cx", function (d) { return d.x; })
+            .attr("cy", function (d) { return d.y; })
+            .style("fill", "steelblue")
+            .style("stroke", "white")
+            .style("stroke-width", "1.5px")
+            .call(force.drag);
+        
+        container.append("text")
+            .attr("cx", function (d) { return d.x; })
+            .attr("cy", function (d) { return d.y; })
+            .text(function (d) { return d.label })
+            .call(force.drag);
+
+        container.exit().remove()
+    }
 
 </script>
 <asp:ScriptManager runat="server"></asp:ScriptManager>
