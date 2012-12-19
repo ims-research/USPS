@@ -22,13 +22,49 @@ namespace USPS {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl addNodeDialog;
         
         /// <summary>
-        /// Dialog1 control.
+        /// addServiceDialog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Juice.Dialog Dialog1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addServiceDialog;
+        
+        /// <summary>
+        /// addConditionDialog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addConditionDialog;
+        
+        /// <summary>
+        /// juiceDialogAddNode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Dialog juiceDialogAddNode;
+        
+        /// <summary>
+        /// juiceDialogAddService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Dialog juiceDialogAddService;
+        
+        /// <summary>
+        /// juiceDialogAddCondition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Dialog juiceDialogAddCondition;
         
         /// <summary>
         /// addNodeDialogBtn control.

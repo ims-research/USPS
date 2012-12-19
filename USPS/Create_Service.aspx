@@ -5,9 +5,25 @@
     <div id="addNodeDialog" class="basic-dialog" title="Adding a condition or service" runat="server">
     <p>Please add either a service to be activated (voicemail, email notification etc) or a condition (presence of end user, time of day etc)</p>
     </div>
+
+    <div id="addServiceDialog" class="basic-dialog" title="Adding a Service" runat="server">
+    <p>Please choose which service you wish to be activated</p>
+    </div>
+
+    <div id="addConditionDialog" class="basic-dialog" title="Adding a Condition" runat="server">
+    <p>Please choose which condition you wish to specify</p>
+    </div>
+
     <div class="centre">
-    <juice:dialog ID="Dialog1" TargetControlID="addNodeDialog" AutoOpen="false" runat="server"
-                  Buttons="{'Add Service': function() { AddServiceClick(); }, 'Add Condition': function() { AddConditionClick(); } }"/>
+        <juice:Dialog ID="juiceDialogAddNode" TargetControlID="addNodeDialog" AutoOpen="false" runat="server" Modal="true"
+            Buttons="{'Add Service': function() { addServiceClick(); }, 'Add Condition': function() { addConditionClick(); } }">
+        </juice:Dialog>
+       <juice:Dialog ID="juiceDialogAddService" TargetControlID="addServiceDialog" AutoOpen="false" runat="server" Modal="true"
+            Buttons="{'Add Service': function() { addServiceClick(); } }">
+        </juice:Dialog>
+               <juice:Dialog ID="juiceDialogAddCondition" TargetControlID="addConditionDialog" AutoOpen="false" runat="server" Modal="true"
+            Buttons="{'Add Condition': function() { addConditionClick(); } }">
+        </juice:Dialog>
     <p>
     <button id="addNodeDialogBtn" class="addNodeDialog" runat="server">Add a new service or condition</button>
     <juice:button ID="Button1" TargetControlID="addNodeDialogBtn" runat="server" />
@@ -21,16 +37,28 @@
        $("#MainContent_addNodeDialog").dialog("open");
     });
 
-    function AddServiceClick() {
+    function addServiceClick() {
         $("#MainContent_addNodeDialog").dialog("close");
-        AddNode("Service");
+        $("#MainContent_addServiceDialog").dialog("open");
+        //addNodeType("Service");
     }
 
 
-    function AddConditionClick() {
+    function addConditionClick() {
         $("#MainContent_addNodeDialog").dialog("close");
-        AddNode("Condition");
+        $("#MainContent_addConditionDialog").dialog("open");
+        //addNodeType("Condition");
        
+    }
+
+    function addNodeType(type) {
+
+        var newnode = {
+            "name": type + String(currentID),
+            "children": [],
+        }
+        addNode(newnode, root, currentID)
+        update(root);
     }
 </script>
 <script type="text/javascript">
@@ -38,7 +66,7 @@
         "name": "Root", "children": []
     };
     
-    var counter = 1;
+    var currentID = 1;
 
     var w = 960,
     h = 1000,
@@ -114,33 +142,7 @@
           .attr("transform", function (d) { return "translate(" + source.y + "," + source.x + ")"; })
           .style("opacity", 1e-6)
           .remove();
-        /*
-            var nodeTransition = node.transition()
-                .duration(duration);
-          
-          nodeTransition.select("circle")
-              .attr("cx", function(d) { return d.y; })
-              .attr("cy", function(d) { return d.x; })
-              .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-          
-          nodeTransition.select("text")
-              .attr("dx", function(d) { return d._children ? -8 : 8; })
-              .attr("dy", 3)
-              .style("fill", function(d) { return d._children ? "lightsteelblue" : "#5babfc"; });
-        
-          // Transition exiting nodes to the parent's new position.
-          var nodeExit = node.exit();
-          
-          nodeExit.select("circle").transition()
-              .duration(duration)
-              .attr("cx", function(d) { return source.y; })
-              .attr("cy", function(d) { return source.x; })
-              .remove();
-          
-          nodeExit.select("text").transition()
-              .duration(duration)
-              .remove();
-        */
+
         // Update the links…
         var link = vis.selectAll("path.link")
             .data(tree.links(nodes), function (d) { return d.target.id; });
@@ -179,14 +181,15 @@
 
     // Toggle children on click.
     function click(d) {
-        if (d.children) {
-            d._children = d.children;
-            d.children = null;
-        } else {
-            d.children = d._children;
-            d._children = null;
-        }
-        update(d);
+        //if (d.children) {
+        //    d._children = d.children;
+        //    d.children = null;
+        //} else {
+        //    d.children = d._children;
+        //    d._children = null;
+        //}
+        currentID = d.id;
+        $("#MainContent_addNodeDialog").dialog("open");
     }
       
     function addNode(newNode, startNode, parentID) {
