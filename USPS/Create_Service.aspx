@@ -7,11 +7,13 @@
     </div>
 
     <div id="addServiceDialog" class="basic-dialog" title="Adding a Service" runat="server">
-    <p>Please choose which service you wish to be activated</p>
+    <p>Choose Service you wish to be activated</p>
+   <asp:DropDownList ID="ddlstService" runat="server" AutoPostBack="True"><asp:ListItem>Choose a Service</asp:ListItem></asp:DropDownList>
+    <%--OnSelectedIndexChanged="ddlstServiceSelectedIndexChanged"--%>
+        
     </div>
-
     <div id="addConditionDialog" class="basic-dialog" title="Adding a Condition" runat="server">
-    <p>Please choose which condition you wish to specify</p>
+    <p>Choose Condition you wish to specify</p>
     </div>
 
     <div class="centre">

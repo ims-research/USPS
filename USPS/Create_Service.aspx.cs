@@ -10,7 +10,16 @@ namespace USPS
         {
             if (!IsPostBack)
             {
-
+                ddlstService.Items.Clear();
+                foreach (KeyValuePair<string, Service> kvp in ServiceManager.ServiceList)
+                {
+                    ListItem service = new ListItem
+                    {
+                        Text = kvp.Value.ServiceInformation["Name"],
+                        Value = kvp.Value.ServiceConfig["GUID"]
+                    };
+                    ddlstService.Items.Add(service);
+                }
             }
         }
     }
