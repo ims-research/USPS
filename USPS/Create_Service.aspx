@@ -2,16 +2,22 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
     <div id="addNodeDialog" class="basic-dialog" title="Adding a condition or service" runat="server">
     <p>Please add either a service to be activated (voicemail, email notification etc) or a condition (presence of end user, time of day etc)</p>
     </div>
 
-    <div id="addServiceDialog" class="basic-dialog" title="Adding a Service" runat="server">
+    <div id="selectServiceDialog" class="basic-dialog" title="Adding a Service" runat="server">
     <p>Choose Service you wish to be activated</p>
-   <asp:DropDownList ID="ddlstService" runat="server" AutoPostBack="True"><asp:ListItem>Choose a Service</asp:ListItem></asp:DropDownList>
-    <%--OnSelectedIndexChanged="ddlstServiceSelectedIndexChanged"--%>
-        
+   <asp:DropDownList ID="ddlstService" runat="server"><asp:ListItem>Choose a Service</asp:ListItem></asp:DropDownList>
     </div>
+
+    <div id="chooseServiceResponses" class="basic-dialog" title="Please select desired responses" runat="server">
+    <p>Select which responses should be used for further processing</p>
+        <div id="SIPResponses"></div>
+    </div>
+        
+   
     <div id="addConditionDialog" class="basic-dialog" title="Adding a Condition" runat="server">
     <p>Choose Condition you wish to specify</p>
     </div>
@@ -20,10 +26,13 @@
         <juice:Dialog ID="juiceDialogAddNode" TargetControlID="addNodeDialog" AutoOpen="false" runat="server" Modal="true"
             Buttons="{'Add Service': function() { addServiceClick(); }, 'Add Condition': function() { addConditionClick(); } }">
         </juice:Dialog>
-       <juice:Dialog ID="juiceDialogAddService" TargetControlID="addServiceDialog" AutoOpen="false" runat="server" Modal="true"
-            Buttons="{'Add Service': function() { addServiceClick(); } }">
+       <juice:Dialog ID="juiceSelectServiceDialog" TargetControlID="selectServiceDialog" AutoOpen="false" runat="server" Modal="true"
+            Buttons="{'Select Service': function() { selectServiceClick(); } }">
         </juice:Dialog>
-               <juice:Dialog ID="juiceDialogAddCondition" TargetControlID="addConditionDialog" AutoOpen="false" runat="server" Modal="true"
+        <juice:Dialog ID="juiceChooseServiceResponse" TargetControlID="chooseServiceResponses" AutoOpen="false" runat="server" Modal="true"
+            Buttons="{'Confirm Service': function() { confirmServiceClick(); } }">
+        </juice:Dialog>
+        <juice:Dialog ID="juiceDialogAddCondition" TargetControlID="addConditionDialog" AutoOpen="false" runat="server" Modal="true"
             Buttons="{'Add Condition': function() { addConditionClick(); } }">
         </juice:Dialog>
     <p>
@@ -31,8 +40,8 @@
     <juice:button ID="Button1" TargetControlID="addNodeDialogBtn" runat="server" />
     </p>
     </div>
-    <script src="Scripts/D3/d3.v2.js" type="text/javascript"></script>
-    <script src="Scripts/D3/D3Tree.js" type="text/javascript"></script>
+<script src="Scripts/D3/d3.v2.js" type="text/javascript"></script>
+<script src="Scripts/D3/D3Tree.js" type="text/javascript"></script>
 <script type="text/javascript">
        $("#MainContent_addNodeDialogBtn").click(function (e) {
         e.preventDefault();
@@ -41,8 +50,38 @@
 
     function addServiceClick() {
         $("#MainContent_addNodeDialog").dialog("close");
-        $("#MainContent_addServiceDialog").dialog("open");
-        //addNodeType("Service");
+        $("#MainContent_selectServiceDialog").dialog("open");
+    }
+
+    function selectServiceClick() {
+        $("#MainContent_selectServiceDialog").dialog("close");
+        var service_guid = $("#MainContent_ddlstService").val();
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: "Services.asmx/ListServiceResponses",
+            data: "{'ServiceGUID':" + JSON.stringify(service_guid) + "}",
+            contentType: "application/json; charset=utf-8",
+            dataFilter: function(data) {
+                var msg = eval('(' + data + ')');
+                if (msg.hasOwnProperty('d'))
+                    return msg.d;
+                else
+                    return msg;
+            },
+            success: function (data) {
+                debugger;
+                console.log(data);
+                for (var key in data) {
+                    addCheckbox("#SIPResponses", key);
+                }
+                
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
+        $("#MainContent_chooseServiceResponses").dialog("open");
     }
 
 
@@ -51,6 +90,14 @@
         $("#MainContent_addConditionDialog").dialog("open");
         //addNodeType("Condition");
        
+    }
+
+    function addCheckbox(container,name) {
+        var container = $(container);
+        var inputs = container.find('input');
+        var id = inputs.length + 1;
+        var html = '<input type="checkbox" id="cb' + id + '" value="' + name + '" /> <label for="cb' + id + '">' + name + '</label>';
+        container.append($(html));
     }
 
     function addNodeType(type) {
@@ -222,6 +269,4 @@
 
    
 </script>
-
-<asp:ScriptManager runat="server"></asp:ScriptManager>
 </asp:Content>

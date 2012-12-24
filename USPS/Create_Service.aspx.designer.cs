@@ -22,13 +22,13 @@ namespace USPS {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl addNodeDialog;
         
         /// <summary>
-        /// addServiceDialog control.
+        /// selectServiceDialog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addServiceDialog;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl selectServiceDialog;
         
         /// <summary>
         /// ddlstService control.
@@ -38,6 +38,15 @@ namespace USPS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlstService;
+        
+        /// <summary>
+        /// chooseServiceResponses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chooseServiceResponses;
         
         /// <summary>
         /// addConditionDialog control.
@@ -58,13 +67,22 @@ namespace USPS {
         protected global::Juice.Dialog juiceDialogAddNode;
         
         /// <summary>
-        /// juiceDialogAddService control.
+        /// juiceSelectServiceDialog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Juice.Dialog juiceDialogAddService;
+        protected global::Juice.Dialog juiceSelectServiceDialog;
+        
+        /// <summary>
+        /// juiceChooseServiceResponse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Dialog juiceChooseServiceResponse;
         
         /// <summary>
         /// juiceDialogAddCondition control.
