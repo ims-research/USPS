@@ -69,7 +69,7 @@
         $(".ui-selected").each(function () {
             var text = this.textContent;
             var value = this.getAttribute("value");
-            addNodeByName(text, value,"ServiceValue");
+            addNodeByName(text, value, "ServiceValue", value);
         });
         $("#selectableSIPResponse").children().remove();
     }
@@ -78,31 +78,9 @@
         $("#MainContent_selectServiceDialog").dialog("close");
         var service_guid = $("#MainContent_ddlstService").val();
         var name = $("#MainContent_ddlstService option:selected").text();
-        addNodeByName(name, service_guid,"Service");
-        $.ajax({
-            type: "POST",
-            url: "Services.asmx/ListServiceResponses",
-            data: "{'ServiceGUID':" + JSON.stringify(service_guid) + "}",
-            contentType: "application/json; charset=utf-8",
-            dataFilter: function(data) {
-                var msg = eval('(' + data + ')');
-                if (msg.hasOwnProperty('d'))
-                    return msg.d;
-                else
-                    return msg;
-            },
-            success: function (data) {
-                console.log(data);
-                for (var key in data) {
-                    addSelectItem("#selectableSIPResponse", key, data[key]);
-                }
-                
-            },
-            error: function (msg) {
-                alert(msg);
-            }
-        });
-        $("#MainContent_chooseServiceResponses").dialog("open");
+        addNodeByName(name, service_guid, "Service", service_guid);
+        var current_responses = []
+        addNewSipResponse(service_guid,current_responses);
     }
 
 
@@ -122,11 +100,21 @@
         container.append($(html));
     }
 
-    function addNodeByName(name, value,type) {
+    function S4() {
+        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    }
+
+    function guid() {
+        return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+    }
+        
+    function addNodeByName(name, value,type,global_guid) {
         var newnode = {
             "name": name,
             "value": value,
-            "type" : type,
+            "type": type,
+            "global_guid": global_guid,
+            "instance_guid": guid(),
             "children": [],
         }
         addNode(newnode, root, currentID)
@@ -139,6 +127,8 @@
 
     };
     
+    var currentNode = root;
+
     var currentID = 1;
 
     var w = 960,
@@ -257,13 +247,17 @@
         var nodeType = d.type;
         switch (nodeType) {
             case "Service":
-                alert("Service Node Clicked")
-                currentID = d.parentID;
-                //Add new SIP response
+                alert("Service Node Clicked");
+                currentID = d.id;
+                var current_responses = [];
+                for (var i = 0; i < d.children.length; i++) {
+                    current_responses.push(d.children[i].name);
+                }
+                addNewSipResponse(d.global_guid,current_responses);
                 break;
             case "Condition":
                 alert("Condition Node Clicked")
-                currentID = d.parentID;
+                currentID = d.id;
                 //Add new condition value 
                 break;
             case "ServiceValue":
@@ -278,6 +272,36 @@
                 break;
             default: alert("Unknown Node Type");
         }
+    }
+
+    function addNewSipResponse(service_guid, current_responses) {
+        $.ajax({
+            type: "POST",
+            url: "Services.asmx/ListServiceResponses",
+            data: "{'ServiceGUID':" + JSON.stringify(service_guid) + "}",
+            contentType: "application/json; charset=utf-8",
+            dataFilter: function (data) {
+                var msg = eval('(' + data + ')');
+                if (msg.hasOwnProperty('d'))
+                    return msg.d;
+                else
+                    return msg;
+            },
+            success: function (data) {
+                console.log(data);
+                for (var key in data) {
+                    var found = $.inArray(key, current_responses) > -1;
+                    if (!(found)){
+                        addSelectItem("#selectableSIPResponse", key, data[key]);
+                    }
+                }
+
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
+        $("#MainContent_chooseServiceResponses").dialog("open");
     }
       
     function addNode(newNode, startNode, parentID) {
