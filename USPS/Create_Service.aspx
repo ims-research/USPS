@@ -1,5 +1,12 @@
 ﻿<%@ Page Title="Create New Service Chain" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Create_Service.aspx.cs" Inherits="USPS.CreateService" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <style type="text/css">
+    #feedback { font-size: 1.4em; }
+    #selectable .ui-selecting { background: #FECA40; }
+    #selectable .ui-selected { background: #F39814; color: white; }
+    #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+    </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
@@ -14,7 +21,7 @@
 
     <div id="chooseServiceResponses" class="basic-dialog" title="Please select desired responses" runat="server">
     <p>Select which responses should be used for further processing</p>
-        <div id="SIPResponses"></div>
+        <ol id="selectable"></ol>
     </div>
         
    
@@ -29,7 +36,7 @@
        <juice:Dialog ID="juiceSelectServiceDialog" TargetControlID="selectServiceDialog" AutoOpen="false" runat="server" Modal="true"
             Buttons="{'Select Service': function() { selectServiceClick(); } }">
         </juice:Dialog>
-        <juice:Dialog ID="juiceChooseServiceResponse" TargetControlID="chooseServiceResponses" AutoOpen="false" runat="server" Modal="true"
+        <juice:Dialog ID="juiceChooseServiceResponse" TargetControlID="chooseServiceResponses" AutoOpen="false" runat="server" Modal="true" Width="500"
             Buttons="{'Confirm Service': function() { confirmServiceClick(); } }">
         </juice:Dialog>
         <juice:Dialog ID="juiceDialogAddCondition" TargetControlID="addConditionDialog" AutoOpen="false" runat="server" Modal="true"
@@ -42,6 +49,12 @@
     </div>
 <script src="Scripts/D3/d3.v2.js" type="text/javascript"></script>
 <script src="Scripts/D3/D3Tree.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#selectable").selectable();
+        });
+    </script>
 <script type="text/javascript">
        $("#MainContent_addNodeDialogBtn").click(function (e) {
         e.preventDefault();
@@ -51,6 +64,16 @@
     function addServiceClick() {
         $("#MainContent_addNodeDialog").dialog("close");
         $("#MainContent_selectServiceDialog").dialog("open");
+    }
+
+    function confirmServiceClick() {
+        $("#MainContent_chooseServiceResponses").dialog("close");
+        $(".ui-selected").each(function () {
+            var text = this.textContent;
+            var value = this.getAttribute("value");
+            alert("Detected " + text + " : " + value);
+        });
+        $(".ui-selected").remove();
     }
 
     function selectServiceClick() {
@@ -73,7 +96,7 @@
                 debugger;
                 console.log(data);
                 for (var key in data) {
-                    addCheckbox("#SIPResponses", key);
+                    addSelectItem("#selectable",key,data[key]);
                 }
                 
             },
@@ -92,16 +115,16 @@
        
     }
 
-    function addCheckbox(container,name) {
+    function addSelectItem(container,key,value) {
         var container = $(container);
-        var inputs = container.find('input');
-        var id = inputs.length + 1;
-        var html = '<input type="checkbox" id="cb' + id + '" value="' + name + '" /> <label for="cb' + id + '">' + name + '</label>';
+        //var inputs = container.find('input');
+        //var id = inputs.length + 1;
+        var html = '<li class="ui-widget-content" value="' + value + '">' + key + '</li>';
+        //var html = '<input type="checkbox" id="cb' + id + '" value="' + name + '" /> <label for="cb' + id + '">' + name + '</label>';
         container.append($(html));
     }
 
     function addNodeType(type) {
-
         var newnode = {
             "name": type + String(currentID),
             "children": [],
