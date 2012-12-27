@@ -65,15 +65,16 @@
         $(".ui-selected").each(function () {
             var text = this.textContent;
             var value = this.getAttribute("value");
-            alert("Detected " + text + " : " + value);
+            addNodeByName(text, value);
         });
-        $(".ui-selected").remove();
+        $("#selectableSIPResponse").children().remove();
     }
 
     function selectServiceClick() {
         $("#MainContent_selectServiceDialog").dialog("close");
         var service_guid = $("#MainContent_ddlstService").val();
-        debugger;
+        var name = $("#MainContent_ddlstService option:selected").text();
+        addNodeByName(name, service_guid);
         $.ajax({
             type: "POST",
             url: "Services.asmx/ListServiceResponses",
@@ -87,7 +88,6 @@
                     return msg;
             },
             success: function (data) {
-                debugger;
                 console.log(data);
                 for (var key in data) {
                     addSelectItem("#selectableSIPResponse", key, data[key]);
@@ -118,9 +118,10 @@
         container.append($(html));
     }
 
-    function addNodeType(type) {
+    function addNodeByName(name, value) {
         var newnode = {
-            "name": type + String(currentID),
+            "name": name,
+            "value": value,
             "children": [],
         }
         addNode(newnode, root, currentID)
@@ -270,8 +271,9 @@
 
         if (startNode.id == parentID) {
             children.push(newNode);
-            // To Generate ID
             update(root)
+            debugger;
+            currentID = newNode.id;
         }
         else {
             if (children) {
