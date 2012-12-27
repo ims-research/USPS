@@ -1,12 +1,6 @@
 ﻿<%@ Page Title="Create New Service Chain" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Create_Service.aspx.cs" Inherits="USPS.CreateService" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <style type="text/css">
-    #feedback { font-size: 1.4em; }
-    #selectable .ui-selecting { background: #FECA40; }
-    #selectable .ui-selected { background: #F39814; color: white; }
-    #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-    #selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
-    </style>
+
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
@@ -21,7 +15,7 @@
 
     <div id="chooseServiceResponses" class="basic-dialog" title="Please select desired responses" runat="server">
     <p>Select which responses should be used for further processing</p>
-        <ol id="selectable"></ol>
+        <ol id="selectableSIPResponse"></ol>
     </div>
         
    
@@ -52,7 +46,7 @@
 
     <script type="text/javascript">
         $(function () {
-            $("#selectable").selectable();
+            $("#selectableSIPResponse").selectable();
         });
     </script>
 <script type="text/javascript">
@@ -96,7 +90,7 @@
                 debugger;
                 console.log(data);
                 for (var key in data) {
-                    addSelectItem("#selectable",key,data[key]);
+                    addSelectItem("#selectableSIPResponse", key, data[key]);
                 }
                 
             },
