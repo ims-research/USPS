@@ -50,10 +50,14 @@
         });
     </script>
 <script type="text/javascript">
-       $("#MainContent_addNodeDialogBtn").click(function (e) {
-        e.preventDefault();
-       $("#MainContent_addNodeDialog").dialog("open");
-    });
+    $("#MainContent_addNodeDialogBtn").click(addServiceOrCondition);
+    
+    function addServiceOrCondition() {
+        $("#MainContent_addNodeDialog").dialog("open");
+        $("#MainContent_addNodeDialogBtn").remove();
+        return false;
+
+    }
 
     function addServiceClick() {
         $("#MainContent_addNodeDialog").dialog("close");
@@ -65,7 +69,7 @@
         $(".ui-selected").each(function () {
             var text = this.textContent;
             var value = this.getAttribute("value");
-            addNodeByName(text, value);
+            addNodeByName(text, value,"ServiceValue");
         });
         $("#selectableSIPResponse").children().remove();
     }
@@ -74,7 +78,7 @@
         $("#MainContent_selectServiceDialog").dialog("close");
         var service_guid = $("#MainContent_ddlstService").val();
         var name = $("#MainContent_ddlstService option:selected").text();
-        addNodeByName(name, service_guid);
+        addNodeByName(name, service_guid,"Service");
         $.ajax({
             type: "POST",
             url: "Services.asmx/ListServiceResponses",
@@ -118,10 +122,11 @@
         container.append($(html));
     }
 
-    function addNodeByName(name, value) {
+    function addNodeByName(name, value,type) {
         var newnode = {
             "name": name,
             "value": value,
+            "type" : type,
             "children": [],
         }
         addNode(newnode, root, currentID)
@@ -130,7 +135,8 @@
 </script>
 <script type="text/javascript">
     var root = {
-        "name": "Root", "children": []
+        "name": "Start", "type": "Root", "children": []
+
     };
     
     var currentID = 1;
@@ -248,15 +254,30 @@
 
     // Toggle children on click.
     function click(d) {
-        //if (d.children) {
-        //    d._children = d.children;
-        //    d.children = null;
-        //} else {
-        //    d.children = d._children;
-        //    d._children = null;
-        //}
-        currentID = d.id;
-        $("#MainContent_addNodeDialog").dialog("open");
+        var nodeType = d.type;
+        switch (nodeType) {
+            case "Service":
+                alert("Service Node Clicked")
+                currentID = d.parentID;
+                //Add new SIP response
+                break;
+            case "Condition":
+                alert("Condition Node Clicked")
+                currentID = d.parentID;
+                //Add new condition value 
+                break;
+            case "ServiceValue":
+                alert("Service Value Clicked")
+                currentID = d.id;
+                addServiceOrCondition();
+                break;
+            case "ConditionValue":
+                alert("ConditionValue Clicked")
+                currentID = d.id;
+                addServiceOrCondition();
+                break;
+            default: alert("Unknown Node Type");
+        }
     }
       
     function addNode(newNode, startNode, parentID) {
@@ -272,8 +293,15 @@
         if (startNode.id == parentID) {
             children.push(newNode);
             update(root)
-            debugger;
-            currentID = newNode.id;
+            var nodeType = newNode.type;
+            switch (nodeType) {
+                case "Service":
+                case "Condition":
+                    currentID = newNode.id;
+                    break;
+                default:
+                    break;
+            }
         }
         else {
             if (children) {
