@@ -17,11 +17,17 @@
     <p>Select which responses should be used for further processing</p>
         <ol id="selectableSIPResponse"></ol>
     </div>
-        
-   
-    <div id="addConditionDialog" class="basic-dialog" title="Adding a Condition" runat="server">
-    <p>Choose Condition you wish to specify</p>
+
+    <div id="selectConditionDialog" class="basic-dialog" title="Adding a Condition" runat="server">
+    <p>Choose Condition you wish to be activated</p>
+   <asp:DropDownList ID="ddlstCondition" runat="server"><asp:ListItem>Choose a Condition</asp:ListItem></asp:DropDownList>
     </div>
+
+    <div id="chooseConditionOptions" class="basic-dialog" title="Please select desired options" runat="server">
+    <p>Select which conditions should be used for further processing</p>
+        <ol id="selectableConditionOptions"></ol>
+    </div>
+
 
     <div class="centre">
         <juice:Dialog ID="juiceDialogAddNode" TargetControlID="addNodeDialog" AutoOpen="false" runat="server" Modal="true"
@@ -33,8 +39,11 @@
         <juice:Dialog ID="juiceChooseServiceResponse" TargetControlID="chooseServiceResponses" AutoOpen="false" runat="server" Modal="true" Width="500"
             Buttons="{'Confirm Service': function() { confirmServiceClick(); } }">
         </juice:Dialog>
-        <juice:Dialog ID="juiceDialogAddCondition" TargetControlID="addConditionDialog" AutoOpen="false" runat="server" Modal="true"
-            Buttons="{'Add Condition': function() { addConditionClick(); } }">
+        <juice:Dialog ID="juiceSelectConditionDialog" TargetControlID="selectConditionDialog" AutoOpen="false" runat="server" Modal="true"
+            Buttons="{'Select Condition': function() { selectConditionClick(); } }">
+        </juice:Dialog>
+        <juice:Dialog ID="juiceChooseConditionOption" TargetControlID="chooseConditionOptions" AutoOpen="false" runat="server" Modal="true" Width="500"
+            Buttons="{'Confirm Condition': function() { confirmConditionClick(); } }">
         </juice:Dialog>
     <p>
     <button id="addNodeDialogBtn" class="addNodeDialog" runat="server">Add a new service or condition</button>
@@ -47,6 +56,7 @@
     <script type="text/javascript">
         $(function () {
             $("#selectableSIPResponse").selectable();
+            $("#selectableConditionOptions").selectable();
         });
     </script>
 <script type="text/javascript">
@@ -56,12 +66,20 @@
         $("#MainContent_addNodeDialog").dialog("open");
         $("#MainContent_addNodeDialogBtn").remove();
         return false;
-
     }
 
     function addServiceClick() {
         $("#MainContent_addNodeDialog").dialog("close");
         $("#MainContent_selectServiceDialog").dialog("open");
+    }
+
+    function selectServiceClick() {
+        $("#MainContent_selectServiceDialog").dialog("close");
+        var service_guid = $("#MainContent_ddlstService").val();
+        var name = $("#MainContent_ddlstService option:selected").text();
+        addNodeByName(name, service_guid, "Service", service_guid);
+        var current_responses = []
+        addNewSipResponse(service_guid, current_responses);
     }
 
     function confirmServiceClick() {
@@ -74,21 +92,29 @@
         $("#selectableSIPResponse").children().remove();
     }
 
-    function selectServiceClick() {
-        $("#MainContent_selectServiceDialog").dialog("close");
-        var service_guid = $("#MainContent_ddlstService").val();
-        var name = $("#MainContent_ddlstService option:selected").text();
-        addNodeByName(name, service_guid, "Service", service_guid);
-        var current_responses = []
-        addNewSipResponse(service_guid,current_responses);
-    }
-
-
     function addConditionClick() {
         $("#MainContent_addNodeDialog").dialog("close");
-        $("#MainContent_addConditionDialog").dialog("open");
-        //addNodeType("Condition");
-       
+        $("#MainContent_selectConditionDialog").dialog("open");
+    }
+
+    function selectConditionClick() {
+        $("#MainContent_selectConditionDialog").dialog("close");
+        var condition_guid = $("#MainContent_ddlstCondition").val();
+        var name = $("#MainContent_ddlstCondition option:selected").text();
+        addNodeByName(name, condition_guid, "Condition", condition_guid);
+        var current_options = []
+        addNewConditionOption(condition_guid, current_options);
+    }
+
+    function confirmConditionClick() {
+        $("#MainContent_chooseConditionOptions").dialog("close");
+        $(".ui-selected").each(function () {
+            debugger;
+            var text = this.textContent;
+            var value = this.getAttribute("value");
+            addNodeByName(text, value, "ConditionValue", value);
+        });
+        $("#selectableConditionOptions").children().remove();
     }
 
     function addSelectItem(container,key,value) {
@@ -258,7 +284,11 @@
             case "Condition":
                 alert("Condition Node Clicked")
                 currentID = d.id;
-                //Add new condition value 
+                var current_options = [];
+                for (var i = 0; i < d.children.length; i++) {
+                    current_options.push(d.children[i].name);
+                }
+                addNewConditionOption(d.global_guid, current_options);
                 break;
             case "ServiceValue":
                 alert("Service Value Clicked")
@@ -302,6 +332,37 @@
             }
         });
         $("#MainContent_chooseServiceResponses").dialog("open");
+    }
+
+    function addNewConditionOption(condition_guid, current_options) {
+        $.ajax({
+            type: "POST",
+            url: "Services.asmx/ListConditionOptions",
+            data: "{'ConditionGUID':" + JSON.stringify(condition_guid) + "}",
+            contentType: "application/json; charset=utf-8",
+            dataFilter: function (data) {
+                var msg = eval('(' + data + ')');
+                if (msg.hasOwnProperty('d'))
+                    return msg.d;
+                else
+                    return msg;
+            },
+            success: function (data) {
+                debugger;
+                console.log(data);
+                for (var key in data) {
+                    var found = $.inArray(data[key], current_options) > -1;
+                    if (!(found)) {
+                        addSelectItem("#selectableConditionOptions", data[key],key);
+                    }
+                }
+
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
+        $("#MainContent_chooseConditionOptions").dialog("open");
     }
       
     function addNode(newNode, startNode, parentID) {

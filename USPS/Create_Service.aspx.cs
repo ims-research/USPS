@@ -20,6 +20,17 @@ namespace USPS
                     };
                     ddlstService.Items.Add(service);
                 }
+
+                ddlstCondition.Items.Clear();
+                foreach (KeyValuePair<string, Condition> kvp in ServiceManager.ConditionList)
+                {
+                    ListItem condition = new ListItem
+                    {
+                        Text = kvp.Value.Name,
+                        Value = kvp.Value.GUID
+                    };
+                    ddlstCondition.Items.Add(condition);
+                }
             }
         }
     }

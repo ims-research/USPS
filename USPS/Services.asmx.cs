@@ -32,12 +32,32 @@ namespace USPS
             return jss.Serialize(services);
         }
 
+        public string ListConditions()
+        {
+            StringBuilder sb = new StringBuilder();
+            var jss = new JavaScriptSerializer();
+            Dictionary<String, String> conditions = new Dictionary<String, String>();
+            foreach (KeyValuePair<string, Condition> kvp in ServiceManager.ConditionList)
+            {
+                conditions.Add(kvp.Value.Name, kvp.Value.GUID);
+            }
+            return jss.Serialize(conditions);
+        }
+
         [WebMethod]
         public string ListServiceResponses(String ServiceGUID)
         {
             Service service = ServiceManager.ServiceList[ServiceGUID];
             var jss = new JavaScriptSerializer();
             return jss.Serialize(service.SIPResponses);
+        }
+
+        [WebMethod]
+        public string ListConditionOptions(String ConditionGUID)
+        {
+            Condition condition = ServiceManager.ConditionList[ConditionGUID];
+            var jss = new JavaScriptSerializer();
+            return jss.Serialize(condition.PossibleValues);
         }
 
     }

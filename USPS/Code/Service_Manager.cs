@@ -28,7 +28,7 @@ namespace USPS.Code
             foreach (XElement block in doc.Elements("Conditions").Elements("Condition"))
             {
                 Condition newCondition = new Condition(block);
-                ConditionList.Add(newCondition.Name, newCondition);
+                ConditionList.Add(newCondition.GUID, newCondition);
             }
         }
     }

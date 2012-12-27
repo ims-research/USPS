@@ -49,13 +49,31 @@ namespace USPS {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chooseServiceResponses;
         
         /// <summary>
-        /// addConditionDialog control.
+        /// selectConditionDialog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addConditionDialog;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl selectConditionDialog;
+        
+        /// <summary>
+        /// ddlstCondition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlstCondition;
+        
+        /// <summary>
+        /// chooseConditionOptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chooseConditionOptions;
         
         /// <summary>
         /// juiceDialogAddNode control.
@@ -85,13 +103,22 @@ namespace USPS {
         protected global::Juice.Dialog juiceChooseServiceResponse;
         
         /// <summary>
-        /// juiceDialogAddCondition control.
+        /// juiceSelectConditionDialog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Juice.Dialog juiceDialogAddCondition;
+        protected global::Juice.Dialog juiceSelectConditionDialog;
+        
+        /// <summary>
+        /// juiceChooseConditionOption control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Dialog juiceChooseConditionOption;
         
         /// <summary>
         /// addNodeDialogBtn control.
