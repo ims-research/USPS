@@ -166,14 +166,13 @@
     var tree = d3.layout.tree()
         .size([h, w - 160]);
 
-    var diagonal = d3.svg.diagonal()
-        .projection(function (d) { return [d.y, d.x]; });
+    var diagonal = d3.svg.diagonal();
 
     var vis = d3.select("div.main").append("svg:svg")
         .attr("width", w)
         .attr("height", h)
       .append("svg:g")
-        .attr("transform", "translate(40,0)");
+        .attr("transform", "translate(0,40)");
 
     d3.select(self.frameElement).style("height", "1000px");
 
@@ -190,7 +189,7 @@
 
         var nodeEnter = node.enter().append("svg:g")
             .attr("class", "node")
-            .attr("transform", function (d) { return "translate(" + source.y0 + "," + source.x0 + ")"; });
+            .attr("transform", function (d) { return "translate(" + source.x0 + "," + source.y0 + ")"; });
         //.style("opacity", 1e-6);
 
         // Enter any new nodes at the parent's previous position.
@@ -199,36 +198,32 @@
           //.attr("class", "node")
           //.attr("cx", function(d) { return source.x0; })
           //.attr("cy", function(d) { return source.y0; })
-          .attr("r", 4.5)
-          .style("fill", function (d) { return d._children ? "lightsteelblue" : "#fff"; })
+          .attr("r", 6)
+          .style("fill", "lightsteelblue")
           .on("click", click);
 
         nodeEnter.append("svg:text")
-            .attr("x", function (d) { return d._children ? -8 : 8; })
-            .attr("y", 3)
-            //.attr("fill","#ccc")
-            //.attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+            .attr("x", function (d) { return -((d.name.length / 2)*7) })
+            .attr("y",30)
             .text(function (d) { return d.name; });
 
         // Transition nodes to their new position.
         nodeEnter.transition()
             .duration(duration)
-            .attr("transform", function (d) { return "translate(" + d.y + "," + d.x + ")"; })
+            .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
             .style("opacity", 1)
           .select("circle")
-            //.attr("cx", function(d) { return d.x; })
-            //.attr("cy", function(d) { return d.y; })
             .style("fill", "lightsteelblue");
 
         node.transition()
           .duration(duration)
-          .attr("transform", function (d) { return "translate(" + d.y + "," + d.x + ")"; })
+          .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
           .style("opacity", 1);
 
 
         node.exit().transition()
           .duration(duration)
-          .attr("transform", function (d) { return "translate(" + source.y + "," + source.x + ")"; })
+          .attr("transform", function (d) { return "translate(" + source.x + "," + source.y + ")"; })
           .style("opacity", 1e-6)
           .remove();
 
@@ -273,7 +268,6 @@
         var nodeType = d.type;
         switch (nodeType) {
             case "Service":
-                alert("Service Node Clicked");
                 currentID = d.id;
                 var current_responses = [];
                 for (var i = 0; i < d.children.length; i++) {
@@ -282,7 +276,6 @@
                 addNewSipResponse(d.global_guid,current_responses);
                 break;
             case "Condition":
-                alert("Condition Node Clicked")
                 currentID = d.id;
                 var current_options = [];
                 for (var i = 0; i < d.children.length; i++) {
@@ -291,16 +284,14 @@
                 addNewConditionOption(d.global_guid, current_options);
                 break;
             case "ServiceValue":
-                alert("Service Value Clicked")
                 currentID = d.id;
                 addServiceOrCondition();
                 break;
             case "ConditionValue":
-                alert("ConditionValue Clicked")
                 currentID = d.id;
                 addServiceOrCondition();
                 break;
-            default: alert("Unknown Node Type");
+            default: alert("Unknown Node Type - Cannot add more than one starting point");
         }
     }
 
