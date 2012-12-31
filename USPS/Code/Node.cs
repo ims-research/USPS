@@ -7,7 +7,7 @@ namespace USPS.Code
 {
     public class Node : Object
     {
-        private List<Node> Children { get; set; }
+        public List<Node> Children { get; set; }
         public string Name { get; set; }
         public string GlobalGUID { get; set; }
         public string InstanceGUID { get; set; }

@@ -7,16 +7,13 @@ namespace USPS.Code
         public string Name { get; set; }
         public string GlobalGUID { get; set; }
         public string InstanceGUID { get; set; }
-        public Types BlockType { get; set; }
 
-        public enum Types { Condition, Service, Terminating }
         public Dictionary<string, ServiceBlock> NextBlocks { get; set; }
         public ServiceBlock ParentBlock { get; set; }
 
-        public ServiceBlock(Types type)
+        public ServiceBlock()
         {
             NextBlocks = new Dictionary<string, ServiceBlock>();
-            BlockType = type;
         }
 
         public void AddChild(string key, ServiceBlock block)
@@ -24,10 +21,12 @@ namespace USPS.Code
             NextBlocks.Add(key,block);
         }
 
-        public ServiceBlock(D3Node d3node)
+        public ServiceBlock(Node node)
         {
             NextBlocks = new Dictionary<string, ServiceBlock>();
-            //BlockType = "type";
+            Name = node.Name;
+            GlobalGUID = node.GlobalGUID;
+            InstanceGUID = node.InstanceGUID;
         }
 
     }

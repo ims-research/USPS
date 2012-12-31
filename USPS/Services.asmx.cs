@@ -69,11 +69,14 @@ namespace USPS
             Node rootNode = new Node(rootD3Node);
             if (Session != null)
             {
-                Session["service"] = new ServiceFlow();
-                List<ServiceFlow> sf = new List<ServiceFlow>();
+                ServiceFlow serviceflow = new ServiceFlow();
+                Dictionary<string,ServiceBlock> blocks = new Dictionary<string,ServiceBlock>();
+                CreateBlocks(blocks,rootNode);
+                serviceflow.Blocks = blocks;
+                List<ServiceFlow> sfs = new List<ServiceFlow>(); 
                 UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
-                sf.Add((ServiceFlow)Session["service"]);
-                profile.ServiceFlows = sf.Serialize();
+                sfs.Add(serviceflow);
+                profile.ServiceFlows = sfs.Serialize();
                 profile.Save();
                 return jss.Serialize("Chain Saved Successfully");
             }
@@ -83,5 +86,22 @@ namespace USPS
             }
         }
 
+        private void CreateBlocks(Dictionary<string, ServiceBlock> blocks, Node node)
+        {
+            ServiceBlock block = new ServiceBlock(node);
+            if (node.Children.Count > 0)
+            {
+                foreach (Node child in node.Children)
+                {
+                    block.AddChild(child.InstanceGUID,new ServiceBlock(child));
+                    CreateBlocks(blocks,child);
+                }
+            }
+            if (node.Name != "Start")
+            {
+                blocks.Add(block.InstanceGUID, block);
+            }
+            
+        }
     }
 }

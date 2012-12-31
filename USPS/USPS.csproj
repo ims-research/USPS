@@ -284,9 +284,7 @@
     <Compile Include="Code\SQLite\SQLiteMembershipProvider.cs" />
     <Compile Include="Code\SQLite\SQLiteProfileProvider.cs" />
     <Compile Include="Code\SQLite\SQLiteRoleProvider.cs" />
-    <Compile Include="Code\TypeNode.cs" />
     <Compile Include="Code\UserProfile.cs" />
-    <Compile Include="Code\ValueNode.cs" />
     <Compile Include="Create_Service.aspx.cs">
       <DependentUpon>Create_Service.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
