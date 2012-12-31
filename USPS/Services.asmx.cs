@@ -94,14 +94,17 @@ namespace USPS
                 foreach (Node child in node.Children)
                 {
                     block.AddChild(child.InstanceGUID,new ServiceBlock(child));
-                    CreateBlocks(blocks,child);
+                }
+                if (node.Name != "Start")
+                {
+                    blocks.Add(block.InstanceGUID, block);
+                }
+                // Double loop to maintain tree order
+                foreach (Node child in node.Children)
+                {
+                    CreateBlocks(blocks, child);
                 }
             }
-            if (node.Name != "Start")
-            {
-                blocks.Add(block.InstanceGUID, block);
-            }
-            
         }
     }
 }
