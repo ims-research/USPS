@@ -61,9 +61,10 @@ namespace USPS
         }
 
         [WebMethod]
-        public string SaveChain(Object GUID, Object Chain)
+        public string SaveChain(Object GUID, String Chain)
         {
             var jss = new JavaScriptSerializer();
+            var t = jss.Deserialize<D3Node>(Chain);
             return jss.Serialize("Chain Saved Successfully");
         }
 

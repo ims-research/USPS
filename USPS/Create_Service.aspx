@@ -134,24 +134,46 @@
         //var html = '<input type="checkbox" id="cb' + id + '" value="' + name + '" /> <label for="cb' + id + '">' + name + '</label>';
         container.append($(html));
     }
+    String.prototype.isNumber = function () { return /^\d+$/.test(this); };
 
     function saveChain() {
-        debugger;
         var my_guid = JSON.stringify(guid())
         seen = []
         var chain = JSON.stringify(root, function (key, val) {
-            debugger;
             if (typeof val == "object") {
                 if (seen.indexOf(val) >= 0)
                     return undefined
                 seen.push(val)
+            //    var replacement = {};
+            //    for (var k in val) {
+            //        if (Object.hasOwnProperty.call(val, k)) {
+            //            switch (k)
+            //            {
+            //                case 'name':
+            //                case 'type':
+            //                case 'global_guid':
+            //                case 'instance_guid':
+            //                case 'children':
+            //                    replacement[k] = val[k];
+            //                    break;
+            //                default:
+            //                    break;
+            //            }
+            //            if (k.isNumber()) {
+            //                debugger;
+            //                replacement[k] = val[k];
+            //            }
+            //        }
+            //    }
+            //    return replacement;
             }
             return val
         })
+        debugger;
         $.ajax({
             type: "POST",
             url: "Services.asmx/SaveChain",
-            data: "{'GUID':" + my_guid  + ",'Chain':" + chain + "}",
+            data: "{'GUID':" + my_guid  + ",'Chain':'" + chain + "'}",
             contentType: "application/json; charset=utf-8",
             dataFilter: function (data) {
                 var msg = eval('(' + data + ')');

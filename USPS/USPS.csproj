@@ -266,6 +266,7 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Condition.cs" />
+    <Compile Include="Code\D3Node.cs" />
     <Compile Include="Code\ScratchPad.cs" />
     <Compile Include="Code\SIPHandler.cs" />
     <Compile Include="Code\SerializationExtensions.cs" />
