@@ -60,5 +60,12 @@ namespace USPS
             return jss.Serialize(condition.PossibleValues);
         }
 
+        [WebMethod]
+        public string SaveChain(Object GUID, Object Chain)
+        {
+            var jss = new JavaScriptSerializer();
+            return jss.Serialize("Chain Saved Successfully");
+        }
+
     }
 }

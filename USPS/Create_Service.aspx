@@ -4,7 +4,8 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
-    <div id="addNodeDialog" class="basic-dialog" title="Adding a condition or service" runat="server">
+   
+     <div id="addNodeDialog" class="basic-dialog" title="Adding a condition or service" runat="server">
     <p>Please add either a service to be activated (voicemail, email notification etc) or a condition (presence of end user, time of day etc)</p>
     </div>
 
@@ -49,22 +50,30 @@
     <button id="addNodeDialogBtn" class="addNodeDialog" runat="server">Add a new service or condition</button>
     <juice:button ID="Button1" TargetControlID="addNodeDialogBtn" runat="server" />
     </p>
+    <p>
+    <button id="saveChainBtn" class="saveChainBtn" runat="server">Save Chain</button>
+    <juice:button ID="Button3" TargetControlID="saveChainBtn" runat="server" />
+    </p>
     </div>
 <script src="Scripts/D3/d3.v2.js" type="text/javascript"></script>
 <script src="Scripts/D3/D3Tree.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         $(function () {
+            $("#MainContent_saveChainBtn").hide();
             $("#selectableSIPResponse").selectable();
             $("#selectableConditionOptions").selectable();
+            $("#MainContent_addNodeDialogBtn").click(addServiceOrCondition);
+            $('#MainContent_saveChainBtn').click(saveChain);
         });
     </script>
 <script type="text/javascript">
-    $("#MainContent_addNodeDialogBtn").click(addServiceOrCondition);
+   
     
     function addServiceOrCondition() {
         $("#MainContent_addNodeDialog").dialog("open");
         $("#MainContent_addNodeDialogBtn").remove();
+        $("#MainContent_saveChainBtn").show();
         return false;
     }
 
@@ -124,6 +133,42 @@
         var html = '<li class="ui-widget-content" value="' + value + '">' + key + '</li>';
         //var html = '<input type="checkbox" id="cb' + id + '" value="' + name + '" /> <label for="cb' + id + '">' + name + '</label>';
         container.append($(html));
+    }
+
+    function saveChain() {
+        debugger;
+        var my_guid = JSON.stringify(guid())
+        seen = []
+        var chain = JSON.stringify(root, function (key, val) {
+            debugger;
+            if (typeof val == "object") {
+                if (seen.indexOf(val) >= 0)
+                    return undefined
+                seen.push(val)
+            }
+            return val
+        })
+        $.ajax({
+            type: "POST",
+            url: "Services.asmx/SaveChain",
+            data: "{'GUID':" + my_guid  + ",'Chain':" + chain + "}",
+            contentType: "application/json; charset=utf-8",
+            dataFilter: function (data) {
+                var msg = eval('(' + data + ')');
+                if (msg.hasOwnProperty('d'))
+                    return msg.d;
+                else
+                    return msg;
+            },
+            success: function (data) {
+                alert(data);
+            },
+            error: function (msg) {
+                alert(msg);
+            }
+        });
+        return false;
+
     }
 
     function S4() {
@@ -190,14 +235,9 @@
         var nodeEnter = node.enter().append("svg:g")
             .attr("class", "node")
             .attr("transform", function (d) { return "translate(" + source.x0 + "," + source.y0 + ")"; });
-        //.style("opacity", 1e-6);
 
         // Enter any new nodes at the parent's previous position.
-
         nodeEnter.append("svg:circle")
-          //.attr("class", "node")
-          //.attr("cx", function(d) { return source.x0; })
-          //.attr("cy", function(d) { return source.y0; })
           .attr("r", 6)
           .style("fill", "lightsteelblue")
           .on("click", click);

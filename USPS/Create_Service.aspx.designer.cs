@@ -137,5 +137,23 @@ namespace USPS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Juice.Button Button1;
+        
+        /// <summary>
+        /// saveChainBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton saveChainBtn;
+        
+        /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Button Button3;
     }
 }
