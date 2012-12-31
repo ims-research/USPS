@@ -9,7 +9,14 @@ namespace USPS.Code
     {
        public List<string> Values { get; set; }
 
-       public SIPResponseNode()
+        public SIPResponseNode(D3Node child) : base(child)
+        {
+            Values = new List<string>();
+            Values = child.value.Split().ToList();
+        }
+
+        public SIPResponseNode()
+            : base()
         {
             Values = new List<string>();
         }

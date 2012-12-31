@@ -64,8 +64,9 @@ namespace USPS
         public string SaveChain(Object GUID, String Chain)
         {
             var jss = new JavaScriptSerializer();
-            D3Node root_node = jss.Deserialize<D3Node>(Chain);
-            string new_service_guid = Guid.NewGuid().ToString();
+            D3Node rootD3Node = jss.Deserialize<D3Node>(Chain);
+            string newServiceGuid = Guid.NewGuid().ToString();
+            Node rootNode = new Node(rootD3Node);
             if (Session != null)
             {
                 Session["service"] = new ServiceFlow();

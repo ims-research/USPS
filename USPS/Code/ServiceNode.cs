@@ -7,6 +7,17 @@ namespace USPS.Code
 {
     public class ServiceNode : Node
     {
-        public Service service { get; set; }
+        public Service Service { get; set; }
+
+        public ServiceNode(D3Node child) : base(child)
+        {
+            Service = ServiceManager.ServiceList[child.global_guid];
+        }
+
+        public ServiceNode()
+            : base()
+        {
+        }
+        
     }
 }
