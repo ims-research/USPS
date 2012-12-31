@@ -60,12 +60,26 @@ namespace USPS
             return jss.Serialize(condition.PossibleValues);
         }
 
-        [WebMethod]
+        [WebMethod(EnableSession = true)]
         public string SaveChain(Object GUID, String Chain)
         {
             var jss = new JavaScriptSerializer();
-            var t = jss.Deserialize<D3Node>(Chain);
-            return jss.Serialize("Chain Saved Successfully");
+            D3Node root_node = jss.Deserialize<D3Node>(Chain);
+            string new_service_guid = Guid.NewGuid().ToString();
+            if (Session != null)
+            {
+                Session["service"] = new ServiceFlow();
+                List<ServiceFlow> sf = new List<ServiceFlow>();
+                UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
+                sf.Add((ServiceFlow)Session["service"]);
+                profile.ServiceFlows = sf.Serialize();
+                profile.Save();
+                return jss.Serialize("Chain Saved Successfully");
+            }
+            else
+            {
+                return jss.Serialize("Chain Not Saved - Please make sure you are logged in");
+            }
         }
 
     }

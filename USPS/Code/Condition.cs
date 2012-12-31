@@ -18,13 +18,13 @@ namespace USPS.Code
             InitialiseVariables();
         }
 
-        public Condition(XElement block)
+        public Condition(XElement xmlblock)
         {
-            Name = block.Element("Name").Value;
-            Type = block.Element("Type").Value;
-            Description = block.Element("Description").Value;
-            GUID = block.Element("GUID").Value;
-            List<string> possibleValues = new List<string>(block.Element("Possible_Values").Value.Split(',').Select(p => p.Trim()).ToList());
+            Name = xmlblock.Element("Name").Value;
+            Type = xmlblock.Element("Type").Value;
+            Description = xmlblock.Element("Description").Value;
+            GUID = xmlblock.Element("GUID").Value;
+            List<string> possibleValues = new List<string>(xmlblock.Element("Possible_Values").Value.Split(',').Select(p => p.Trim()).ToList());
             PossibleValues = possibleValues;
         }
 

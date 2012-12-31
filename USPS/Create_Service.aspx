@@ -185,8 +185,8 @@
             success: function (data) {
                 alert(data);
             },
-            error: function (msg) {
-                alert(msg);
+            error: function (data) {
+                alert(data);
             }
         });
         return false;

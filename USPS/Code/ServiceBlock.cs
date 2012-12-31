@@ -23,5 +23,12 @@ namespace USPS.Code
         {
             NextBlocks.Add(key,block);
         }
+
+        public ServiceBlock(D3Node d3node)
+        {
+            NextBlocks = new Dictionary<string, ServiceBlock>();
+            //BlockType = "type";
+        }
+
     }
 }

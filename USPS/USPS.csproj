@@ -266,8 +266,12 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Condition.cs" />
+    <Compile Include="Code\ConditionNode.cs" />
+    <Compile Include="Code\ConditionValueNode.cs" />
     <Compile Include="Code\D3Node.cs" />
+    <Compile Include="Code\Node.cs" />
     <Compile Include="Code\ScratchPad.cs" />
+    <Compile Include="Code\ServiceNode.cs" />
     <Compile Include="Code\SIPHandler.cs" />
     <Compile Include="Code\SerializationExtensions.cs" />
     <Compile Include="Code\Service.cs" />
@@ -275,6 +279,7 @@
     <Compile Include="Code\ServiceFlow.cs" />
     <Compile Include="Code\Service_Manager.cs" />
     <Compile Include="Code\SIPApp.cs" />
+    <Compile Include="Code\SIPResponseNode.cs" />
     <Compile Include="Code\SQLiteDatabase.cs" />
     <Compile Include="Code\SQLite\SQLiteMembershipProvider.cs" />
     <Compile Include="Code\SQLite\SQLiteProfileProvider.cs" />
