@@ -75,7 +75,7 @@ namespace USPS
                 {
                     sfs = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
                     // Use below line to reset user's list of services;
-                    sfs = new List<ServiceFlow>();
+                    //sfs = new List<ServiceFlow>();
                 }
                 catch (Exception)
                 {
