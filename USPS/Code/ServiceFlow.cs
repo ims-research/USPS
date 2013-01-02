@@ -8,13 +8,30 @@ namespace USPS.Code
     {
 
         public Dictionary<string, ServiceBlock> Blocks;
-
         public string FirstBlockGUID { get; set; }
+        public string Name { get; set; }
 
-        public ServiceFlow()
+        public ServiceFlow(String name)
+        {
+            Init(name);
+        }
+
+        public ServiceFlow(Node rootNode, String name)
+        {
+            Init(name);
+            FirstBlockGUID = rootNode.Children[0].InstanceGUID;
+            Dictionary<string, ServiceBlock> blocks = new Dictionary<string, ServiceBlock>();
+            CreateBlocks(blocks, rootNode);
+            Blocks = blocks;
+        }
+
+        private void Init(String name)
         {
             Blocks = new Dictionary<string, ServiceBlock>();
+            Name = name;
         }
+
+       
 
         private void CreateBlocks(Dictionary<string, ServiceBlock> blocks, Node node)
         {
@@ -50,13 +67,7 @@ namespace USPS.Code
             }
         }
 
-        public ServiceFlow(Node rootNode)
-        {
-            FirstBlockGUID = rootNode.Children[0].InstanceGUID;
-            Dictionary<string, ServiceBlock> blocks = new Dictionary<string, ServiceBlock>();
-            CreateBlocks(blocks, rootNode);
-            Blocks = blocks;
-        }
+        
 
         //public override string ToString()
         //{

@@ -76,6 +76,15 @@ namespace USPS {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chooseConditionOptions;
         
         /// <summary>
+        /// enterChainName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl enterChainName;
+        
+        /// <summary>
         /// juiceDialogAddNode control.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,15 @@ namespace USPS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Juice.Dialog juiceChooseConditionOption;
+        
+        /// <summary>
+        /// juiceEnterChainName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Juice.Dialog juiceEnterChainName;
         
         /// <summary>
         /// addNodeDialogBtn control.

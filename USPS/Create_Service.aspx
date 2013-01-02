@@ -28,6 +28,11 @@
     <p>Select which conditions should be used for further processing</p>
         <ol id="selectableConditionOptions"></ol>
     </div>
+    
+    <div id="enterChainName" class="basic-dialog" title="Please enter in a name representing your new chain" runat="server">
+    <p>Please enter in a name representing your new chain</p>
+        <input id="chainNameText" type="text" value="Type something"/>
+    </div>
 
 
     <div class="centre">
@@ -45,6 +50,9 @@
         </juice:Dialog>
         <juice:Dialog ID="juiceChooseConditionOption" TargetControlID="chooseConditionOptions" AutoOpen="false" runat="server" Modal="true" Width="500"
             Buttons="{'Confirm Condition': function() { confirmConditionClick(); } }">
+        </juice:Dialog>
+        <juice:Dialog ID="juiceEnterChainName" TargetControlID="enterChainName" AutoOpen="false" runat="server" Modal="true" Width="500"
+            Buttons="{'Confirm Chain Name': function() { confirmChainNameClick(); } }">
         </juice:Dialog>
     <p>
     <button id="addNodeDialogBtn" class="addNodeDialog" runat="server">Add a new service or condition</button>
@@ -64,7 +72,7 @@
             $("#selectableSIPResponse").selectable();
             $("#selectableConditionOptions").selectable();
             $("#MainContent_addNodeDialogBtn").click(addServiceOrCondition);
-            $('#MainContent_saveChainBtn').click(saveChain);
+            $('#MainContent_saveChainBtn').click(askForNameClick);
         });
     </script>
 <script type="text/javascript">
@@ -80,6 +88,18 @@
     function addServiceClick() {
         $("#MainContent_addNodeDialog").dialog("close");
         $("#MainContent_selectServiceDialog").dialog("open");
+    }
+
+    function askForNameClick() {
+        $("#MainContent_enterChainName").dialog("open");
+        return false;
+    }
+
+    function confirmChainNameClick() {
+        $("#MainContent_enterChainName").dialog("close");
+        debugger;
+        saveChain($('#chainNameText').val());
+        return false;
     }
 
     function selectServiceClick() {
@@ -128,15 +148,12 @@
 
     function addSelectItem(container,key,value) {
         var container = $(container);
-        //var inputs = container.find('input');
-        //var id = inputs.length + 1;
         var html = '<li class="ui-widget-content" value="' + value + '">' + key + '</li>';
-        //var html = '<input type="checkbox" id="cb' + id + '" value="' + name + '" /> <label for="cb' + id + '">' + name + '</label>';
         container.append($(html));
     }
-    String.prototype.isNumber = function () { return /^\d+$/.test(this); };
+    
 
-    function saveChain() {
+    function saveChain(name) {
         var my_guid = JSON.stringify(guid())
         seen = []
         var chain = JSON.stringify(root, function (key, val) {
@@ -173,7 +190,7 @@
         $.ajax({
             type: "POST",
             url: "Services.asmx/SaveChain",
-            data: "{'GUID':" + my_guid  + ",'Chain':'" + chain + "'}",
+            data: "{'GUID':" + my_guid + ",'Chain':'" + chain + "','Name':'" + JSON.stringify(name) + "'}",
             contentType: "application/json; charset=utf-8",
             dataFilter: function (data) {
                 var msg = eval('(' + data + ')');

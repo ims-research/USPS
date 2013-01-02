@@ -61,7 +61,7 @@ namespace USPS
         }
 
         [WebMethod(EnableSession = true)]
-        public string SaveChain(Object GUID, String Chain)
+        public string SaveChain(Object GUID, String Chain, String Name)
         {
             var jss = new JavaScriptSerializer();
             D3Node rootD3Node = jss.Deserialize<D3Node>(Chain);
@@ -81,7 +81,7 @@ namespace USPS
                 {
                     sfs = new List<ServiceFlow>();
                 }
-                ServiceFlow serviceflow = new ServiceFlow(rootNode);
+                ServiceFlow serviceflow = new ServiceFlow(rootNode, Name);
                 return jss.Serialize(SaveServiceFlow(sfs, serviceflow));
             }
             else
@@ -103,9 +103,9 @@ namespace USPS
                 profile.Save();
                 return "Chain Saved Successfully";
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                return "Problem saving chain";
+                return "Problem saving chain - " + exception.Message;
             }
         }
 
@@ -123,7 +123,7 @@ namespace USPS
             }
             else if (startblock.BlockType == ServiceBlock.BlockTypes.Condition)
             {
-                if (DetectExistingConditionStartPoint(serviceFlows,startblock))
+                if (DetectExistingConditionStartPoint(serviceFlows, startblock))
                 {
                     errorMessage = "Cannot have more than one chain with the same condition as a starting point";
                     return true;
@@ -144,10 +144,10 @@ namespace USPS
                     {
                         foreach (String key in newStartblock.NextBlocks.Keys)
                         {
-                           if (startblock.NextBlocks.ContainsKey(key))
-                           {
-                               conflictFound = true;
-                           }
+                            if (startblock.NextBlocks.ContainsKey(key))
+                            {
+                                conflictFound = true;
+                            }
                         }
                     }
                 }
@@ -174,6 +174,41 @@ namespace USPS
             {
                 return false;
             }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public string ListExistingChains()
+        {
+            var jss = new JavaScriptSerializer();
+            if (Session != null)
+            {
+                UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
+                List<ServiceFlow> sfs;
+                try
+                {
+                    sfs = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
+                }
+                catch (Exception)
+                {
+                    sfs = new List<ServiceFlow>();
+                }
+                Dictionary<string,string> chainList = new Dictionary<string, string>();
+                foreach (ServiceFlow serviceFlow in sfs)
+                {
+
+                }
+                return jss.Serialize("List of Service Flows");
+            }
+            else
+            {
+                return jss.Serialize("Error - Please make sure you are logged in");
+            }
+        }
+
+        private string ConvertServiceFlowsToString(List<ServiceFlow> serviceFlows)
+        {
+            //StringBuilder
+            return "T";
         }
     }
 }
