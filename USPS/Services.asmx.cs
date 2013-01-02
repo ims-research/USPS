@@ -24,10 +24,10 @@ namespace USPS
         {
             StringBuilder sb = new StringBuilder();
             var jss = new JavaScriptSerializer();
-            Dictionary<String, String> services = new Dictionary<String,String>();
+            Dictionary<String, String> services = new Dictionary<String, String>();
             foreach (KeyValuePair<string, Service> kvp in ServiceManager.ServiceList)
             {
-                services.Add(kvp.Value.ServiceInformation["Name"],kvp.Value.ServiceConfig["GUID"]);
+                services.Add(kvp.Value.ServiceInformation["Name"], kvp.Value.ServiceConfig["GUID"]);
             }
             return jss.Serialize(services);
         }
@@ -69,16 +69,20 @@ namespace USPS
             Node rootNode = new Node(rootD3Node);
             if (Session != null)
             {
-                ServiceFlow serviceflow = new ServiceFlow();
-                Dictionary<string,ServiceBlock> blocks = new Dictionary<string,ServiceBlock>();
-                CreateBlocks(blocks,rootNode);
-                serviceflow.Blocks = blocks;
-                List<ServiceFlow> sfs = new List<ServiceFlow>(); 
                 UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
-                sfs.Add(serviceflow);
-                profile.ServiceFlows = sfs.Serialize();
-                profile.Save();
-                return jss.Serialize("Chain Saved Successfully");
+                List<ServiceFlow> sfs;
+                try
+                {
+                    sfs = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
+                    // Use below line to reset user's list of services;
+                    //sfs = new List<ServiceFlow>();
+                }
+                catch (Exception)
+                {
+                    sfs = new List<ServiceFlow>();
+                }
+                ServiceFlow serviceflow = new ServiceFlow(rootNode);
+                return jss.Serialize(SaveServiceFlow(sfs, serviceflow));
             }
             else
             {
@@ -86,24 +90,89 @@ namespace USPS
             }
         }
 
-        private void CreateBlocks(Dictionary<string, ServiceBlock> blocks, Node node)
+        private string SaveServiceFlow(List<ServiceFlow> serviceFlows, ServiceFlow serviceflow)
         {
-            ServiceBlock block = new ServiceBlock(node);
-            if (node.Children.Count > 0)
+            string errorMessage;
+            if (DetectConflict(serviceFlows, serviceflow, out errorMessage))
+                return "Conflict Detected - " + errorMessage;
+            try
             {
-                foreach (Node child in node.Children)
+                UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
+                serviceFlows.Add(serviceflow);
+                profile.ServiceFlows = serviceFlows.Serialize();
+                profile.Save();
+                return "Chain Saved Successfully";
+            }
+            catch (Exception)
+            {
+                return "Problem saving chain";
+            }
+        }
+
+        private bool DetectConflict(List<ServiceFlow> serviceFlows, ServiceFlow serviceFlow, out string errorMessage)
+        {
+            errorMessage = "Success";
+            ServiceBlock startblock = serviceFlow.Blocks[serviceFlow.FirstBlockGUID];
+            if (startblock.BlockType == ServiceBlock.BlockTypes.Service)
+            {
+                if (DetectExistingServiceStartPoint(serviceFlows))
                 {
-                    block.AddChild(child.InstanceGUID,new ServiceBlock(child));
+                    errorMessage = "Cannot have more than one chain with a service as the starting point";
+                    return true;
                 }
-                if (node.Name != "Start")
+            }
+            else if (startblock.BlockType == ServiceBlock.BlockTypes.Condition)
+            {
+                if (DetectExistingConditionStartPoint(serviceFlows,startblock))
                 {
-                    blocks.Add(block.InstanceGUID, block);
+                    errorMessage = "Cannot have more than one chain with the same condition as a starting point";
+                    return true;
                 }
-                // Double loop to maintain tree order
-                foreach (Node child in node.Children)
+            }
+            return false;
+        }
+
+        private bool DetectExistingConditionStartPoint(List<ServiceFlow> serviceFlows, ServiceBlock newStartblock)
+        {
+            bool conflictFound = false;
+            foreach (ServiceFlow currentserviceFlow in serviceFlows)
+            {
+                ServiceBlock startblock = currentserviceFlow.Blocks[currentserviceFlow.FirstBlockGUID];
+                if (startblock.BlockType == ServiceBlock.BlockTypes.Condition)
                 {
-                    CreateBlocks(blocks, child);
+                    if (newStartblock.GlobalGUID == startblock.GlobalGUID)
+                    {
+                        foreach (String key in newStartblock.NextBlocks.Keys)
+                        {
+                           if (startblock.NextBlocks.ContainsKey(key))
+                           {
+                               conflictFound = true;
+                           }
+                        }
+                    }
                 }
+            }
+            return conflictFound;
+        }
+
+        private bool DetectExistingServiceStartPoint(List<ServiceFlow> serviceFlows)
+        {
+            int numberServiceStartBlocks = 0;
+            foreach (ServiceFlow currentserviceFlow in serviceFlows)
+            {
+                ServiceBlock startblock = currentserviceFlow.Blocks[currentserviceFlow.FirstBlockGUID];
+                if (startblock.BlockType == ServiceBlock.BlockTypes.Service)
+                {
+                    numberServiceStartBlocks++;
+                }
+            }
+            if (numberServiceStartBlocks >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

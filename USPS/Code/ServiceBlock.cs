@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace USPS.Code
 {
@@ -10,6 +11,16 @@ namespace USPS.Code
 
         public Dictionary<string, ServiceBlock> NextBlocks { get; set; }
         public ServiceBlock ParentBlock { get; set; }
+        public BlockTypes BlockType { get; set; }
+
+
+        public enum BlockTypes
+        {
+            Service,
+            Condition,
+            ConditionOption,
+            SIPResponse
+        }
 
         public ServiceBlock()
         {
@@ -18,7 +29,7 @@ namespace USPS.Code
 
         public void AddChild(string key, ServiceBlock block)
         {
-            NextBlocks.Add(key,block);
+            NextBlocks.Add(key, block);
         }
 
         public ServiceBlock(Node node)
@@ -27,7 +38,24 @@ namespace USPS.Code
             Name = node.Name;
             GlobalGUID = node.GlobalGUID;
             InstanceGUID = node.InstanceGUID;
+            switch (node.GetType().Name)
+            {
+                case "ServiceNode":
+                    BlockType = BlockTypes.Service;
+                    break;
+                case "ConditionNode":
+                    BlockType = BlockTypes.Condition;
+                    break;
+                case "ConditionValueNode":
+                    BlockType = BlockTypes.ConditionOption;
+                    break;
+                case "SIPResponseNode":
+                    BlockType = BlockTypes.SIPResponse;
+                    break;
+                default:
+                    Console.WriteLine("Unkown node type" + node.GetType().Name);
+                    break;
+            }
         }
-
     }
 }

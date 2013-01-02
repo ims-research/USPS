@@ -11,6 +11,9 @@ namespace USPS.Code
         public string Name { get; set; }
         public string GlobalGUID { get; set; }
         public string InstanceGUID { get; set; }
+       
+        public Types NodeType { get; set; }
+        public enum Types { Service, Condition, ConditionOption, SIPResponse }
 
         public Node()
         {
@@ -23,6 +26,7 @@ namespace USPS.Code
             Name = node.name;
             GlobalGUID = node.global_guid;
             InstanceGUID = node.instance_guid;
+
             foreach (D3Node child in node.children)
             {
                 switch (child.type)
