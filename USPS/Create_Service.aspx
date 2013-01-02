@@ -241,21 +241,21 @@
     var currentID = 1;
 
     var w = 960,
-    h = 1000,
+    h = 500,
     i = 0,
     duration = 500,
     root;
 
     var tree = d3.layout.tree()
-        .size([h, w - 160]);
+        .size([w - 160, h]);
 
     var diagonal = d3.svg.diagonal();
 
     var vis = d3.select("div.main").append("svg:svg")
         .attr("width", w)
-        .attr("height", h)
+        .attr("height", h+500)
       .append("svg:g")
-        .attr("transform", "translate(0,40)");
+        .attr("transform", "translate(40,40)");
 
     d3.select(self.frameElement).style("height", "1000px");
 
