@@ -11,6 +11,10 @@ namespace USPS.Code
         public string FirstBlockGUID { get; set; }
         public string Name { get; set; }
 
+        public ServiceFlow()
+        {
+            Blocks = new Dictionary<string, ServiceBlock>();
+        }
         public ServiceFlow(String name)
         {
             Init(name);
@@ -67,34 +71,26 @@ namespace USPS.Code
             }
         }
 
-        
 
+        // Not Needed for serialisation - might be useful in the future?
         //public override string ToString()
         //{
         //    XmlDocument xmlDoc = new XmlDocument();
         //    XmlNode rootNode = xmlDoc.CreateElement("Service_Chain");
+        //    XmlAttribute firstBlockGUIDxml = xmlDoc.CreateAttribute("FirstBlockGUID");
+        //    firstBlockGUIDxml.Value = FirstBlockGUID;
+        //    rootNode.Attributes.Append(firstBlockGUIDxml);
         //    xmlDoc.AppendChild(rootNode);
-
         //    foreach (KeyValuePair<string, ServiceBlock> kvp in Blocks)
         //    {
-        //        XmlNode userNode = xmlDoc.CreateElement("user");
-        //        XmlAttribute attribute = xmlDoc.CreateAttribute("age");
+        //        XmlNode block = xmlDoc.CreateElement("Service_Block");
+        //        XmlAttribute attribute = xmlDoc.CreateAttribute("Attritbute");
         //        attribute.Value = "42";
-        //        userNode.Attributes.Append(attribute);
-        //        userNode.InnerText = "John Doe";
-        //        rootNode.AppendChild(userNode);
-
-        //        userNode = xmlDoc.CreateElement("user");
-        //        attribute = xmlDoc.CreateAttribute("age");
-        //        attribute.Value = "39";
-        //        userNode.Attributes.Append(attribute);
-        //        userNode.InnerText = "Jane Doe";
-        //        rootNode.AppendChild(userNode);
-
-        //        xmlDoc.Save("test-doc.xml");
+        //        block.Attributes.Append(attribute);
+        //        block.InnerText = "Text test";
+        //        rootNode.AppendChild(block);
         //    }
-            
-        //    return base.ToString();
+        //    return xmlDoc.ToString();
         //}
 
     }
