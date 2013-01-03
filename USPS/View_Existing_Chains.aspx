@@ -6,10 +6,11 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <div class="centre">
-        <div id="navcontainer" style="width:auto">
-        <ul id="Chainlist">
-        </ul>
-        </div>
+        <div class="CSSTableGenerator" >
+	<table id="ChainListTable">
+	    <tbody><tr><td>Chain Name</td><td>Delete Chain</td></tr></tbody>
+	</table>
+</div>
         </div>
     <script src="Scripts/jquery-1.8.2.js" type="text/javascript"></script>
 <script src="Scripts/jquery-ui-1.9.0.js" type="text/javascript"></script>
@@ -17,15 +18,26 @@
        $(window).load(function () {
            getServiceChains();
        });
-       
-       function addChain(data) {
-           var container = $("#Chainlist");
-           for (var key in data) {
-               debugger;
 
-               var html = '<li value="' + data[key].FirstBlockGUID + '"><a href="#">'+data[key].Name+'</a></li>';
-               container.append($(html));
+       function addChain(data) {
+           
+           for (var key in data) {
+               var container = $('#ChainListTable > tbody:last');
+               debugger;
+               container.append('<tr><td value="' + data[key].FirstBlockGUID + '"><a class=displayChain href="#">' + data[key].Name + '</a></td><td><button class=deleteChain>Delete This Chain</button></td></tr>');
            }
+           $('.displayChain').click(displayChain);
+           $('.deleteChain').click(deleteChain);
+       }
+       
+       function deleteChain() {
+           alert("Delete Chain");
+           return false;
+       }
+       
+       function displayChain() {
+           alert("Display Chain");
+           return false;
        }
        
        function getServiceChains() {
