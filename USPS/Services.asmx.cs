@@ -60,6 +60,29 @@ namespace USPS
             return jss.Serialize(condition.PossibleValues);
         }
 
+        private bool GetServiceFlows(out List<ServiceFlow> flows, out String errorMessage)
+        {
+            if (Session != null)
+            {
+                UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
+                try
+                {
+                    flows = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
+                    errorMessage = "Success";
+                    return true;
+                }
+                catch (Exception)
+                {
+                    errorMessage = "Could not retrieve list of service flows from profile";
+                    flows = new List<ServiceFlow>();
+                    return false;
+                }
+            }
+            errorMessage = "Error - Could not ID session - please login again";
+            flows = new List<ServiceFlow>();
+            return false;
+        }
+
         [WebMethod(EnableSession = true)]
         public string SaveChain(Object GUID, String Chain, String Name)
         {
@@ -67,26 +90,16 @@ namespace USPS
             D3Node rootD3Node = jss.Deserialize<D3Node>(Chain);
             string newServiceGuid = Guid.NewGuid().ToString();
             Node rootNode = new Node(rootD3Node);
-            if (Session != null)
+            List<ServiceFlow> sfs;
+            String errorMessage;
+            if (GetServiceFlows(out sfs, out errorMessage))
             {
-                UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
-                List<ServiceFlow> sfs;
-                try
-                {
-                    sfs = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
-                    // Use below line to reset user's list of services;
-                    //sfs = new List<ServiceFlow>();
-                }
-                catch (Exception)
-                {
-                    sfs = new List<ServiceFlow>();
-                }
                 ServiceFlow serviceflow = new ServiceFlow(rootNode, Name);
                 return jss.Serialize(SaveServiceFlow(sfs, serviceflow));
             }
             else
             {
-                return jss.Serialize("Chain Not Saved - Please make sure you are logged in");
+                return jss.Serialize(errorMessage);
             }
         }
 
@@ -180,30 +193,74 @@ namespace USPS
         public string ListExistingChains()
         {
             var jss = new JavaScriptSerializer();
-            if (Session != null)
+            List<ServiceFlow> sfs;
+            String errorMessage;
+            if (GetServiceFlows(out sfs, out errorMessage))
             {
-                UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
-                List<ServiceFlow> sfs;
-                try
-                {
-                    sfs = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
-                }
-                catch (Exception)
-                {
-                    sfs = new List<ServiceFlow>();
-                }
                 return jss.Serialize(sfs);
             }
             else
             {
-                return jss.Serialize("Error - Please make sure you are logged in");
+                return jss.Serialize(errorMessage);
             }
         }
 
-        private string ConvertServiceFlowsToString(List<ServiceFlow> serviceFlows)
+        [WebMethod(EnableSession = true)]
+        public string GetExistingChain(String FirstBlockGUID)
         {
-            //StringBuilder
-            return "T";
+            var jss = new JavaScriptSerializer();
+            List<ServiceFlow> sfs;
+            String errorMessage;
+            if (GetServiceFlows(out sfs, out errorMessage))
+            {
+                foreach (ServiceFlow serviceFlow in sfs)
+                {
+                    if (serviceFlow.FirstBlockGUID == FirstBlockGUID)
+                    {
+                        return jss.Serialize(serviceFlow.RootNode);
+                    }
+                }
+                return jss.Serialize("Error - Chain not found");
+            }
+            else
+            {
+                return jss.Serialize(errorMessage);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public string DeleteExistingChain(String FirstBlockGUID)
+        {
+            var jss = new JavaScriptSerializer();
+            List<ServiceFlow> sfs;
+            String errorMessage;
+            if (GetServiceFlows(out sfs, out errorMessage))
+            {
+                foreach (ServiceFlow serviceFlow in sfs)
+                {
+                    if (serviceFlow.FirstBlockGUID == FirstBlockGUID)
+                    {
+                        try
+                        {
+                            UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
+                            List<ServiceFlow> newServiceFlows = new List<ServiceFlow>(sfs);
+                            newServiceFlows.Remove(serviceFlow);
+                            profile.ServiceFlows = newServiceFlows.Serialize();
+                            profile.Save();
+                            return jss.Serialize("Chain Deleted Successfully");
+                        }
+                        catch (Exception exception)
+                        {
+                            return jss.Serialize("Problem deleting chain - " + exception.Message);
+                        }
+                    }
+                }
+                return jss.Serialize("Error - Chain not found");
+            }
+            else
+            {
+                return jss.Serialize(errorMessage);
+            }
         }
     }
 }

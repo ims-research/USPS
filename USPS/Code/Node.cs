@@ -14,6 +14,7 @@ namespace USPS.Code
        
         public Types NodeType { get; set; }
         public enum Types { Service, Condition, ConditionOption, SIPResponse }
+        public D3Node d3Node { get; set; }
 
         public Node()
         {
@@ -22,6 +23,7 @@ namespace USPS.Code
 
         public Node(D3Node node)
         {
+            d3Node = node;
             Children = new List<Node>();
             Name = node.name;
             GlobalGUID = node.global_guid;

@@ -1158,3 +1158,243 @@ Content-Length: 0
 
 
 2013-01-02 15:51:29,627 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-03 13:53:59,980 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-03 13:53:59,993 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18125306411431469502
+CSeq:  2 MESSAGE
+Call-ID: 1515763129@192.168.20.32
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTE1NzYzMTI5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.32:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 2691
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>b9038c91-693e-5916-3bc6-f66c02fef0f7</d3p1:Key><d3p1:Value><BlockType>Condition</BlockType><GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GlobalGUID><InstanceGUID>b9038c91-693e-5916-3bc6-f66c02fef0f7</InstanceGUID><Name>Status of End User</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>331c411d-0854-5074-ff35-98d5dae5e48f</InstanceGUID><Name>Busy</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>331c411d-0854-5074-ff35-98d5dae5e48f</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>331c411d-0854-5074-ff35-98d5dae5e48f</InstanceGUID><Name>Busy</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>317416d6-eb32-8fdf-6ba0-da3765dde095</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</GlobalGUID><InstanceGUID>317416d6-eb32-8fdf-6ba0-da3765dde095</InstanceGUID><Name>Voice Mail</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>317416d6-eb32-8fdf-6ba0-da3765dde095</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</GlobalGUID><InstanceGUID>317416d6-eb32-8fdf-6ba0-da3765dde095</InstanceGUID><Name>Voice Mail</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Successfully accepted call, will begin recording callers voice</GlobalGUID><InstanceGUID>6ea5d800-2501-413c-8576-f5eb78e08660</InstanceGUID><Name>SIP_200_OK</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>b9038c91-693e-5916-3bc6-f66c02fef0f7</FirstBlockGUID><Name>"If Busy, Send to VoiceMail"</Name><RootNode i:nil="true" /></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-03 13:54:07,120 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-03 13:54:07,120 ERROR SIPStack - No such host is known
+2013-01-03 13:54:07,124 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-03 13:54:07,124 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18125306411431469502
+CSeq:  2 MESSAGE
+Call-ID: 1515763129@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTE1NzYzMTI5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 13:54:07,124 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18125306411431469502
+CSeq:  2 MESSAGE
+Call-ID: 1515763129@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTE1NzYzMTI5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 13:54:07,124 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-03 13:58:20,533 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-03 13:58:20,546 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=114818985320979769
+CSeq:  2 MESSAGE
+Call-ID: 451177212@192.168.20.32
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0NTExNzcyMTJAMTkyLjE2OC4yMC4zMnwyfEZhbHNl
+Contact: <sip:usps@192.168.20.32:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 133
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+
+2013-01-03 13:58:27,344 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-03 13:58:27,344 ERROR SIPStack - No such host is known
+2013-01-03 13:58:27,349 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-03 13:58:27,349 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=114818985320979769
+CSeq:  2 MESSAGE
+Call-ID: 451177212@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0NTExNzcyMTJAMTkyLjE2OC4yMC4zMnwyfEZhbHNl
+Content-Length: 0
+
+
+2013-01-03 13:58:27,350 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=114818985320979769
+CSeq:  2 MESSAGE
+Call-ID: 451177212@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0NTExNzcyMTJAMTkyLjE2OC4yMC4zMnwyfEZhbHNl
+Content-Length: 0
+
+
+2013-01-03 13:58:27,350 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-03 13:59:20,353 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-03 13:59:20,353 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=1148189851645647925
+CSeq:  2 MESSAGE
+Call-ID: 1081774728@192.168.20.32
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMDgxNzc0NzI4QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.32:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 6368
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>66bbd3f9-f8b3-f0dc-4fca-fd52b7178759</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>3ea7b719-36fb-457d-a295-83edc6d0f1ce</GlobalGUID><InstanceGUID>66bbd3f9-f8b3-f0dc-4fca-fd52b7178759</InstanceGUID><Name>Call Logger</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Successfully recorded call details</GlobalGUID><InstanceGUID>518fb1a4-79e5-a44b-d31c-0012340242c7</InstanceGUID><Name>SIP_200_OK</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_403_Forbidden</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>The user is not allowed to use this service</GlobalGUID><InstanceGUID>05885466-8947-16e6-79bf-0a9ff9cf6540</InstanceGUID><Name>SIP_403_Forbidden</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Default</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Any valid response</GlobalGUID><InstanceGUID>173e4698-e9c9-2aee-1c4e-a33ed01871b2</InstanceGUID><Name>Default</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>518fb1a4-79e5-a44b-d31c-0012340242c7</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Successfully recorded call details</GlobalGUID><InstanceGUID>518fb1a4-79e5-a44b-d31c-0012340242c7</InstanceGUID><Name>SIP_200_OK</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>133f7884-2366-c369-e4e8-b443ba3c348d</d3p1:Key><d3p1:Value><BlockType>Condition</BlockType><GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GlobalGUID><InstanceGUID>133f7884-2366-c369-e4e8-b443ba3c348d</InstanceGUID><Name>Status of End User</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>133f7884-2366-c369-e4e8-b443ba3c348d</d3p1:Key><d3p1:Value><BlockType>Condition</BlockType><GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GlobalGUID><InstanceGUID>133f7884-2366-c369-e4e8-b443ba3c348d</InstanceGUID><Name>Status of End User</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Available</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>0</GlobalGUID><InstanceGUID>a997d58e-9869-c434-463a-9d029f57afd5</InstanceGUID><Name>Available</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>05e9d7c8-2337-ed05-9f67-4e0d9d77a042</InstanceGUID><Name>Busy</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>66bbd3f9-f8b3-f0dc-4fca-fd52b7178759</FirstBlockGUID><Name>"Call Logger and Status"</Name><RootNode><children><D3Node><children><D3Node><children><D3Node><children><D3Node><children /><depth>4</depth><global_guid>0</global_guid><id>7</id><instance_guid>a997d58e-9869-c434-463a-9d029f57afd5</instance_guid><name>Available</name><type>ConditionValue</type><value>0</value><x>177.77777777777777</x><x0>177.77777777777777</x0><y>500</y><y0>500</y0></D3Node><D3Node><children /><depth>4</depth><global_guid>1</global_guid><id>8</id><instance_guid>05e9d7c8-2337-ed05-9f67-4e0d9d77a042</instance_guid><name>Busy</name><type>ConditionValue</type><value>1</value><x>355.55555555555554</x><x0>355.55555555555554</x0><y>500</y><y0>500</y0></D3Node></children><depth>3</depth><global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</global_guid><id>6</id><instance_guid>133f7884-2366-c369-e4e8-b443ba3c348d</instance_guid><name>Status of End User</name><type>Condition</type><value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</value><x>266.66666666666663</x><x0>266.66666666666663</x0><y>375</y><y0>375</y0></D3Node></children><depth>2</depth><global_guid>Successfully recorded call details</global_guid><id>3</id><instance_guid>518fb1a4-79e5-a44b-d31c-0012340242c7</instance_guid><name>SIP_200_OK</name><type>ServiceValue</type><value>Successfully recorded call details</value><x>266.66666666666663</x><x0>266.66666666666663</x0><y>250</y><y0>250</y0></D3Node><D3Node><children /><depth>2</depth><global_guid>The user is not allowed to use this service</global_guid><id>4</id><instance_guid>05885466-8947-16e6-79bf-0a9ff9cf6540</instance_guid><name>SIP_403_Forbidden</name><type>ServiceValue</type><value>The user is not allowed to use this service</value><x>444.44444444444446</x><x0>444.44444444444446</x0><y>250</y><y0>250</y0></D3Node><D3Node><children /><depth>2</depth><global_guid>Any valid response</global_guid><id>5</id><instance_guid>173e4698-e9c9-2aee-1c4e-a33ed01871b2</instance_guid><name>Default</name><type>ServiceValue</type><value>Any valid response</value><x>622.2222222222223</x><x0>622.2222222222223</x0><y>250</y><y0>250</y0></D3Node></children><depth>1</depth><global_guid>3ea7b719-36fb-457d-a295-83edc6d0f1ce</global_guid><id>2</id><instance_guid>66bbd3f9-f8b3-f0dc-4fca-fd52b7178759</instance_guid><name>Call Logger</name><type>Service</type><value>3ea7b719-36fb-457d-a295-83edc6d0f1ce</value><x>444.44444444444446</x><x0>444.44444444444446</x0><y>125</y><y0>125</y0></D3Node></children><depth>0</depth><global_guid i:nil="true" /><id>1</id><instance_guid i:nil="true" /><name>Start</name><type>Root</type><value i:nil="true" /><x>444.44444444444446</x><x0>444.44444444444446</x0><y>0</y><y0>0</y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-03 13:59:27,152 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-03 13:59:27,152 ERROR SIPStack - No such host is known
+2013-01-03 13:59:27,152 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-03 13:59:27,152 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=1148189851645647925
+CSeq:  2 MESSAGE
+Call-ID: 1081774728@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMDgxNzc0NzI4QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 13:59:27,152 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=1148189851645647925
+CSeq:  2 MESSAGE
+Call-ID: 1081774728@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMDgxNzc0NzI4QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 13:59:27,152 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-03 14:09:00,336 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-03 14:09:00,348 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=133761759351453377
+CSeq:  2 MESSAGE
+Call-ID: 2068943066@192.168.20.32
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDY4OTQzMDY2QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.32:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 133
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+
+2013-01-03 14:09:08,077 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-03 14:09:08,077 ERROR SIPStack - No such host is known
+2013-01-03 14:09:08,083 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-03 14:09:08,083 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=133761759351453377
+CSeq:  2 MESSAGE
+Call-ID: 2068943066@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDY4OTQzMDY2QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 14:09:08,084 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=133761759351453377
+CSeq:  2 MESSAGE
+Call-ID: 2068943066@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDY4OTQzMDY2QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 14:09:08,084 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-03 14:09:56,496 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-03 14:09:56,509 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2022786260196985256
+CSeq:  2 MESSAGE
+Call-ID: 1896676279@192.168.20.32
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxODk2Njc2Mjc5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.32:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4206
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>6c02cfad-4560-7835-2444-defac39f15d1</d3p1:Key><d3p1:Value><BlockType>Condition</BlockType><GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GlobalGUID><InstanceGUID>6c02cfad-4560-7835-2444-defac39f15d1</InstanceGUID><Name>Status of End User</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>06abc45a-d9ae-2800-64b2-f763a59e3a55</InstanceGUID><Name>Busy</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>06abc45a-d9ae-2800-64b2-f763a59e3a55</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>06abc45a-d9ae-2800-64b2-f763a59e3a55</InstanceGUID><Name>Busy</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>3ac79884-7980-afbb-02e4-f6a37e800832</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</GlobalGUID><InstanceGUID>3ac79884-7980-afbb-02e4-f6a37e800832</InstanceGUID><Name>Voice Mail</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>3ac79884-7980-afbb-02e4-f6a37e800832</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</GlobalGUID><InstanceGUID>3ac79884-7980-afbb-02e4-f6a37e800832</InstanceGUID><Name>Voice Mail</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Successfully accepted call, will begin recording callers voice</GlobalGUID><InstanceGUID>2e10c2a8-ca32-3ec9-b5e0-c53f19d419e3</InstanceGUID><Name>SIP_200_OK</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>6c02cfad-4560-7835-2444-defac39f15d1</FirstBlockGUID><Name>"If Busy, Send to Voicemail"</Name><RootNode><children><D3Node><children><D3Node><children><D3Node><children><D3Node><children /><depth>4</depth><global_guid>Successfully accepted call, will begin recording callers voice</global_guid><id>5</id><instance_guid>2e10c2a8-ca32-3ec9-b5e0-c53f19d419e3</instance_guid><name>SIP_200_OK</name><type>ServiceValue</type><value>Successfully accepted call, will begin recording callers voice</value><x>400</x><x0>400</x0><y>500</y><y0>500</y0></D3Node></children><depth>3</depth><global_guid>71f7523d-b461-405b-ab14-695014e03fd4</global_guid><id>4</id><instance_guid>3ac79884-7980-afbb-02e4-f6a37e800832</instance_guid><name>Voice Mail</name><type>Service</type><value>71f7523d-b461-405b-ab14-695014e03fd4</value><x>400</x><x0>400</x0><y>375</y><y0>375</y0></D3Node></children><depth>2</depth><global_guid>1</global_guid><id>3</id><instance_guid>06abc45a-d9ae-2800-64b2-f763a59e3a55</instance_guid><name>Busy</name><type>ConditionValue</type><value>1</value><x>400</x><x0>400</x0><y>250</y><y0>250</y0></D3Node></children><depth>1</depth><global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</global_guid><id>2</id><instance_guid>6c02cfad-4560-7835-2444-defac39f15d1</instance_guid><name>Status of End User</name><type>Condition</type><value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</value><x>400</x><x0>400</x0><y>125</y><y0>125</y0></D3Node></children><depth>0</depth><global_guid i:nil="true" /><id>1</id><instance_guid i:nil="true" /><name>Start</name><type>Root</type><value i:nil="true" /><x>400</x><x0>400</x0><y>0</y><y0>0</y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-03 14:10:03,330 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-03 14:10:03,330 ERROR SIPStack - No such host is known
+2013-01-03 14:10:03,340 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-03 14:10:03,340 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2022786260196985256
+CSeq:  2 MESSAGE
+Call-ID: 1896676279@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxODk2Njc2Mjc5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 14:10:03,341 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2022786260196985256
+CSeq:  2 MESSAGE
+Call-ID: 1896676279@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxODk2Njc2Mjc5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 14:10:03,342 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-03 14:10:56,767 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-03 14:10:56,779 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=47808400788647080
+CSeq:  2 MESSAGE
+Call-ID: 1649441997@192.168.20.32
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNjQ5NDQxOTk3QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.32:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 133
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+
+2013-01-03 14:11:03,599 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-03 14:11:03,599 ERROR SIPStack - No such host is known
+2013-01-03 14:11:03,605 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-03 14:11:03,605 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=47808400788647080
+CSeq:  2 MESSAGE
+Call-ID: 1649441997@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNjQ5NDQxOTk3QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 14:11:03,605 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=47808400788647080
+CSeq:  2 MESSAGE
+Call-ID: 1649441997@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNjQ5NDQxOTk3QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 14:11:03,605 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 

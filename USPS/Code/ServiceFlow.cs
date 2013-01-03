@@ -10,6 +10,7 @@ namespace USPS.Code
         public Dictionary<string, ServiceBlock> Blocks;
         public string FirstBlockGUID { get; set; }
         public string Name { get; set; }
+        public D3Node RootNode { get; set; }
 
         public ServiceFlow()
         {
@@ -27,6 +28,7 @@ namespace USPS.Code
             Dictionary<string, ServiceBlock> blocks = new Dictionary<string, ServiceBlock>();
             CreateBlocks(blocks, rootNode);
             Blocks = blocks;
+            RootNode = rootNode.d3Node;
         }
 
         private void Init(String name)
