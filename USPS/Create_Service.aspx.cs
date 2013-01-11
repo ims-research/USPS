@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
-using USPS.Code;
+using LibServiceInfo;
 namespace USPS
 {
     public partial class CreateService : System.Web.UI.Page

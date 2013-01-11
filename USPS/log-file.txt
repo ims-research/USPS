@@ -1398,3 +1398,1995 @@ Content-Length: 0
 
 
 2013-01-03 14:11:03,605 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-03 15:59:12,658 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-03 15:59:12,658 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-03 15:59:12,677 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=609389500504202045
+CSeq:  2 MESSAGE
+Call-ID: 1395325159@192.168.20.32
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMzk1MzI1MTU5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.32:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4116
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>116f1e90-420d-dbb1-601b-67939720fbb8</d3p1:Key><d3p1:Value><BlockType>Condition</BlockType><GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GlobalGUID><InstanceGUID>116f1e90-420d-dbb1-601b-67939720fbb8</InstanceGUID><Name>Status of End User</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>20691e37-63a7-c9dd-82ed-8056371d93db</InstanceGUID><Name>Busy</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>20691e37-63a7-c9dd-82ed-8056371d93db</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>20691e37-63a7-c9dd-82ed-8056371d93db</InstanceGUID><Name>Busy</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>4080c7e4-8716-9603-4623-917ee2042e44</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>3ea7b719-36fb-457d-a295-83edc6d0f1ce</GlobalGUID><InstanceGUID>4080c7e4-8716-9603-4623-917ee2042e44</InstanceGUID><Name>Call Logger</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>4080c7e4-8716-9603-4623-917ee2042e44</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>3ea7b719-36fb-457d-a295-83edc6d0f1ce</GlobalGUID><InstanceGUID>4080c7e4-8716-9603-4623-917ee2042e44</InstanceGUID><Name>Call Logger</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Successfully recorded call details</GlobalGUID><InstanceGUID>8546d5d3-4e83-4bf7-d81c-378358b204a0</InstanceGUID><Name>SIP_200_OK</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>116f1e90-420d-dbb1-601b-67939720fbb8</FirstBlockGUID><Name>"If Busy, Log Call"</Name><RootNode><children><D3Node><children><D3Node><children><D3Node><children><D3Node><children /><depth>4</depth><global_guid>Successfully recorded call details</global_guid><id>5</id><instance_guid>8546d5d3-4e83-4bf7-d81c-378358b204a0</instance_guid><name>SIP_200_OK</name><type>ServiceValue</type><value>Successfully recorded call details</value><x>400</x><x0>400</x0><y>500</y><y0>500</y0></D3Node></children><depth>3</depth><global_guid>3ea7b719-36fb-457d-a295-83edc6d0f1ce</global_guid><id>4</id><instance_guid>4080c7e4-8716-9603-4623-917ee2042e44</instance_guid><name>Call Logger</name><type>Service</type><value>3ea7b719-36fb-457d-a295-83edc6d0f1ce</value><x>400</x><x0>400</x0><y>375</y><y0>375</y0></D3Node></children><depth>2</depth><global_guid>1</global_guid><id>3</id><instance_guid>20691e37-63a7-c9dd-82ed-8056371d93db</instance_guid><name>Busy</name><type>ConditionValue</type><value>1</value><x>400</x><x0>400</x0><y>250</y><y0>250</y0></D3Node></children><depth>1</depth><global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</global_guid><id>2</id><instance_guid>116f1e90-420d-dbb1-601b-67939720fbb8</instance_guid><name>Status of End User</name><type>Condition</type><value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</value><x>400</x><x0>400</x0><y>125</y><y0>125</y0></D3Node></children><depth>0</depth><global_guid i:nil="true" /><id>1</id><instance_guid i:nil="true" /><name>Start</name><type>Root</type><value i:nil="true" /><x>400</x><x0>400</x0><y>0</y><y0>0</y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-03 15:59:12,677 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=609389500892492294
+CSeq:  2 MESSAGE
+Call-ID: 688580009@192.168.20.32
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw2ODg1ODAwMDlAMTkyLjE2OC4yMC4zMnwyfEZhbHNl
+Contact: <sip:usps@192.168.20.32:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4116
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>116f1e90-420d-dbb1-601b-67939720fbb8</d3p1:Key><d3p1:Value><BlockType>Condition</BlockType><GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GlobalGUID><InstanceGUID>116f1e90-420d-dbb1-601b-67939720fbb8</InstanceGUID><Name>Status of End User</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>20691e37-63a7-c9dd-82ed-8056371d93db</InstanceGUID><Name>Busy</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>20691e37-63a7-c9dd-82ed-8056371d93db</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>20691e37-63a7-c9dd-82ed-8056371d93db</InstanceGUID><Name>Busy</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>4080c7e4-8716-9603-4623-917ee2042e44</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>3ea7b719-36fb-457d-a295-83edc6d0f1ce</GlobalGUID><InstanceGUID>4080c7e4-8716-9603-4623-917ee2042e44</InstanceGUID><Name>Call Logger</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>4080c7e4-8716-9603-4623-917ee2042e44</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>3ea7b719-36fb-457d-a295-83edc6d0f1ce</GlobalGUID><InstanceGUID>4080c7e4-8716-9603-4623-917ee2042e44</InstanceGUID><Name>Call Logger</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Successfully recorded call details</GlobalGUID><InstanceGUID>8546d5d3-4e83-4bf7-d81c-378358b204a0</InstanceGUID><Name>SIP_200_OK</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>116f1e90-420d-dbb1-601b-67939720fbb8</FirstBlockGUID><Name>"If Busy, Log Call"</Name><RootNode><children><D3Node><children><D3Node><children><D3Node><children><D3Node><children /><depth>4</depth><global_guid>Successfully recorded call details</global_guid><id>5</id><instance_guid>8546d5d3-4e83-4bf7-d81c-378358b204a0</instance_guid><name>SIP_200_OK</name><type>ServiceValue</type><value>Successfully recorded call details</value><x>400</x><x0>400</x0><y>500</y><y0>500</y0></D3Node></children><depth>3</depth><global_guid>3ea7b719-36fb-457d-a295-83edc6d0f1ce</global_guid><id>4</id><instance_guid>4080c7e4-8716-9603-4623-917ee2042e44</instance_guid><name>Call Logger</name><type>Service</type><value>3ea7b719-36fb-457d-a295-83edc6d0f1ce</value><x>400</x><x0>400</x0><y>375</y><y0>375</y0></D3Node></children><depth>2</depth><global_guid>1</global_guid><id>3</id><instance_guid>20691e37-63a7-c9dd-82ed-8056371d93db</instance_guid><name>Busy</name><type>ConditionValue</type><value>1</value><x>400</x><x0>400</x0><y>250</y><y0>250</y0></D3Node></children><depth>1</depth><global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</global_guid><id>2</id><instance_guid>116f1e90-420d-dbb1-601b-67939720fbb8</instance_guid><name>Status of End User</name><type>Condition</type><value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</value><x>400</x><x0>400</x0><y>125</y><y0>125</y0></D3Node></children><depth>0</depth><global_guid i:nil="true" /><id>1</id><instance_guid i:nil="true" /><name>Start</name><type>Root</type><value i:nil="true" /><x>400</x><x0>400</x0><y>0</y><y0>0</y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-03 15:59:19,452 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-03 15:59:19,452 ERROR SIPStack - No such host is known
+2013-01-03 15:59:19,454 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-03 15:59:19,454 ERROR SIPStack - No such host is known
+2013-01-03 15:59:19,457 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-03 15:59:19,457 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-03 15:59:19,457 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=609389500892492294
+CSeq:  2 MESSAGE
+Call-ID: 688580009@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw2ODg1ODAwMDlAMTkyLjE2OC4yMC4zMnwyfEZhbHNl
+Content-Length: 0
+
+
+2013-01-03 15:59:19,457 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=609389500504202045
+CSeq:  2 MESSAGE
+Call-ID: 1395325159@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMzk1MzI1MTU5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 15:59:19,458 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=609389500504202045
+CSeq:  2 MESSAGE
+Call-ID: 1395325159@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMzk1MzI1MTU5QDE5Mi4xNjguMjAuMzJ8MnxGYWxzZQ..
+Content-Length: 0
+
+
+2013-01-03 15:59:19,458 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-03 15:59:19,458 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=609389500892492294
+CSeq:  2 MESSAGE
+Call-ID: 688580009@192.168.20.32
+Via: SIP/2.0/UDP 192.168.20.32:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw2ODg1ODAwMDlAMTkyLjE2OC4yMC4zMnwyfEZhbHNl
+Content-Length: 0
+
+
+2013-01-03 15:59:19,458 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 07:43:27,034 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 07:43:27,049 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=4955398871835131324
+CSeq:  2 MESSAGE
+Call-ID: 740841370@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw3NDA4NDEzNzBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4206
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>ecd52313-c592-155a-26ae-4f4873d849b9</d3p1:Key><d3p1:Value><BlockType>Condition</BlockType><GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GlobalGUID><InstanceGUID>ecd52313-c592-155a-26ae-4f4873d849b9</InstanceGUID><Name>Status of End User</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>1e69adaf-e6f6-c293-28f9-9c3d85d826b9</InstanceGUID><Name>Busy</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>1e69adaf-e6f6-c293-28f9-9c3d85d826b9</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>1e69adaf-e6f6-c293-28f9-9c3d85d826b9</InstanceGUID><Name>Busy</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>91a97727-e590-4ccb-5a42-0f095c6f996c</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</GlobalGUID><InstanceGUID>91a97727-e590-4ccb-5a42-0f095c6f996c</InstanceGUID><Name>Voice Mail</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>91a97727-e590-4ccb-5a42-0f095c6f996c</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</GlobalGUID><InstanceGUID>91a97727-e590-4ccb-5a42-0f095c6f996c</InstanceGUID><Name>Voice Mail</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Successfully accepted call, will begin recording callers voice</GlobalGUID><InstanceGUID>d36357b0-cf1a-312d-4b1f-dd7869e6b25f</InstanceGUID><Name>SIP_200_OK</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>ecd52313-c592-155a-26ae-4f4873d849b9</FirstBlockGUID><Name>"If Busy, Send to VoiceMail"</Name><RootNode><children><D3Node><children><D3Node><children><D3Node><children><D3Node><children /><depth>4</depth><global_guid>Successfully accepted call, will begin recording callers voice</global_guid><id>5</id><instance_guid>d36357b0-cf1a-312d-4b1f-dd7869e6b25f</instance_guid><name>SIP_200_OK</name><type>ServiceValue</type><value>Successfully accepted call, will begin recording callers voice</value><x>400</x><x0>400</x0><y>500</y><y0>500</y0></D3Node></children><depth>3</depth><global_guid>71f7523d-b461-405b-ab14-695014e03fd4</global_guid><id>4</id><instance_guid>91a97727-e590-4ccb-5a42-0f095c6f996c</instance_guid><name>Voice Mail</name><type>Service</type><value>71f7523d-b461-405b-ab14-695014e03fd4</value><x>400</x><x0>400</x0><y>375</y><y0>375</y0></D3Node></children><depth>2</depth><global_guid>1</global_guid><id>3</id><instance_guid>1e69adaf-e6f6-c293-28f9-9c3d85d826b9</instance_guid><name>Busy</name><type>ConditionValue</type><value>1</value><x>400</x><x0>400</x0><y>250</y><y0>250</y0></D3Node></children><depth>1</depth><global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</global_guid><id>2</id><instance_guid>ecd52313-c592-155a-26ae-4f4873d849b9</instance_guid><name>Status of End User</name><type>Condition</type><value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</value><x>400</x><x0>400</x0><y>125</y><y0>125</y0></D3Node></children><depth>0</depth><global_guid i:nil="true" /><id>1</id><instance_guid i:nil="true" /><name>Start</name><type>Root</type><value i:nil="true" /><x>400</x><x0>400</x0><y>0</y><y0>0</y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-08 07:43:27,302 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 07:43:27,302 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=11620875891177000071
+From: <sip:usps@open-ims.test>;tag=4955398871835131324
+CSeq:  2 MESSAGE
+Call-ID: 740841370@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw3NDA4NDEzNzBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 07:43:27,303 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=11620875891177000071
+From: <sip:usps@open-ims.test>;tag=4955398871835131324
+CSeq:  2 MESSAGE
+Call-ID: 740841370@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw3NDA4NDEzNzBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 07:43:27,303 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 07:51:54,361 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 07:51:54,375 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=5622699491909536420
+CSeq:  2 MESSAGE
+Call-ID: 506548222@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw1MDY1NDgyMjJAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 133
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+
+2013-01-08 07:51:54,460 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 07:51:54,460 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=4845369491370892775
+From: <sip:usps@open-ims.test>;tag=5622699491909536420
+CSeq:  2 MESSAGE
+Call-ID: 506548222@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw1MDY1NDgyMjJAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 07:51:54,460 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=4845369491370892775
+From: <sip:usps@open-ims.test>;tag=5622699491909536420
+CSeq:  2 MESSAGE
+Call-ID: 506548222@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw1MDY1NDgyMjJAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 07:51:54,460 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 07:52:24,315 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 07:52:24,315 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=5622699491999334780
+CSeq:  2 MESSAGE
+Call-ID: 339091473@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzMzkwOTE0NzNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4206
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>2c54c81f-5fe4-a136-3f23-e63db56f3c97</d3p1:Key><d3p1:Value><BlockType>Condition</BlockType><GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</GlobalGUID><InstanceGUID>2c54c81f-5fe4-a136-3f23-e63db56f3c97</InstanceGUID><Name>Status of End User</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>32ac45a0-dd4e-ac48-5c63-fb7c78fe8c12</InstanceGUID><Name>Busy</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>32ac45a0-dd4e-ac48-5c63-fb7c78fe8c12</d3p1:Key><d3p1:Value><BlockType>ConditionOption</BlockType><GlobalGUID>1</GlobalGUID><InstanceGUID>32ac45a0-dd4e-ac48-5c63-fb7c78fe8c12</InstanceGUID><Name>Busy</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>6b2dc894-c95e-006a-de54-a643588e613f</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</GlobalGUID><InstanceGUID>6b2dc894-c95e-006a-de54-a643588e613f</InstanceGUID><Name>Voice Mail</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>6b2dc894-c95e-006a-de54-a643588e613f</d3p1:Key><d3p1:Value><BlockType>Service</BlockType><GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</GlobalGUID><InstanceGUID>6b2dc894-c95e-006a-de54-a643588e613f</InstanceGUID><Name>Voice Mail</Name><NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><BlockType>SIPResponse</BlockType><GlobalGUID>Successfully accepted call, will begin recording callers voice</GlobalGUID><InstanceGUID>18b83977-09b4-9d8e-61f9-e4c0a77aed80</InstanceGUID><Name>SIP_200_OK</Name><NextBlocks /><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></NextBlocks><ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>2c54c81f-5fe4-a136-3f23-e63db56f3c97</FirstBlockGUID><Name>"If Busy, Send to Voicemail"</Name><RootNode><children><D3Node><children><D3Node><children><D3Node><children><D3Node><children /><depth>4</depth><global_guid>Successfully accepted call, will begin recording callers voice</global_guid><id>5</id><instance_guid>18b83977-09b4-9d8e-61f9-e4c0a77aed80</instance_guid><name>SIP_200_OK</name><type>ServiceValue</type><value>Successfully accepted call, will begin recording callers voice</value><x>400</x><x0>400</x0><y>500</y><y0>500</y0></D3Node></children><depth>3</depth><global_guid>71f7523d-b461-405b-ab14-695014e03fd4</global_guid><id>4</id><instance_guid>6b2dc894-c95e-006a-de54-a643588e613f</instance_guid><name>Voice Mail</name><type>Service</type><value>71f7523d-b461-405b-ab14-695014e03fd4</value><x>400</x><x0>400</x0><y>375</y><y0>375</y0></D3Node></children><depth>2</depth><global_guid>1</global_guid><id>3</id><instance_guid>32ac45a0-dd4e-ac48-5c63-fb7c78fe8c12</instance_guid><name>Busy</name><type>ConditionValue</type><value>1</value><x>400</x><x0>400</x0><y>250</y><y0>250</y0></D3Node></children><depth>1</depth><global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</global_guid><id>2</id><instance_guid>2c54c81f-5fe4-a136-3f23-e63db56f3c97</instance_guid><name>Status of End User</name><type>Condition</type><value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</value><x>400</x><x0>400</x0><y>125</y><y0>125</y0></D3Node></children><depth>0</depth><global_guid i:nil="true" /><id>1</id><instance_guid i:nil="true" /><name>Start</name><type>Root</type><value i:nil="true" /><x>400</x><x0>400</x0><y>0</y><y0>0</y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-08 07:52:24,444 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 07:52:24,444 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=4845369491041535098
+From: <sip:usps@open-ims.test>;tag=5622699491999334780
+CSeq:  2 MESSAGE
+Call-ID: 339091473@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzMzkwOTE0NzNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 07:52:24,444 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=4845369491041535098
+From: <sip:usps@open-ims.test>;tag=5622699491999334780
+CSeq:  2 MESSAGE
+Call-ID: 339091473@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzMzkwOTE0NzNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 07:52:24,444 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 08:01:25,446 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 08:01:25,452 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 08:01:25,467 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18208716551486272288
+CSeq:  2 MESSAGE
+Call-ID: 1517791698@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTE3NzkxNjk4QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 133
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+
+2013-01-08 08:01:25,467 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18208716551284747495
+CSeq:  2 MESSAGE
+Call-ID: 813461785@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw4MTM0NjE3ODVAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 133
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+
+2013-01-08 08:05:36,408 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 08:05:36,419 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 08:05:36,422 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=148338173881016868
+CSeq:  2 MESSAGE
+Call-ID: 1921408716@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTIxNDA4NzE2QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 133
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+
+2013-01-08 08:05:36,422 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=148338173881016868
+CSeq:  2 MESSAGE
+Call-ID: 733969606@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw3MzM5Njk2MDZAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 266
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/USPS.Code" />
+
+2013-01-08 08:22:58,446 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 08:22:58,483 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=254492818903149369
+CSeq:  2 MESSAGE
+Call-ID: 1986398244@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTg2Mzk4MjQ0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 75
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" />
+
+2013-01-08 08:22:59,908 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 08:22:59,908 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=1061533664921296984
+From: <sip:usps@open-ims.test>;tag=254492818903149369
+CSeq:  2 MESSAGE
+Call-ID: 1986398244@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTg2Mzk4MjQ0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 08:22:59,908 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=1061533664921296984
+From: <sip:usps@open-ims.test>;tag=254492818903149369
+CSeq:  2 MESSAGE
+Call-ID: 1986398244@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTg2Mzk4MjQ0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 08:22:59,908 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 08:23:59,829 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 08:23:59,829 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2544928182038478840
+CSeq:  2 MESSAGE
+Call-ID: 1613795590@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNjEzNzk1NTkwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 5335
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>2c8ca352-8be4-91b7-92af-ddf6f8d062da</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Condition</d5p1:BlockType><d5p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:GlobalGUID><d5p1:InstanceGUID>2c8ca352-8be4-91b7-92af-ddf6f8d062da</d5p1:InstanceGUID><d5p1:Name>Status of End User</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>cc4c1411-66b7-3c6a-5b25-a308bb23aa1f</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>cc4c1411-66b7-3c6a-5b25-a308bb23aa1f</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>cc4c1411-66b7-3c6a-5b25-a308bb23aa1f</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>4604f25b-a0b7-b77a-fc60-cb8f44e131a1</d3p1:Key><d3p1:Value><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>4604f25b-a0b7-b77a-fc60-cb8f44e131a1</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>4604f25b-a0b7-b77a-fc60-cb8f44e131a1</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>4604f25b-a0b7-b77a-fc60-cb8f44e131a1</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><d5p1:BlockType>SIPResponse</d5p1:BlockType><d5p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d5p1:GlobalGUID><d5p1:InstanceGUID>76607217-5f36-28fd-d395-b80be38f31d2</d5p1:InstanceGUID><d5p1:Name>SIP_200_OK</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>2c8ca352-8be4-91b7-92af-ddf6f8d062da</FirstBlockGUID><Name>"If Busy, Send to Voicemail"</Name><RootNode xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>4</d3p1:depth><d3p1:global_guid>Successfully accepted call, will begin recording callers voice</d3p1:global_guid><d3p1:id>5</d3p1:id><d3p1:instance_guid>76607217-5f36-28fd-d395-b80be38f31d2</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted call, will begin recording callers voice</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>3</d3p1:depth><d3p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:global_guid><d3p1:id>4</d3p1:id><d3p1:instance_guid>4604f25b-a0b7-b77a-fc60-cb8f44e131a1</d3p1:instance_guid><d3p1:name>Voice Mail</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>375</d3p1:y><d3p1:y0>375</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>2</d3p1:depth><d3p1:global_guid>1</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>cc4c1411-66b7-3c6a-5b25-a308bb23aa1f</d3p1:instance_guid><d3p1:name>Busy</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>1</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>2c8ca352-8be4-91b7-92af-ddf6f8d062da</d3p1:instance_guid><d3p1:name>Status of End User</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>125</d3p1:y><d3p1:y0>125</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-08 08:24:01,131 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 08:24:01,131 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=10615336641372198401
+From: <sip:usps@open-ims.test>;tag=2544928182038478840
+CSeq:  2 MESSAGE
+Call-ID: 1613795590@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNjEzNzk1NTkwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 08:24:01,131 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=10615336641372198401
+From: <sip:usps@open-ims.test>;tag=2544928182038478840
+CSeq:  2 MESSAGE
+Call-ID: 1613795590@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNjEzNzk1NTkwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 08:24:01,131 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 09:00:01,652 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 09:00:01,652 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2544928181047991351
+CSeq:  2 MESSAGE
+Call-ID: 352640128@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNTI2NDAxMjhAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 75
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" />
+
+2013-01-08 09:00:04,168 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 09:00:04,168 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=535388043509347706
+From: <sip:usps@open-ims.test>;tag=2544928181047991351
+CSeq:  2 MESSAGE
+Call-ID: 352640128@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNTI2NDAxMjhAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 09:00:04,168 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=535388043509347706
+From: <sip:usps@open-ims.test>;tag=2544928181047991351
+CSeq:  2 MESSAGE
+Call-ID: 352640128@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNTI2NDAxMjhAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 09:00:04,168 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 09:02:27,575 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 09:02:27,575 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2544928181537461818
+CSeq:  2 MESSAGE
+Call-ID: 342129703@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNDIxMjk3MDNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 5323
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>644fd993-91ab-de8d-484a-35a6f52709e9</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Condition</d5p1:BlockType><d5p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:GlobalGUID><d5p1:InstanceGUID>644fd993-91ab-de8d-484a-35a6f52709e9</d5p1:InstanceGUID><d5p1:Name>Status of End User</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>39931b8f-65f4-50d8-30bd-8e166c17555b</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>39931b8f-65f4-50d8-30bd-8e166c17555b</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>39931b8f-65f4-50d8-30bd-8e166c17555b</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:Key><d3p1:Value><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>f5b43951-d29b-6743-8c6c-48ce34248a90</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>f5b43951-d29b-6743-8c6c-48ce34248a90</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><d5p1:BlockType>SIPResponse</d5p1:BlockType><d5p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d5p1:GlobalGUID><d5p1:InstanceGUID>c993c80d-f826-9d1d-93e5-627221fc988f</d5p1:InstanceGUID><d5p1:Name>SIP_200_OK</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>644fd993-91ab-de8d-484a-35a6f52709e9</FirstBlockGUID><Name>"Busy2voicemail"</Name><RootNode xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>4</d3p1:depth><d3p1:global_guid>Successfully accepted call, will begin recording callers voice</d3p1:global_guid><d3p1:id>5</d3p1:id><d3p1:instance_guid>c993c80d-f826-9d1d-93e5-627221fc988f</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted call, will begin recording callers voice</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>3</d3p1:depth><d3p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:global_guid><d3p1:id>4</d3p1:id><d3p1:instance_guid>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:instance_guid><d3p1:name>Voice Mail</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>375</d3p1:y><d3p1:y0>375</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>2</d3p1:depth><d3p1:global_guid>1</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>39931b8f-65f4-50d8-30bd-8e166c17555b</d3p1:instance_guid><d3p1:name>Busy</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>1</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>644fd993-91ab-de8d-484a-35a6f52709e9</d3p1:instance_guid><d3p1:name>Status of End User</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>125</d3p1:y><d3p1:y0>125</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-08 09:02:27,640 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 09:02:27,640 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=5353880431186089927
+From: <sip:usps@open-ims.test>;tag=2544928181537461818
+CSeq:  2 MESSAGE
+Call-ID: 342129703@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNDIxMjk3MDNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 09:02:27,641 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=5353880431186089927
+From: <sip:usps@open-ims.test>;tag=2544928181537461818
+CSeq:  2 MESSAGE
+Call-ID: 342129703@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNDIxMjk3MDNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 09:02:27,641 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 09:16:27,996 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 09:16:27,996 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=254492818277848973
+CSeq:  2 MESSAGE
+Call-ID: 2059320286@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDU5MzIwMjg2QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 7854
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>644fd993-91ab-de8d-484a-35a6f52709e9</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Condition</d5p1:BlockType><d5p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:GlobalGUID><d5p1:InstanceGUID>644fd993-91ab-de8d-484a-35a6f52709e9</d5p1:InstanceGUID><d5p1:Name>Status of End User</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>39931b8f-65f4-50d8-30bd-8e166c17555b</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>39931b8f-65f4-50d8-30bd-8e166c17555b</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>39931b8f-65f4-50d8-30bd-8e166c17555b</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:Key><d3p1:Value><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>f5b43951-d29b-6743-8c6c-48ce34248a90</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>f5b43951-d29b-6743-8c6c-48ce34248a90</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><d5p1:BlockType>SIPResponse</d5p1:BlockType><d5p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d5p1:GlobalGUID><d5p1:InstanceGUID>c993c80d-f826-9d1d-93e5-627221fc988f</d5p1:InstanceGUID><d5p1:Name>SIP_200_OK</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>644fd993-91ab-de8d-484a-35a6f52709e9</FirstBlockGUID><Name>"Busy2voicemail"</Name><RootNode xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>4</d3p1:depth><d3p1:global_guid>Successfully accepted call, will begin recording callers voice</d3p1:global_guid><d3p1:id>5</d3p1:id><d3p1:instance_guid>c993c80d-f826-9d1d-93e5-627221fc988f</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted call, will begin recording callers voice</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>3</d3p1:depth><d3p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:global_guid><d3p1:id>4</d3p1:id><d3p1:instance_guid>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:instance_guid><d3p1:name>Voice Mail</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>375</d3p1:y><d3p1:y0>375</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>2</d3p1:depth><d3p1:global_guid>1</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>39931b8f-65f4-50d8-30bd-8e166c17555b</d3p1:instance_guid><d3p1:name>Busy</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>1</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>644fd993-91ab-de8d-484a-35a6f52709e9</d3p1:instance_guid><d3p1:name>Status of End User</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>125</d3p1:y><d3p1:y0>125</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></RootNode></ServiceFlow><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>10f76b68-07c3-9516-5537-b01f4be67d43</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>3600f74a-a5b1-4e47-a2e7-04b12116a670</d5p1:GlobalGUID><d5p1:InstanceGUID>10f76b68-07c3-9516-5537-b01f4be67d43</d5p1:InstanceGUID><d5p1:Name>Missed Call Notification - IM</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><d5p1:BlockType>SIPResponse</d5p1:BlockType><d5p1:GlobalGUID>Successfully accepted notification, will IM end user</d5p1:GlobalGUID><d5p1:InstanceGUID>2e1cbef1-e709-3746-e981-cc025033ab11</d5p1:InstanceGUID><d5p1:Name>SIP_200_OK</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>10f76b68-07c3-9516-5537-b01f4be67d43</FirstBlockGUID><Name>"sgs"</Name><RootNode xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>Successfully accepted notification, will IM end user</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>2e1cbef1-e709-3746-e981-cc025033ab11</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted notification, will IM end user</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>3600f74a-a5b1-4e47-a2e7-04b12116a670</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>10f76b68-07c3-9516-5537-b01f4be67d43</d3p1:instance_guid><d3p1:name>Missed Call Notification - IM</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>3600f74a-a5b1-4e47-a2e7-04b12116a670</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-08 09:16:28,129 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 09:16:28,129 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=162591723390577219
+From: <sip:usps@open-ims.test>;tag=254492818277848973
+CSeq:  2 MESSAGE
+Call-ID: 2059320286@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDU5MzIwMjg2QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 09:16:28,129 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=162591723390577219
+From: <sip:usps@open-ims.test>;tag=254492818277848973
+CSeq:  2 MESSAGE
+Call-ID: 2059320286@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDU5MzIwMjg2QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 09:16:28,130 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 10:14:29,731 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 10:14:29,732 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=254492818521427030
+CSeq:  2 MESSAGE
+Call-ID: 468399192@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0NjgzOTkxOTJAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 5323
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>644fd993-91ab-de8d-484a-35a6f52709e9</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Condition</d5p1:BlockType><d5p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:GlobalGUID><d5p1:InstanceGUID>644fd993-91ab-de8d-484a-35a6f52709e9</d5p1:InstanceGUID><d5p1:Name>Status of End User</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>39931b8f-65f4-50d8-30bd-8e166c17555b</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>39931b8f-65f4-50d8-30bd-8e166c17555b</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>39931b8f-65f4-50d8-30bd-8e166c17555b</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:Key><d3p1:Value><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>f5b43951-d29b-6743-8c6c-48ce34248a90</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>f5b43951-d29b-6743-8c6c-48ce34248a90</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><d5p1:BlockType>SIPResponse</d5p1:BlockType><d5p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d5p1:GlobalGUID><d5p1:InstanceGUID>c993c80d-f826-9d1d-93e5-627221fc988f</d5p1:InstanceGUID><d5p1:Name>SIP_200_OK</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>644fd993-91ab-de8d-484a-35a6f52709e9</FirstBlockGUID><Name>"Busy2voicemail"</Name><RootNode xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>4</d3p1:depth><d3p1:global_guid>Successfully accepted call, will begin recording callers voice</d3p1:global_guid><d3p1:id>5</d3p1:id><d3p1:instance_guid>c993c80d-f826-9d1d-93e5-627221fc988f</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted call, will begin recording callers voice</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>3</d3p1:depth><d3p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:global_guid><d3p1:id>4</d3p1:id><d3p1:instance_guid>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:instance_guid><d3p1:name>Voice Mail</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>375</d3p1:y><d3p1:y0>375</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>2</d3p1:depth><d3p1:global_guid>1</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>39931b8f-65f4-50d8-30bd-8e166c17555b</d3p1:instance_guid><d3p1:name>Busy</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>1</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>644fd993-91ab-de8d-484a-35a6f52709e9</d3p1:instance_guid><d3p1:name>Status of End User</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>125</d3p1:y><d3p1:y0>125</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-08 10:14:29,858 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 10:14:29,858 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=14049357341359739104
+From: <sip:usps@open-ims.test>;tag=254492818521427030
+CSeq:  2 MESSAGE
+Call-ID: 468399192@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0NjgzOTkxOTJAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 10:14:29,858 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=14049357341359739104
+From: <sip:usps@open-ims.test>;tag=254492818521427030
+CSeq:  2 MESSAGE
+Call-ID: 468399192@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0NjgzOTkxOTJAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 10:14:29,860 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 10:24:30,019 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 10:24:30,019 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2544928182103489449
+CSeq:  2 MESSAGE
+Call-ID: 478687689@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0Nzg2ODc2ODlAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 8474
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>644fd993-91ab-de8d-484a-35a6f52709e9</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Condition</d5p1:BlockType><d5p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:GlobalGUID><d5p1:InstanceGUID>644fd993-91ab-de8d-484a-35a6f52709e9</d5p1:InstanceGUID><d5p1:Name>Status of End User</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>Busy</d3p1:Key><d3p1:Value><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>39931b8f-65f4-50d8-30bd-8e166c17555b</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>39931b8f-65f4-50d8-30bd-8e166c17555b</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>39931b8f-65f4-50d8-30bd-8e166c17555b</d5p1:InstanceGUID><d5p1:Name>Busy</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:Key><d3p1:Value><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>f5b43951-d29b-6743-8c6c-48ce34248a90</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Service</d5p1:BlockType><d5p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:GlobalGUID><d5p1:InstanceGUID>f5b43951-d29b-6743-8c6c-48ce34248a90</d5p1:InstanceGUID><d5p1:Name>Voice Mail</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>SIP_200_OK</d3p1:Key><d3p1:Value><d5p1:BlockType>SIPResponse</d5p1:BlockType><d5p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d5p1:GlobalGUID><d5p1:InstanceGUID>c993c80d-f826-9d1d-93e5-627221fc988f</d5p1:InstanceGUID><d5p1:Name>SIP_200_OK</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>644fd993-91ab-de8d-484a-35a6f52709e9</FirstBlockGUID><Name>"Busy2voicemail"</Name><RootNode xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>4</d3p1:depth><d3p1:global_guid>Successfully accepted call, will begin recording callers voice</d3p1:global_guid><d3p1:id>5</d3p1:id><d3p1:instance_guid>c993c80d-f826-9d1d-93e5-627221fc988f</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted call, will begin recording callers voice</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>3</d3p1:depth><d3p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:global_guid><d3p1:id>4</d3p1:id><d3p1:instance_guid>f5b43951-d29b-6743-8c6c-48ce34248a90</d3p1:instance_guid><d3p1:name>Voice Mail</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>375</d3p1:y><d3p1:y0>375</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>2</d3p1:depth><d3p1:global_guid>1</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>39931b8f-65f4-50d8-30bd-8e166c17555b</d3p1:instance_guid><d3p1:name>Busy</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>1</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>644fd993-91ab-de8d-484a-35a6f52709e9</d3p1:instance_guid><d3p1:name>Status of End User</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>125</d3p1:y><d3p1:y0>125</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></RootNode></ServiceFlow><ServiceFlow><Blocks xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>f5318774-25d0-419c-defd-36dde7d8da9b</d3p1:Key><d3p1:Value xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:BlockType>Condition</d5p1:BlockType><d5p1:GlobalGUID>a16bc34f-b1a6-4b19-9692-e87b37611c5d</d5p1:GlobalGUID><d5p1:InstanceGUID>f5318774-25d0-419c-defd-36dde7d8da9b</d5p1:InstanceGUID><d5p1:Name>Time of Day</d5p1:Name><d5p1:NextBlocks><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>00:00 to 01:00</d3p1:Key><d3p1:Value><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>0</d5p1:GlobalGUID><d5p1:InstanceGUID>1cd8840b-43ff-7978-15c3-c34ed6c9afa4</d5p1:InstanceGUID><d5p1:Name>00:00 to 01:00</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:KeyValueOfstringServiceBlockmX110R14><d3p1:Key>01:00 to 02:00</d3p1:Key><d3p1:Value><d5p1:BlockType>ConditionOption</d5p1:BlockType><d5p1:GlobalGUID>1</d5p1:GlobalGUID><d5p1:InstanceGUID>12931184-325d-fd26-22d5-7a71a93a24ac</d5p1:InstanceGUID><d5p1:Name>01:00 to 02:00</d5p1:Name><d5p1:NextBlocks /><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></d5p1:NextBlocks><d5p1:ParentBlock i:nil="true" /></d3p1:Value></d3p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>f5318774-25d0-419c-defd-36dde7d8da9b</FirstBlockGUID><Name>"zdndzh"</Name><RootNode xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>0</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>1cd8840b-43ff-7978-15c3-c34ed6c9afa4</d3p1:instance_guid><d3p1:name>00:00 to 01:00</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>0</d3p1:value><d3p1:x>200</d3p1:x><d3p1:x0>200</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>1</d3p1:global_guid><d3p1:id>4</d3p1:id><d3p1:instance_guid>12931184-325d-fd26-22d5-7a71a93a24ac</d3p1:instance_guid><d3p1:name>01:00 to 02:00</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>1</d3p1:value><d3p1:x>600</d3p1:x><d3p1:x0>600</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>a16bc34f-b1a6-4b19-9692-e87b37611c5d</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>f5318774-25d0-419c-defd-36dde7d8da9b</d3p1:instance_guid><d3p1:name>Time of Day</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>a16bc34f-b1a6-4b19-9692-e87b37611c5d</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></RootNode></ServiceFlow></ArrayOfServiceFlow>
+
+2013-01-08 10:24:30,150 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 10:24:30,150 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=212084607423789948
+From: <sip:usps@open-ims.test>;tag=2544928182103489449
+CSeq:  2 MESSAGE
+Call-ID: 478687689@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0Nzg2ODc2ODlAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 10:24:30,150 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=212084607423789948
+From: <sip:usps@open-ims.test>;tag=2544928182103489449
+CSeq:  2 MESSAGE
+Call-ID: 478687689@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0Nzg2ODc2ODlAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 10:24:30,150 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 12:06:54,390 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 12:06:54,404 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2096267673166475644
+CSeq:  2 MESSAGE
+Call-ID: 1165882064@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMTY1ODgyMDY0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 75
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" />
+
+2013-01-08 12:10:54,462 INFO  SIPApp - Received response with code 408 Request Timeout
+2013-01-08 12:10:54,463 DEBUG SIPApp - 
+
+SIP/2.0 408 Request Timeout
+To: <sip:scim@open-ims.test>;tag=210a27e705ee8b78b832d250877e232c-b733
+From: <sip:usps@open-ims.test>;tag=2096267673166475644
+CSeq:  2 MESSAGE
+Call-ID: 1165882064@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMTY1ODgyMDY0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (x86_64/linux))
+Content-Length: 0
+
+
+2013-01-08 12:10:54,463 INFO  SIPApp - Response Received:SIP/2.0 408 Request Timeout
+To: <sip:scim@open-ims.test>;tag=210a27e705ee8b78b832d250877e232c-b733
+From: <sip:usps@open-ims.test>;tag=2096267673166475644
+CSeq:  2 MESSAGE
+Call-ID: 1165882064@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMTY1ODgyMDY0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (x86_64/linux))
+Content-Length: 0
+
+
+2013-01-08 12:10:54,463 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 12:23:49,857 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 12:23:49,871 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=12654212831886772355
+CSeq:  2 MESSAGE
+Call-ID: 826693720@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw4MjY2OTM3MjBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 75
+
+<ArrayOfServiceFlow xmlns:i="http://www.w3.org/2001/XMLSchema-instance" />
+
+2013-01-08 12:23:58,014 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 12:23:58,014 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=13399795242121564134
+From: <sip:usps@open-ims.test>;tag=12654212831886772355
+CSeq:  2 MESSAGE
+Call-ID: 826693720@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw4MjY2OTM3MjBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 12:23:58,015 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=13399795242121564134
+From: <sip:usps@open-ims.test>;tag=12654212831886772355
+CSeq:  2 MESSAGE
+Call-ID: 826693720@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw4MjY2OTM3MjBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 12:23:58,015 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 12:51:00,938 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 12:51:00,952 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=336691890965864511
+CSeq:  2 MESSAGE
+Call-ID: 1545341060@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTQ1MzQxMDYwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 350
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowLjh4bohd><Key>alice@open-ims.test</Key><Value /></KeyValueOfstringArrayOfServiceFlowLjh4bohd></ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd>
+
+2013-01-08 12:51:01,041 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 12:51:01,041 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=8597677791197748794
+From: <sip:usps@open-ims.test>;tag=336691890965864511
+CSeq:  2 MESSAGE
+Call-ID: 1545341060@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTQ1MzQxMDYwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 12:51:01,042 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=8597677791197748794
+From: <sip:usps@open-ims.test>;tag=336691890965864511
+CSeq:  2 MESSAGE
+Call-ID: 1545341060@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTQ1MzQxMDYwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 12:51:01,042 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 12:52:31,286 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 12:52:31,286 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=3366918901176465196
+CSeq:  2 MESSAGE
+Call-ID: 1553914786@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTUzOTE0Nzg2QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 5590
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowLjh4bohd><Key>alice@open-ims.test</Key><Value><ServiceFlow xmlns=""><Blocks xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Condition</d7p1:BlockType><d7p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d7p1:GlobalGUID><d7p1:InstanceGUID>babf4bf6-2028-6283-1863-e600256ed34e</d7p1:InstanceGUID><d7p1:Name>Status of End User</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>Busy</d5p1:Key><d5p1:Value><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>SIP_200_OK</d5p1:Key><d5p1:Value><d7p1:BlockType>SIPResponse</d7p1:BlockType><d7p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d7p1:GlobalGUID><d7p1:InstanceGUID>480ae957-a984-7464-483f-601c2ca09f22</d7p1:InstanceGUID><d7p1:Name>SIP_200_OK</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>babf4bf6-2028-6283-1863-e600256ed34e</FirstBlockGUID><Name>"busy2voice"</Name><RootNode xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children /><d5p1:depth>4</d5p1:depth><d5p1:global_guid>Successfully accepted call, will begin recording callers voice</d5p1:global_guid><d5p1:id>5</d5p1:id><d5p1:instance_guid>480ae957-a984-7464-483f-601c2ca09f22</d5p1:instance_guid><d5p1:name>SIP_200_OK</d5p1:name><d5p1:type>ServiceValue</d5p1:type><d5p1:value>Successfully accepted call, will begin recording callers voice</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>500</d5p1:y><d5p1:y0>500</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>3</d5p1:depth><d5p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:global_guid><d5p1:id>4</d5p1:id><d5p1:instance_guid>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:instance_guid><d5p1:name>Voice Mail</d5p1:name><d5p1:type>Service</d5p1:type><d5p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>375</d5p1:y><d5p1:y0>375</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>2</d5p1:depth><d5p1:global_guid>1</d5p1:global_guid><d5p1:id>3</d5p1:id><d5p1:instance_guid>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:instance_guid><d5p1:name>Busy</d5p1:name><d5p1:type>ConditionValue</d5p1:type><d5p1:value>1</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>250</d5p1:y><d5p1:y0>250</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>1</d5p1:depth><d5p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:global_guid><d5p1:id>2</d5p1:id><d5p1:instance_guid>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:instance_guid><d5p1:name>Status of End User</d5p1:name><d5p1:type>Condition</d5p1:type><d5p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>125</d5p1:y><d5p1:y0>125</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>0</d5p1:depth><d5p1:global_guid i:nil="true" /><d5p1:id>1</d5p1:id><d5p1:instance_guid i:nil="true" /><d5p1:name>Start</d5p1:name><d5p1:type>Root</d5p1:type><d5p1:value i:nil="true" /><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>0</d5p1:y><d5p1:y0>0</d5p1:y0></RootNode></ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowLjh4bohd></ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd>
+
+2013-01-08 12:52:31,388 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 12:52:31,388 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=859767779989193442
+From: <sip:usps@open-ims.test>;tag=3366918901176465196
+CSeq:  2 MESSAGE
+Call-ID: 1553914786@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTUzOTE0Nzg2QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 12:52:31,389 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=859767779989193442
+From: <sip:usps@open-ims.test>;tag=3366918901176465196
+CSeq:  2 MESSAGE
+Call-ID: 1553914786@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNTUzOTE0Nzg2QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 12:52:31,389 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 13:11:02,850 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 13:11:02,850 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=3366918901834654362
+CSeq:  2 MESSAGE
+Call-ID: 95756272@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw5NTc1NjI3MkAxOTIuMTY4LjIwLjI1fDJ8RmFsc2U.
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 7937
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowLjh4bohd><Key>alice@open-ims.test</Key><Value><ServiceFlow xmlns=""><Blocks xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Condition</d7p1:BlockType><d7p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d7p1:GlobalGUID><d7p1:InstanceGUID>babf4bf6-2028-6283-1863-e600256ed34e</d7p1:InstanceGUID><d7p1:Name>Status of End User</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>Busy</d5p1:Key><d5p1:Value><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>SIP_200_OK</d5p1:Key><d5p1:Value><d7p1:BlockType>SIPResponse</d7p1:BlockType><d7p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d7p1:GlobalGUID><d7p1:InstanceGUID>480ae957-a984-7464-483f-601c2ca09f22</d7p1:InstanceGUID><d7p1:Name>SIP_200_OK</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>babf4bf6-2028-6283-1863-e600256ed34e</FirstBlockGUID><Name>"busy2voice"</Name><RootNode xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children /><d5p1:depth>4</d5p1:depth><d5p1:global_guid>Successfully accepted call, will begin recording callers voice</d5p1:global_guid><d5p1:id>5</d5p1:id><d5p1:instance_guid>480ae957-a984-7464-483f-601c2ca09f22</d5p1:instance_guid><d5p1:name>SIP_200_OK</d5p1:name><d5p1:type>ServiceValue</d5p1:type><d5p1:value>Successfully accepted call, will begin recording callers voice</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>500</d5p1:y><d5p1:y0>500</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>3</d5p1:depth><d5p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:global_guid><d5p1:id>4</d5p1:id><d5p1:instance_guid>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:instance_guid><d5p1:name>Voice Mail</d5p1:name><d5p1:type>Service</d5p1:type><d5p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>375</d5p1:y><d5p1:y0>375</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>2</d5p1:depth><d5p1:global_guid>1</d5p1:global_guid><d5p1:id>3</d5p1:id><d5p1:instance_guid>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:instance_guid><d5p1:name>Busy</d5p1:name><d5p1:type>ConditionValue</d5p1:type><d5p1:value>1</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>250</d5p1:y><d5p1:y0>250</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>1</d5p1:depth><d5p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:global_guid><d5p1:id>2</d5p1:id><d5p1:instance_guid>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:instance_guid><d5p1:name>Status of End User</d5p1:name><d5p1:type>Condition</d5p1:type><d5p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>125</d5p1:y><d5p1:y0>125</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>0</d5p1:depth><d5p1:global_guid i:nil="true" /><d5p1:id>1</d5p1:id><d5p1:instance_guid i:nil="true" /><d5p1:name>Start</d5p1:name><d5p1:type>Root</d5p1:type><d5p1:value i:nil="true" /><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>0</d5p1:y><d5p1:y0>0</d5p1:y0></RootNode></ServiceFlow><ServiceFlow xmlns=""><Blocks xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>e9ac6098-57b0-2054-8098-ca032364e04e</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Condition</d7p1:BlockType><d7p1:GlobalGUID>4cda3266-165a-4fe4-8298-db9ee2481349</d7p1:GlobalGUID><d7p1:InstanceGUID>e9ac6098-57b0-2054-8098-ca032364e04e</d7p1:InstanceGUID><d7p1:Name>Calling Party</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>Bob</d5p1:Key><d5p1:Value><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>a20dea57-712c-52b8-f7e5-924c243bc33c</d7p1:InstanceGUID><d7p1:Name>Bob</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>e9ac6098-57b0-2054-8098-ca032364e04e</FirstBlockGUID><Name>"adgadg"</Name><RootNode xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children /><d5p1:depth>2</d5p1:depth><d5p1:global_guid>1</d5p1:global_guid><d5p1:id>3</d5p1:id><d5p1:instance_guid>a20dea57-712c-52b8-f7e5-924c243bc33c</d5p1:instance_guid><d5p1:name>Bob</d5p1:name><d5p1:type>ConditionValue</d5p1:type><d5p1:value>1</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>500</d5p1:y><d5p1:y0>500</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>1</d5p1:depth><d5p1:global_guid>4cda3266-165a-4fe4-8298-db9ee2481349</d5p1:global_guid><d5p1:id>2</d5p1:id><d5p1:instance_guid>e9ac6098-57b0-2054-8098-ca032364e04e</d5p1:instance_guid><d5p1:name>Calling Party</d5p1:name><d5p1:type>Condition</d5p1:type><d5p1:value>4cda3266-165a-4fe4-8298-db9ee2481349</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>250</d5p1:y><d5p1:y0>250</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>0</d5p1:depth><d5p1:global_guid i:nil="true" /><d5p1:id>1</d5p1:id><d5p1:instance_guid i:nil="true" /><d5p1:name>Start</d5p1:name><d5p1:type>Root</d5p1:type><d5p1:value i:nil="true" /><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>0</d5p1:y><d5p1:y0>0</d5p1:y0></RootNode></ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowLjh4bohd></ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd>
+
+2013-01-08 13:11:02,976 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 13:11:02,976 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=1171024955876854680
+From: <sip:usps@open-ims.test>;tag=3366918901834654362
+CSeq:  2 MESSAGE
+Call-ID: 95756272@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw5NTc1NjI3MkAxOTIuMTY4LjIwLjI1fDJ8RmFsc2U.
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 13:11:02,976 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=1171024955876854680
+From: <sip:usps@open-ims.test>;tag=3366918901834654362
+CSeq:  2 MESSAGE
+Call-ID: 95756272@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw5NTc1NjI3MkAxOTIuMTY4LjIwLjI1fDJ8RmFsc2U.
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 13:11:02,976 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 13:13:32,921 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 13:13:32,921 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=3366918901693299055
+CSeq:  2 MESSAGE
+Call-ID: 1762211293@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNzYyMjExMjkzQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 5590
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowLjh4bohd><Key>alice@open-ims.test</Key><Value><ServiceFlow xmlns=""><Blocks xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Condition</d7p1:BlockType><d7p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d7p1:GlobalGUID><d7p1:InstanceGUID>babf4bf6-2028-6283-1863-e600256ed34e</d7p1:InstanceGUID><d7p1:Name>Status of End User</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>Busy</d5p1:Key><d5p1:Value><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>SIP_200_OK</d5p1:Key><d5p1:Value><d7p1:BlockType>SIPResponse</d7p1:BlockType><d7p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d7p1:GlobalGUID><d7p1:InstanceGUID>480ae957-a984-7464-483f-601c2ca09f22</d7p1:InstanceGUID><d7p1:Name>SIP_200_OK</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>babf4bf6-2028-6283-1863-e600256ed34e</FirstBlockGUID><Name>"busy2voice"</Name><RootNode xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children /><d5p1:depth>4</d5p1:depth><d5p1:global_guid>Successfully accepted call, will begin recording callers voice</d5p1:global_guid><d5p1:id>5</d5p1:id><d5p1:instance_guid>480ae957-a984-7464-483f-601c2ca09f22</d5p1:instance_guid><d5p1:name>SIP_200_OK</d5p1:name><d5p1:type>ServiceValue</d5p1:type><d5p1:value>Successfully accepted call, will begin recording callers voice</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>500</d5p1:y><d5p1:y0>500</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>3</d5p1:depth><d5p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:global_guid><d5p1:id>4</d5p1:id><d5p1:instance_guid>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:instance_guid><d5p1:name>Voice Mail</d5p1:name><d5p1:type>Service</d5p1:type><d5p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>375</d5p1:y><d5p1:y0>375</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>2</d5p1:depth><d5p1:global_guid>1</d5p1:global_guid><d5p1:id>3</d5p1:id><d5p1:instance_guid>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:instance_guid><d5p1:name>Busy</d5p1:name><d5p1:type>ConditionValue</d5p1:type><d5p1:value>1</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>250</d5p1:y><d5p1:y0>250</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>1</d5p1:depth><d5p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:global_guid><d5p1:id>2</d5p1:id><d5p1:instance_guid>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:instance_guid><d5p1:name>Status of End User</d5p1:name><d5p1:type>Condition</d5p1:type><d5p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>125</d5p1:y><d5p1:y0>125</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>0</d5p1:depth><d5p1:global_guid i:nil="true" /><d5p1:id>1</d5p1:id><d5p1:instance_guid i:nil="true" /><d5p1:name>Start</d5p1:name><d5p1:type>Root</d5p1:type><d5p1:value i:nil="true" /><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>0</d5p1:y><d5p1:y0>0</d5p1:y0></RootNode></ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowLjh4bohd></ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd>
+
+2013-01-08 13:13:33,027 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 13:13:33,027 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=1858486212112455092
+From: <sip:usps@open-ims.test>;tag=3366918901693299055
+CSeq:  2 MESSAGE
+Call-ID: 1762211293@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNzYyMjExMjkzQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 13:13:33,027 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=1858486212112455092
+From: <sip:usps@open-ims.test>;tag=3366918901693299055
+CSeq:  2 MESSAGE
+Call-ID: 1762211293@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNzYyMjExMjkzQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 13:13:33,027 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 13:47:33,954 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 13:47:33,954 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=3366918901869483438
+CSeq:  2 MESSAGE
+Call-ID: 1970151044@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTcwMTUxMDQ0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 8232
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowLjh4bohd><Key>alice@open-ims.test</Key><Value><ServiceFlow xmlns=""><Blocks xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Condition</d7p1:BlockType><d7p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d7p1:GlobalGUID><d7p1:InstanceGUID>babf4bf6-2028-6283-1863-e600256ed34e</d7p1:InstanceGUID><d7p1:Name>Status of End User</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>Busy</d5p1:Key><d5p1:Value><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>SIP_200_OK</d5p1:Key><d5p1:Value><d7p1:BlockType>SIPResponse</d7p1:BlockType><d7p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d7p1:GlobalGUID><d7p1:InstanceGUID>480ae957-a984-7464-483f-601c2ca09f22</d7p1:InstanceGUID><d7p1:Name>SIP_200_OK</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>babf4bf6-2028-6283-1863-e600256ed34e</FirstBlockGUID><Name>"busy2voice"</Name><RootNode xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children /><d5p1:depth>4</d5p1:depth><d5p1:global_guid>Successfully accepted call, will begin recording callers voice</d5p1:global_guid><d5p1:id>5</d5p1:id><d5p1:instance_guid>480ae957-a984-7464-483f-601c2ca09f22</d5p1:instance_guid><d5p1:name>SIP_200_OK</d5p1:name><d5p1:type>ServiceValue</d5p1:type><d5p1:value>Successfully accepted call, will begin recording callers voice</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>500</d5p1:y><d5p1:y0>500</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>3</d5p1:depth><d5p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:global_guid><d5p1:id>4</d5p1:id><d5p1:instance_guid>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:instance_guid><d5p1:name>Voice Mail</d5p1:name><d5p1:type>Service</d5p1:type><d5p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>375</d5p1:y><d5p1:y0>375</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>2</d5p1:depth><d5p1:global_guid>1</d5p1:global_guid><d5p1:id>3</d5p1:id><d5p1:instance_guid>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:instance_guid><d5p1:name>Busy</d5p1:name><d5p1:type>ConditionValue</d5p1:type><d5p1:value>1</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>250</d5p1:y><d5p1:y0>250</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>1</d5p1:depth><d5p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:global_guid><d5p1:id>2</d5p1:id><d5p1:instance_guid>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:instance_guid><d5p1:name>Status of End User</d5p1:name><d5p1:type>Condition</d5p1:type><d5p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>125</d5p1:y><d5p1:y0>125</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>0</d5p1:depth><d5p1:global_guid i:nil="true" /><d5p1:id>1</d5p1:id><d5p1:instance_guid i:nil="true" /><d5p1:name>Start</d5p1:name><d5p1:type>Root</d5p1:type><d5p1:value i:nil="true" /><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>0</d5p1:y><d5p1:y0>0</d5p1:y0></RootNode></ServiceFlow><ServiceFlow xmlns=""><Blocks xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>6f66f720-fa35-773d-ef87-9a9478e4fbab</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>b7f09487-2cf3-48b2-be3b-79b29dc54fd0</d7p1:GlobalGUID><d7p1:InstanceGUID>6f66f720-fa35-773d-ef87-9a9478e4fbab</d7p1:InstanceGUID><d7p1:Name>Missed Call Notification - Email</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>SIP_200_OK</d5p1:Key><d5p1:Value><d7p1:BlockType>SIPResponse</d7p1:BlockType><d7p1:GlobalGUID>Successfully accepted notification, will email the end user an alert about the call</d7p1:GlobalGUID><d7p1:InstanceGUID>9bbffe40-3a4c-06a1-75f7-074ba5a69d7d</d7p1:InstanceGUID><d7p1:Name>SIP_200_OK</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>6f66f720-fa35-773d-ef87-9a9478e4fbab</FirstBlockGUID><Name>"asfasf"</Name><RootNode xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children /><d5p1:depth>2</d5p1:depth><d5p1:global_guid>Successfully accepted notification, will email the end user an alert about the call</d5p1:global_guid><d5p1:id>3</d5p1:id><d5p1:instance_guid>9bbffe40-3a4c-06a1-75f7-074ba5a69d7d</d5p1:instance_guid><d5p1:name>SIP_200_OK</d5p1:name><d5p1:type>ServiceValue</d5p1:type><d5p1:value>Successfully accepted notification, will email the end user an alert about the call</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>500</d5p1:y><d5p1:y0>500</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>1</d5p1:depth><d5p1:global_guid>b7f09487-2cf3-48b2-be3b-79b29dc54fd0</d5p1:global_guid><d5p1:id>2</d5p1:id><d5p1:instance_guid>6f66f720-fa35-773d-ef87-9a9478e4fbab</d5p1:instance_guid><d5p1:name>Missed Call Notification - Email</d5p1:name><d5p1:type>Service</d5p1:type><d5p1:value>b7f09487-2cf3-48b2-be3b-79b29dc54fd0</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>250</d5p1:y><d5p1:y0>250</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>0</d5p1:depth><d5p1:global_guid i:nil="true" /><d5p1:id>1</d5p1:id><d5p1:instance_guid i:nil="true" /><d5p1:name>Start</d5p1:name><d5p1:type>Root</d5p1:type><d5p1:value i:nil="true" /><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>0</d5p1:y><d5p1:y0>0</d5p1:y0></RootNode></ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowLjh4bohd></ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd>
+
+2013-01-08 13:47:34,094 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 13:47:34,094 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=4867623021682211684
+From: <sip:usps@open-ims.test>;tag=3366918901869483438
+CSeq:  2 MESSAGE
+Call-ID: 1970151044@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTcwMTUxMDQ0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 13:47:34,094 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=4867623021682211684
+From: <sip:usps@open-ims.test>;tag=3366918901869483438
+CSeq:  2 MESSAGE
+Call-ID: 1970151044@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTcwMTUxMDQ0QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 13:47:34,094 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 13:49:04,005 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 13:49:04,006 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=336691890291063300
+CSeq:  2 MESSAGE
+Call-ID: 1499318137@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNDk5MzE4MTM3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 5590
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowLjh4bohd><Key>alice@open-ims.test</Key><Value><ServiceFlow xmlns=""><Blocks xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Condition</d7p1:BlockType><d7p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d7p1:GlobalGUID><d7p1:InstanceGUID>babf4bf6-2028-6283-1863-e600256ed34e</d7p1:InstanceGUID><d7p1:Name>Status of End User</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>Busy</d5p1:Key><d5p1:Value><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>ConditionOption</d7p1:BlockType><d7p1:GlobalGUID>1</d7p1:GlobalGUID><d7p1:InstanceGUID>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d7p1:InstanceGUID><d7p1:Name>Busy</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:Key><d5p1:Value xmlns:d7p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d7p1:BlockType>Service</d7p1:BlockType><d7p1:GlobalGUID>71f7523d-b461-405b-ab14-695014e03fd4</d7p1:GlobalGUID><d7p1:InstanceGUID>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d7p1:InstanceGUID><d7p1:Name>Voice Mail</d7p1:Name><d7p1:NextBlocks><d5p1:KeyValueOfstringServiceBlockmX110R14><d5p1:Key>SIP_200_OK</d5p1:Key><d5p1:Value><d7p1:BlockType>SIPResponse</d7p1:BlockType><d7p1:GlobalGUID>Successfully accepted call, will begin recording callers voice</d7p1:GlobalGUID><d7p1:InstanceGUID>480ae957-a984-7464-483f-601c2ca09f22</d7p1:InstanceGUID><d7p1:Name>SIP_200_OK</d7p1:Name><d7p1:NextBlocks /><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></d7p1:NextBlocks><d7p1:ParentBlock i:nil="true" /></d5p1:Value></d5p1:KeyValueOfstringServiceBlockmX110R14></Blocks><FirstBlockGUID>babf4bf6-2028-6283-1863-e600256ed34e</FirstBlockGUID><Name>"busy2voice"</Name><RootNode xmlns:d5p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children><d5p1:D3Node><d5p1:children /><d5p1:depth>4</d5p1:depth><d5p1:global_guid>Successfully accepted call, will begin recording callers voice</d5p1:global_guid><d5p1:id>5</d5p1:id><d5p1:instance_guid>480ae957-a984-7464-483f-601c2ca09f22</d5p1:instance_guid><d5p1:name>SIP_200_OK</d5p1:name><d5p1:type>ServiceValue</d5p1:type><d5p1:value>Successfully accepted call, will begin recording callers voice</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>500</d5p1:y><d5p1:y0>500</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>3</d5p1:depth><d5p1:global_guid>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:global_guid><d5p1:id>4</d5p1:id><d5p1:instance_guid>8e63fa9b-5f99-addb-4fa7-6fc14a471477</d5p1:instance_guid><d5p1:name>Voice Mail</d5p1:name><d5p1:type>Service</d5p1:type><d5p1:value>71f7523d-b461-405b-ab14-695014e03fd4</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>375</d5p1:y><d5p1:y0>375</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>2</d5p1:depth><d5p1:global_guid>1</d5p1:global_guid><d5p1:id>3</d5p1:id><d5p1:instance_guid>15026575-f7c0-c99a-6f13-a0f7a0a72ab5</d5p1:instance_guid><d5p1:name>Busy</d5p1:name><d5p1:type>ConditionValue</d5p1:type><d5p1:value>1</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>250</d5p1:y><d5p1:y0>250</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>1</d5p1:depth><d5p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:global_guid><d5p1:id>2</d5p1:id><d5p1:instance_guid>babf4bf6-2028-6283-1863-e600256ed34e</d5p1:instance_guid><d5p1:name>Status of End User</d5p1:name><d5p1:type>Condition</d5p1:type><d5p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d5p1:value><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>125</d5p1:y><d5p1:y0>125</d5p1:y0></d5p1:D3Node></d5p1:children><d5p1:depth>0</d5p1:depth><d5p1:global_guid i:nil="true" /><d5p1:id>1</d5p1:id><d5p1:instance_guid i:nil="true" /><d5p1:name>Start</d5p1:name><d5p1:type>Root</d5p1:type><d5p1:value i:nil="true" /><d5p1:x>400</d5p1:x><d5p1:x0>400</d5p1:x0><d5p1:y>0</d5p1:y><d5p1:y0>0</d5p1:y0></RootNode></ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowLjh4bohd></ArrayOfKeyValueOfstringArrayOfServiceFlowLjh4bohd>
+
+2013-01-08 13:49:04,119 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 13:49:04,119 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=2973632431129375374
+From: <sip:usps@open-ims.test>;tag=336691890291063300
+CSeq:  2 MESSAGE
+Call-ID: 1499318137@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNDk5MzE4MTM3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 13:49:04,119 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=2973632431129375374
+From: <sip:usps@open-ims.test>;tag=336691890291063300
+CSeq:  2 MESSAGE
+Call-ID: 1499318137@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNDk5MzE4MTM3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 13:49:04,119 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 14:14:33,932 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 14:14:33,950 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=2757387481435733465
+CSeq:  2 MESSAGE
+Call-ID: 485174903@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0ODUxNzQ5MDNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 2766
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14 xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowmX110R14><Key>alice@open-ims.test</Key><Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:ServiceFlow><d3p1:Blocks><KeyValueOfstringServiceBlockmX110R14><Key>76c5b529-f234-4aff-62dc-4e4771300f32</Key><Value><d3p1:BlockType>Service</d3p1:BlockType><d3p1:GlobalGUID>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:GlobalGUID><d3p1:InstanceGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:InstanceGUID><d3p1:Name>Instant Message To Email</d3p1:Name><d3p1:NextBlocks><KeyValueOfstringServiceBlockmX110R14><Key>SIP_200_OK</Key><Value><d3p1:BlockType>SIPResponse</d3p1:BlockType><d3p1:GlobalGUID>Successfully accepted message, will email end user its contents</d3p1:GlobalGUID><d3p1:InstanceGUID>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:InstanceGUID><d3p1:Name>SIP_200_OK</d3p1:Name><d3p1:NextBlocks /><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:NextBlocks><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:Blocks><d3p1:FirstBlockGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:FirstBlockGUID><d3p1:Name>"dgn"</d3p1:Name><d3p1:RootNode><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>Successfully accepted message, will email end user its contents</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted message, will email end user its contents</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:instance_guid><d3p1:name>Instant Message To Email</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></d3p1:RootNode></d3p1:ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowmX110R14></ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14>
+
+2013-01-08 14:14:35,527 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 14:14:35,527 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=11754854501048906909
+From: <sip:usps@open-ims.test>;tag=2757387481435733465
+CSeq:  2 MESSAGE
+Call-ID: 485174903@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0ODUxNzQ5MDNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:14:35,528 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=11754854501048906909
+From: <sip:usps@open-ims.test>;tag=2757387481435733465
+CSeq:  2 MESSAGE
+Call-ID: 485174903@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw0ODUxNzQ5MDNAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:14:35,528 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 14:16:11,015 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 14:16:11,032 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=8689825521190665195
+CSeq:  2 MESSAGE
+Call-ID: 1929635105@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTI5NjM1MTA1QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4917
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14 xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowmX110R14><Key>alice@open-ims.test</Key><Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:ServiceFlow><d3p1:Blocks><KeyValueOfstringServiceBlockmX110R14><Key>76c5b529-f234-4aff-62dc-4e4771300f32</Key><Value><d3p1:BlockType>Service</d3p1:BlockType><d3p1:GlobalGUID>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:GlobalGUID><d3p1:InstanceGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:InstanceGUID><d3p1:Name>Instant Message To Email</d3p1:Name><d3p1:NextBlocks><KeyValueOfstringServiceBlockmX110R14><Key>SIP_200_OK</Key><Value><d3p1:BlockType>SIPResponse</d3p1:BlockType><d3p1:GlobalGUID>Successfully accepted message, will email end user its contents</d3p1:GlobalGUID><d3p1:InstanceGUID>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:InstanceGUID><d3p1:Name>SIP_200_OK</d3p1:Name><d3p1:NextBlocks /><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:NextBlocks><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:Blocks><d3p1:FirstBlockGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:FirstBlockGUID><d3p1:Name>"dgn"</d3p1:Name><d3p1:RootNode><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>Successfully accepted message, will email end user its contents</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted message, will email end user its contents</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:instance_guid><d3p1:name>Instant Message To Email</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></d3p1:RootNode></d3p1:ServiceFlow><d3p1:ServiceFlow><d3p1:Blocks><KeyValueOfstringServiceBlockmX110R14><Key>89d45d28-864e-378d-be1f-7fccfb7c82dd</Key><Value><d3p1:BlockType>Condition</d3p1:BlockType><d3p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:GlobalGUID><d3p1:InstanceGUID>89d45d28-864e-378d-be1f-7fccfb7c82dd</d3p1:InstanceGUID><d3p1:Name>Status of End User</d3p1:Name><d3p1:NextBlocks><KeyValueOfstringServiceBlockmX110R14><Key>Offline</Key><Value><d3p1:BlockType>ConditionOption</d3p1:BlockType><d3p1:GlobalGUID>2</d3p1:GlobalGUID><d3p1:InstanceGUID>e2922d0f-8108-7310-7022-2a5cb022f268</d3p1:InstanceGUID><d3p1:Name>Offline</d3p1:Name><d3p1:NextBlocks /><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:NextBlocks><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:Blocks><d3p1:FirstBlockGUID>89d45d28-864e-378d-be1f-7fccfb7c82dd</d3p1:FirstBlockGUID><d3p1:Name>"ajsj"</d3p1:Name><d3p1:RootNode><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>2</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>e2922d0f-8108-7310-7022-2a5cb022f268</d3p1:instance_guid><d3p1:name>Offline</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>2</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>89d45d28-864e-378d-be1f-7fccfb7c82dd</d3p1:instance_guid><d3p1:name>Status of End User</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></d3p1:RootNode></d3p1:ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowmX110R14></ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14>
+
+2013-01-08 14:16:11,160 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 14:16:11,160 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=17589980881071177587
+From: <sip:usps@open-ims.test>;tag=8689825521190665195
+CSeq:  2 MESSAGE
+Call-ID: 1929635105@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTI5NjM1MTA1QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:16:11,161 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=17589980881071177587
+From: <sip:usps@open-ims.test>;tag=8689825521190665195
+CSeq:  2 MESSAGE
+Call-ID: 1929635105@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTI5NjM1MTA1QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:16:11,161 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 14:22:37,697 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 14:22:37,712 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=5964880552093661998
+CSeq:  2 MESSAGE
+Call-ID: 1745903293@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNzQ1OTAzMjkzQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 2766
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14 xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowmX110R14><Key>alice@open-ims.test</Key><Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:ServiceFlow><d3p1:Blocks><KeyValueOfstringServiceBlockmX110R14><Key>76c5b529-f234-4aff-62dc-4e4771300f32</Key><Value><d3p1:BlockType>Service</d3p1:BlockType><d3p1:GlobalGUID>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:GlobalGUID><d3p1:InstanceGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:InstanceGUID><d3p1:Name>Instant Message To Email</d3p1:Name><d3p1:NextBlocks><KeyValueOfstringServiceBlockmX110R14><Key>SIP_200_OK</Key><Value><d3p1:BlockType>SIPResponse</d3p1:BlockType><d3p1:GlobalGUID>Successfully accepted message, will email end user its contents</d3p1:GlobalGUID><d3p1:InstanceGUID>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:InstanceGUID><d3p1:Name>SIP_200_OK</d3p1:Name><d3p1:NextBlocks /><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:NextBlocks><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:Blocks><d3p1:FirstBlockGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:FirstBlockGUID><d3p1:Name>"dgn"</d3p1:Name><d3p1:RootNode><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>Successfully accepted message, will email end user its contents</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted message, will email end user its contents</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:instance_guid><d3p1:name>Instant Message To Email</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></d3p1:RootNode></d3p1:ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowmX110R14></ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14>
+
+2013-01-08 14:22:37,810 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 14:22:37,810 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=11372482061203646462
+From: <sip:usps@open-ims.test>;tag=5964880552093661998
+CSeq:  2 MESSAGE
+Call-ID: 1745903293@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNzQ1OTAzMjkzQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:22:37,810 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=11372482061203646462
+From: <sip:usps@open-ims.test>;tag=5964880552093661998
+CSeq:  2 MESSAGE
+Call-ID: 1745903293@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNzQ1OTAzMjkzQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:22:37,811 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 14:25:07,738 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 14:25:07,738 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=5964880551952306691
+CSeq:  2 MESSAGE
+Call-ID: 1453188697@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNDUzMTg4Njk3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4905
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14 xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFlowmX110R14><Key>alice@open-ims.test</Key><Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code"><d3p1:ServiceFlow><d3p1:Blocks><KeyValueOfstringServiceBlockmX110R14><Key>76c5b529-f234-4aff-62dc-4e4771300f32</Key><Value><d3p1:BlockType>Service</d3p1:BlockType><d3p1:GlobalGUID>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:GlobalGUID><d3p1:InstanceGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:InstanceGUID><d3p1:Name>Instant Message To Email</d3p1:Name><d3p1:NextBlocks><KeyValueOfstringServiceBlockmX110R14><Key>SIP_200_OK</Key><Value><d3p1:BlockType>SIPResponse</d3p1:BlockType><d3p1:GlobalGUID>Successfully accepted message, will email end user its contents</d3p1:GlobalGUID><d3p1:InstanceGUID>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:InstanceGUID><d3p1:Name>SIP_200_OK</d3p1:Name><d3p1:NextBlocks /><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:NextBlocks><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:Blocks><d3p1:FirstBlockGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:FirstBlockGUID><d3p1:Name>"dgn"</d3p1:Name><d3p1:RootNode><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>Successfully accepted message, will email end user its contents</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:instance_guid><d3p1:name>SIP_200_OK</d3p1:name><d3p1:type>ServiceValue</d3p1:type><d3p1:value>Successfully accepted message, will email end user its contents</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:instance_guid><d3p1:name>Instant Message To Email</d3p1:name><d3p1:type>Service</d3p1:type><d3p1:value>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></d3p1:RootNode></d3p1:ServiceFlow><d3p1:ServiceFlow><d3p1:Blocks><KeyValueOfstringServiceBlockmX110R14><Key>f786afde-b2c2-99f1-a7a1-355632a67f4f</Key><Value><d3p1:BlockType>Condition</d3p1:BlockType><d3p1:GlobalGUID>4cda3266-165a-4fe4-8298-db9ee2481349</d3p1:GlobalGUID><d3p1:InstanceGUID>f786afde-b2c2-99f1-a7a1-355632a67f4f</d3p1:InstanceGUID><d3p1:Name>Calling Party</d3p1:Name><d3p1:NextBlocks><KeyValueOfstringServiceBlockmX110R14><Key>Alice</Key><Value><d3p1:BlockType>ConditionOption</d3p1:BlockType><d3p1:GlobalGUID>0</d3p1:GlobalGUID><d3p1:InstanceGUID>53769c9c-a39f-8e63-2e26-3ff40c56cdf5</d3p1:InstanceGUID><d3p1:Name>Alice</d3p1:Name><d3p1:NextBlocks /><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:NextBlocks><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockmX110R14></d3p1:Blocks><d3p1:FirstBlockGUID>f786afde-b2c2-99f1-a7a1-355632a67f4f</d3p1:FirstBlockGUID><d3p1:Name>"asfasfas"</d3p1:Name><d3p1:RootNode><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>0</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>53769c9c-a39f-8e63-2e26-3ff40c56cdf5</d3p1:instance_guid><d3p1:name>Alice</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>0</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>4cda3266-165a-4fe4-8298-db9ee2481349</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>f786afde-b2c2-99f1-a7a1-355632a67f4f</d3p1:instance_guid><d3p1:name>Calling Party</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>4cda3266-165a-4fe4-8298-db9ee2481349</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></d3p1:RootNode></d3p1:ServiceFlow></Value></KeyValueOfstringArrayOfServiceFlowmX110R14></ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14>
+
+2013-01-08 14:25:07,866 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 14:25:07,866 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=752673872643135118
+From: <sip:usps@open-ims.test>;tag=5964880551952306691
+CSeq:  2 MESSAGE
+Call-ID: 1453188697@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNDUzMTg4Njk3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:25:07,866 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=752673872643135118
+From: <sip:usps@open-ims.test>;tag=5964880551952306691
+CSeq:  2 MESSAGE
+Call-ID: 1453188697@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxNDUzMTg4Njk3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:25:07,866 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-08 14:35:32,786 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-08 14:35:34,685 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=20237934921985955058
+CSeq:  2 MESSAGE
+Call-ID: 1343914107@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMzQzOTE0MTA3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 3944
+
+<ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14 xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+  <KeyValueOfstringArrayOfServiceFlowmX110R14>
+    <Key>alice@open-ims.test</Key>
+    <Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/USPS.Code">
+      <d3p1:ServiceFlow>
+        <d3p1:Blocks>
+          <KeyValueOfstringServiceBlockmX110R14>
+            <Key>76c5b529-f234-4aff-62dc-4e4771300f32</Key>
+            <Value>
+              <d3p1:BlockType>Service</d3p1:BlockType>
+              <d3p1:GlobalGUID>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:GlobalGUID>
+              <d3p1:InstanceGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:InstanceGUID>
+              <d3p1:Name>Instant Message To Email</d3p1:Name>
+              <d3p1:NextBlocks>
+                <KeyValueOfstringServiceBlockmX110R14>
+                  <Key>SIP_200_OK</Key>
+                  <Value>
+                    <d3p1:BlockType>SIPResponse</d3p1:BlockType>
+                    <d3p1:GlobalGUID>Successfully accepted message, will email end user its contents</d3p1:GlobalGUID>
+                    <d3p1:InstanceGUID>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:InstanceGUID>
+                    <d3p1:Name>SIP_200_OK</d3p1:Name>
+                    <d3p1:NextBlocks />
+                    <d3p1:ParentBlock i:nil="true" />
+                  </Value>
+                </KeyValueOfstringServiceBlockmX110R14>
+              </d3p1:NextBlocks>
+              <d3p1:ParentBlock i:nil="true" />
+            </Value>
+          </KeyValueOfstringServiceBlockmX110R14>
+        </d3p1:Blocks>
+        <d3p1:FirstBlockGUID>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:FirstBlockGUID>
+        <d3p1:Name>"dgn"</d3p1:Name>
+        <d3p1:RootNode>
+          <d3p1:children>
+            <d3p1:D3Node>
+              <d3p1:children>
+                <d3p1:D3Node>
+                  <d3p1:children />
+                  <d3p1:depth>2</d3p1:depth>
+                  <d3p1:global_guid>Successfully accepted message, will email end user its contents</d3p1:global_guid>
+                  <d3p1:id>3</d3p1:id>
+                  <d3p1:instance_guid>d785d0a4-e8bb-56ac-d99e-221f585a4b76</d3p1:instance_guid>
+                  <d3p1:name>SIP_200_OK</d3p1:name>
+                  <d3p1:type>ServiceValue</d3p1:type>
+                  <d3p1:value>Successfully accepted message, will email end user its contents</d3p1:value>
+                  <d3p1:x>400</d3p1:x>
+                  <d3p1:x0>400</d3p1:x0>
+                  <d3p1:y>500</d3p1:y>
+                  <d3p1:y0>500</d3p1:y0>
+                </d3p1:D3Node>
+              </d3p1:children>
+              <d3p1:depth>1</d3p1:depth>
+              <d3p1:global_guid>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:global_guid>
+              <d3p1:id>2</d3p1:id>
+              <d3p1:instance_guid>76c5b529-f234-4aff-62dc-4e4771300f32</d3p1:instance_guid>
+              <d3p1:name>Instant Message To Email</d3p1:name>
+              <d3p1:type>Service</d3p1:type>
+              <d3p1:value>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</d3p1:value>
+              <d3p1:x>400</d3p1:x>
+              <d3p1:x0>400</d3p1:x0>
+              <d3p1:y>250</d3p1:y>
+              <d3p1:y0>250</d3p1:y0>
+            </d3p1:D3Node>
+          </d3p1:children>
+          <d3p1:depth>0</d3p1:depth>
+          <d3p1:global_guid i:nil="true" />
+          <d3p1:id>1</d3p1:id>
+          <d3p1:instance_guid i:nil="true" />
+          <d3p1:name>Start</d3p1:name>
+          <d3p1:type>Root</d3p1:type>
+          <d3p1:value i:nil="true" />
+          <d3p1:x>400</d3p1:x>
+          <d3p1:x0>400</d3p1:x0>
+          <d3p1:y>0</d3p1:y>
+          <d3p1:y0>0</d3p1:y0>
+        </d3p1:RootNode>
+      </d3p1:ServiceFlow>
+    </Value>
+  </KeyValueOfstringArrayOfServiceFlowmX110R14>
+</ArrayOfKeyValueOfstringArrayOfServiceFlowmX110R14>
+
+2013-01-08 14:55:24,144 INFO  SIPApp - Received response with code 200 OK
+2013-01-08 14:55:24,144 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=277449814814683510
+From: <sip:usps@open-ims.test>;tag=20237934921985955058
+CSeq:  2 MESSAGE
+Call-ID: 1343914107@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMzQzOTE0MTA3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:55:24,144 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=277449814814683510
+From: <sip:usps@open-ims.test>;tag=20237934921985955058
+CSeq:  2 MESSAGE
+Call-ID: 1343914107@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMzQzOTE0MTA3QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-08 14:55:24,146 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 10:23:48,929 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 10:23:48,947 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18614919021490903344
+CSeq:  2 MESSAGE
+Call-ID: 595773277@192.168.20.21
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.21:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw1OTU3NzMyNzdAMTkyLjE2OC4yMC4yMXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.21:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 704
+
+<Dictionary name="Root" type="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[USPS.Code.ServiceFlow, USPS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <Items>
+    <Item>
+      <Simple value="alice@open-ims.test" />
+      <Collection>
+        <Properties>
+          <Simple name="Capacity" value="0" />
+        </Properties>
+        <Items />
+      </Collection>
+    </Item>
+  </Items>
+</Dictionary>
+
+2013-01-11 10:23:59,980 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-11 10:23:59,980 ERROR SIPStack - No such host is known
+2013-01-11 10:23:59,990 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-11 10:23:59,991 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18614919021490903344
+CSeq:  2 MESSAGE
+Call-ID: 595773277@192.168.20.21
+Via: SIP/2.0/UDP 192.168.20.21:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw1OTU3NzMyNzdAMTkyLjE2OC4yMC4yMXwyfEZhbHNl
+Content-Length: 0
+
+
+2013-01-11 10:23:59,991 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18614919021490903344
+CSeq:  2 MESSAGE
+Call-ID: 595773277@192.168.20.21
+Via: SIP/2.0/UDP 192.168.20.21:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw1OTU3NzMyNzdAMTkyLjE2OC4yMC4yMXwyfEZhbHNl
+Content-Length: 0
+
+
+2013-01-11 10:23:59,991 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 10:24:49,469 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 10:24:49,469 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=1861491902240782630
+CSeq:  2 MESSAGE
+Call-ID: 342868042@192.168.20.21
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.21:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNDI4NjgwNDJAMTkyLjE2OC4yMC4yMXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.21:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4527
+
+<Dictionary name="Root" type="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[USPS.Code.ServiceFlow, USPS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <Items>
+    <Item>
+      <Simple value="alice@open-ims.test" />
+      <Collection>
+        <Properties>
+          <Simple name="Capacity" value="4" />
+        </Properties>
+        <Items>
+          <Complex>
+            <Properties>
+              <Simple name="FirstBlockGUID" value="264a967b-76c2-abcd-f42f-b756633a252e" />
+              <Simple name="Name" value="&quot;agadgadgad&quot;" />
+              <Complex name="RootNode">
+                <Properties>
+                  <Simple name="name" value="Start" />
+                  <Null name="value" />
+                  <Simple name="type" value="Root" />
+                  <Null name="global_guid" />
+                  <Null name="instance_guid" />
+                  <Simple name="depth" value="0" />
+                  <Simple name="x" value="400" />
+                  <Simple name="y" value="0" />
+                  <Simple name="id" value="1" />
+                  <Simple name="x0" value="400" />
+                  <Simple name="y0" value="0" />
+                  <Collection name="children">
+                    <Properties>
+                      <Simple name="Capacity" value="4" />
+                    </Properties>
+                    <Items>
+                      <Complex>
+                        <Properties>
+                          <Simple name="name" value="Status of End User" />
+                          <Simple name="value" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="type" value="Condition" />
+                          <Simple name="global_guid" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="instance_guid" value="264a967b-76c2-abcd-f42f-b756633a252e" />
+                          <Simple name="depth" value="1" />
+                          <Simple name="x" value="400" />
+                          <Simple name="y" value="250" />
+                          <Simple name="id" value="2" />
+                          <Simple name="x0" value="400" />
+                          <Simple name="y0" value="250" />
+                          <Collection name="children">
+                            <Properties>
+                              <Simple name="Capacity" value="4" />
+                            </Properties>
+                            <Items>
+                              <Complex>
+                                <Properties>
+                                  <Simple name="name" value="Busy" />
+                                  <Simple name="value" value="1" />
+                                  <Simple name="type" value="ConditionValue" />
+                                  <Simple name="global_guid" value="1" />
+                                  <Simple name="instance_guid" value="e241c49f-8994-434c-5677-96de4891a630" />
+                                  <Simple name="depth" value="2" />
+                                  <Simple name="x" value="400" />
+                                  <Simple name="y" value="500" />
+                                  <Simple name="id" value="3" />
+                                  <Simple name="x0" value="400" />
+                                  <Simple name="y0" value="500" />
+                                  <Collection name="children">
+                                    <Properties>
+                                      <Simple name="Capacity" value="0" />
+                                    </Properties>
+                                    <Items />
+                                  </Collection>
+                                </Properties>
+                              </Complex>
+                            </Items>
+                          </Collection>
+                        </Properties>
+                      </Complex>
+                    </Items>
+                  </Collection>
+                </Properties>
+              </Complex>
+            </Properties>
+          </Complex>
+        </Items>
+      </Collection>
+    </Item>
+  </Items>
+</Dictionary>
+
+2013-01-11 10:24:56,393 ERROR SIPStack - Error resolving domain name, check DNS server and local network properties
+2013-01-11 10:24:56,393 ERROR SIPStack - No such host is known
+2013-01-11 10:24:56,393 INFO  SIPApp - Received response with code 503 Service unavailable - Cannot Resolve DNS target
+2013-01-11 10:24:56,393 DEBUG SIPApp - 
+
+SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=1861491902240782630
+CSeq:  2 MESSAGE
+Call-ID: 342868042@192.168.20.21
+Via: SIP/2.0/UDP 192.168.20.21:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNDI4NjgwNDJAMTkyLjE2OC4yMC4yMXwyfEZhbHNl
+Content-Length: 0
+
+
+2013-01-11 10:24:56,395 INFO  SIPApp - Response Received:SIP/2.0 503 Service unavailable - Cannot Resolve DNS target
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=1861491902240782630
+CSeq:  2 MESSAGE
+Call-ID: 342868042@192.168.20.21
+Via: SIP/2.0/UDP 192.168.20.21:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwzNDI4NjgwNDJAMTkyLjE2OC4yMC4yMXwyfEZhbHNl
+Content-Length: 0
+
+
+2013-01-11 10:24:56,395 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 10:36:20,226 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 10:36:20,227 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=18614919021494802089
+CSeq:  2 MESSAGE
+Call-ID: 1992192494@192.168.20.21
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.21:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTkyMTkyNDk0QDE5Mi4xNjguMjAuMjF8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.21:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 704
+
+<Dictionary name="Root" type="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[USPS.Code.ServiceFlow, USPS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <Items>
+    <Item>
+      <Simple value="alice@open-ims.test" />
+      <Collection>
+        <Properties>
+          <Simple name="Capacity" value="1" />
+        </Properties>
+        <Items />
+      </Collection>
+    </Item>
+  </Items>
+</Dictionary>
+
+2013-01-11 10:36:50,231 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 10:36:50,231 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=1861491902626800767
+CSeq:  2 MESSAGE
+Call-ID: 963172473@192.168.20.21
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.21:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw5NjMxNzI0NzNAMTkyLjE2OC4yMC4yMXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.21:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4522
+
+<Dictionary name="Root" type="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[USPS.Code.ServiceFlow, USPS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <Items>
+    <Item>
+      <Simple value="alice@open-ims.test" />
+      <Collection>
+        <Properties>
+          <Simple name="Capacity" value="1" />
+        </Properties>
+        <Items>
+          <Complex>
+            <Properties>
+              <Simple name="FirstBlockGUID" value="8bb90566-2365-a97b-f053-bf6c56f5e161" />
+              <Simple name="Name" value="&quot;asfas&quot;" />
+              <Complex name="RootNode">
+                <Properties>
+                  <Simple name="name" value="Start" />
+                  <Null name="value" />
+                  <Simple name="type" value="Root" />
+                  <Null name="global_guid" />
+                  <Null name="instance_guid" />
+                  <Simple name="depth" value="0" />
+                  <Simple name="x" value="400" />
+                  <Simple name="y" value="0" />
+                  <Simple name="id" value="1" />
+                  <Simple name="x0" value="400" />
+                  <Simple name="y0" value="0" />
+                  <Collection name="children">
+                    <Properties>
+                      <Simple name="Capacity" value="4" />
+                    </Properties>
+                    <Items>
+                      <Complex>
+                        <Properties>
+                          <Simple name="name" value="Status of End User" />
+                          <Simple name="value" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="type" value="Condition" />
+                          <Simple name="global_guid" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="instance_guid" value="8bb90566-2365-a97b-f053-bf6c56f5e161" />
+                          <Simple name="depth" value="1" />
+                          <Simple name="x" value="400" />
+                          <Simple name="y" value="250" />
+                          <Simple name="id" value="2" />
+                          <Simple name="x0" value="400" />
+                          <Simple name="y0" value="250" />
+                          <Collection name="children">
+                            <Properties>
+                              <Simple name="Capacity" value="4" />
+                            </Properties>
+                            <Items>
+                              <Complex>
+                                <Properties>
+                                  <Simple name="name" value="Busy" />
+                                  <Simple name="value" value="1" />
+                                  <Simple name="type" value="ConditionValue" />
+                                  <Simple name="global_guid" value="1" />
+                                  <Simple name="instance_guid" value="5d9e142d-f2c8-3e80-ade6-3f94c4cf2978" />
+                                  <Simple name="depth" value="2" />
+                                  <Simple name="x" value="400" />
+                                  <Simple name="y" value="500" />
+                                  <Simple name="id" value="3" />
+                                  <Simple name="x0" value="400" />
+                                  <Simple name="y0" value="500" />
+                                  <Collection name="children">
+                                    <Properties>
+                                      <Simple name="Capacity" value="0" />
+                                    </Properties>
+                                    <Items />
+                                  </Collection>
+                                </Properties>
+                              </Complex>
+                            </Items>
+                          </Collection>
+                        </Properties>
+                      </Complex>
+                    </Items>
+                  </Collection>
+                </Properties>
+              </Complex>
+            </Properties>
+          </Complex>
+        </Items>
+      </Collection>
+    </Item>
+  </Items>
+</Dictionary>
+
+2013-01-11 10:38:13,039 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 10:38:13,052 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=1575916737775699561
+CSeq:  2 MESSAGE
+Call-ID: 872301370@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw4NzIzMDEzNzBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4522
+
+<Dictionary name="Root" type="System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[USPS.Code.ServiceFlow, USPS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <Items>
+    <Item>
+      <Simple value="alice@open-ims.test" />
+      <Collection>
+        <Properties>
+          <Simple name="Capacity" value="1" />
+        </Properties>
+        <Items>
+          <Complex>
+            <Properties>
+              <Simple name="FirstBlockGUID" value="078377ea-5379-4cfd-0a75-96d49f1c28e7" />
+              <Simple name="Name" value="&quot;agaga&quot;" />
+              <Complex name="RootNode">
+                <Properties>
+                  <Simple name="name" value="Start" />
+                  <Null name="value" />
+                  <Simple name="type" value="Root" />
+                  <Null name="global_guid" />
+                  <Null name="instance_guid" />
+                  <Simple name="depth" value="0" />
+                  <Simple name="x" value="400" />
+                  <Simple name="y" value="0" />
+                  <Simple name="id" value="1" />
+                  <Simple name="x0" value="400" />
+                  <Simple name="y0" value="0" />
+                  <Collection name="children">
+                    <Properties>
+                      <Simple name="Capacity" value="4" />
+                    </Properties>
+                    <Items>
+                      <Complex>
+                        <Properties>
+                          <Simple name="name" value="Status of End User" />
+                          <Simple name="value" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="type" value="Condition" />
+                          <Simple name="global_guid" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="instance_guid" value="078377ea-5379-4cfd-0a75-96d49f1c28e7" />
+                          <Simple name="depth" value="1" />
+                          <Simple name="x" value="400" />
+                          <Simple name="y" value="250" />
+                          <Simple name="id" value="2" />
+                          <Simple name="x0" value="400" />
+                          <Simple name="y0" value="250" />
+                          <Collection name="children">
+                            <Properties>
+                              <Simple name="Capacity" value="4" />
+                            </Properties>
+                            <Items>
+                              <Complex>
+                                <Properties>
+                                  <Simple name="name" value="Busy" />
+                                  <Simple name="value" value="1" />
+                                  <Simple name="type" value="ConditionValue" />
+                                  <Simple name="global_guid" value="1" />
+                                  <Simple name="instance_guid" value="9933bcba-c334-dd83-9c8b-8996fc6b7086" />
+                                  <Simple name="depth" value="2" />
+                                  <Simple name="x" value="400" />
+                                  <Simple name="y" value="500" />
+                                  <Simple name="id" value="3" />
+                                  <Simple name="x0" value="400" />
+                                  <Simple name="y0" value="500" />
+                                  <Collection name="children">
+                                    <Properties>
+                                      <Simple name="Capacity" value="0" />
+                                    </Properties>
+                                    <Items />
+                                  </Collection>
+                                </Properties>
+                              </Complex>
+                            </Items>
+                          </Collection>
+                        </Properties>
+                      </Complex>
+                    </Items>
+                  </Collection>
+                </Properties>
+              </Complex>
+            </Properties>
+          </Complex>
+        </Items>
+      </Collection>
+    </Item>
+  </Items>
+</Dictionary>
+
+2013-01-11 10:38:13,312 INFO  SIPApp - Received response with code 200 OK
+2013-01-11 10:38:13,312 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=25920705468940199
+From: <sip:usps@open-ims.test>;tag=1575916737775699561
+CSeq:  2 MESSAGE
+Call-ID: 872301370@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw4NzIzMDEzNzBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 10:38:13,312 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=25920705468940199
+From: <sip:usps@open-ims.test>;tag=1575916737775699561
+CSeq:  2 MESSAGE
+Call-ID: 872301370@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw4NzIzMDEzNzBAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 10:38:13,312 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 10:42:55,700 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 10:42:55,713 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=12711423341241453086
+CSeq:  2 MESSAGE
+Call-ID: 267422888@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyNjc0MjI4ODhAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4275
+
+<Dictionary name="Root" type="System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.List`1[[USPS.Code.ServiceFlow, USPS]], mscorlib]], mscorlib">
+  <Items>
+    <Item>
+      <Simple value="alice@open-ims.test" />
+      <Collection>
+        <Properties>
+          <Simple name="Capacity" value="1" />
+        </Properties>
+        <Items>
+          <Complex>
+            <Properties>
+              <Simple name="FirstBlockGUID" value="24f9994f-0d55-4e0c-09a9-8bf3eec63b4a" />
+              <Simple name="Name" value="&quot;Type something&quot;" />
+              <Complex name="RootNode">
+                <Properties>
+                  <Simple name="name" value="Start" />
+                  <Null name="value" />
+                  <Simple name="type" value="Root" />
+                  <Null name="global_guid" />
+                  <Null name="instance_guid" />
+                  <Simple name="depth" value="0" />
+                  <Simple name="x" value="400" />
+                  <Simple name="y" value="0" />
+                  <Simple name="id" value="1" />
+                  <Simple name="x0" value="400" />
+                  <Simple name="y0" value="0" />
+                  <Collection name="children">
+                    <Properties>
+                      <Simple name="Capacity" value="4" />
+                    </Properties>
+                    <Items>
+                      <Complex>
+                        <Properties>
+                          <Simple name="name" value="Status of End User" />
+                          <Simple name="value" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="type" value="Condition" />
+                          <Simple name="global_guid" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="instance_guid" value="24f9994f-0d55-4e0c-09a9-8bf3eec63b4a" />
+                          <Simple name="depth" value="1" />
+                          <Simple name="x" value="400" />
+                          <Simple name="y" value="250" />
+                          <Simple name="id" value="2" />
+                          <Simple name="x0" value="400" />
+                          <Simple name="y0" value="250" />
+                          <Collection name="children">
+                            <Properties>
+                              <Simple name="Capacity" value="4" />
+                            </Properties>
+                            <Items>
+                              <Complex>
+                                <Properties>
+                                  <Simple name="name" value="Busy" />
+                                  <Simple name="value" value="1" />
+                                  <Simple name="type" value="ConditionValue" />
+                                  <Simple name="global_guid" value="1" />
+                                  <Simple name="instance_guid" value="d48e780c-4ee6-493d-92f7-12930fb3201a" />
+                                  <Simple name="depth" value="2" />
+                                  <Simple name="x" value="400" />
+                                  <Simple name="y" value="500" />
+                                  <Simple name="id" value="3" />
+                                  <Simple name="x0" value="400" />
+                                  <Simple name="y0" value="500" />
+                                  <Collection name="children">
+                                    <Properties>
+                                      <Simple name="Capacity" value="0" />
+                                    </Properties>
+                                    <Items />
+                                  </Collection>
+                                </Properties>
+                              </Complex>
+                            </Items>
+                          </Collection>
+                        </Properties>
+                      </Complex>
+                    </Items>
+                  </Collection>
+                </Properties>
+              </Complex>
+            </Properties>
+          </Complex>
+        </Items>
+      </Collection>
+    </Item>
+  </Items>
+</Dictionary>
+
+2013-01-11 10:42:56,005 INFO  SIPApp - Received response with code 200 OK
+2013-01-11 10:42:56,005 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=117971287351437550
+From: <sip:usps@open-ims.test>;tag=12711423341241453086
+CSeq:  2 MESSAGE
+Call-ID: 267422888@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyNjc0MjI4ODhAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 10:42:56,005 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=117971287351437550
+From: <sip:usps@open-ims.test>;tag=12711423341241453086
+CSeq:  2 MESSAGE
+Call-ID: 267422888@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyNjc0MjI4ODhAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 10:42:56,005 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 12:23:43,546 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 12:23:43,559 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=694589786912281404
+CSeq:  2 MESSAGE
+Call-ID: 1936441350@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTM2NDQxMzUwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 463
+
+<Dictionary name="Root" type="System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.List`1[[LibServiceInfo.ServiceFlow, LibServiceInfo]], mscorlib]], mscorlib">
+  <Items>
+    <Item>
+      <Simple value="alice@open-ims.test" />
+      <Collection>
+        <Properties>
+          <Simple name="Capacity" value="0" />
+        </Properties>
+        <Items />
+      </Collection>
+    </Item>
+  </Items>
+</Dictionary>
+
+2013-01-11 12:23:43,662 INFO  SIPApp - Received response with code 200 OK
+2013-01-11 12:23:43,662 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=19005721231144165687
+From: <sip:usps@open-ims.test>;tag=694589786912281404
+CSeq:  2 MESSAGE
+Call-ID: 1936441350@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTM2NDQxMzUwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:23:43,663 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=19005721231144165687
+From: <sip:usps@open-ims.test>;tag=694589786912281404
+CSeq:  2 MESSAGE
+Call-ID: 1936441350@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxOTM2NDQxMzUwQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:23:43,663 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 12:24:43,548 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 12:24:43,548 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=6945897861323762407
+CSeq:  2 MESSAGE
+Call-ID: 1841930221@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxODQxOTMwMjIxQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 4283
+
+<Dictionary name="Root" type="System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.List`1[[LibServiceInfo.ServiceFlow, LibServiceInfo]], mscorlib]], mscorlib">
+  <Items>
+    <Item>
+      <Simple value="alice@open-ims.test" />
+      <Collection>
+        <Properties>
+          <Simple name="Capacity" value="4" />
+        </Properties>
+        <Items>
+          <Complex>
+            <Properties>
+              <Simple name="FirstBlockGUID" value="af155151-de4a-99d0-7499-7c32e57c9d18" />
+              <Simple name="Name" value="&quot;agadgad&quot;" />
+              <Complex name="RootNode">
+                <Properties>
+                  <Simple name="name" value="Start" />
+                  <Null name="value" />
+                  <Simple name="type" value="Root" />
+                  <Null name="global_guid" />
+                  <Null name="instance_guid" />
+                  <Simple name="depth" value="0" />
+                  <Simple name="x" value="400" />
+                  <Simple name="y" value="0" />
+                  <Simple name="id" value="1" />
+                  <Simple name="x0" value="400" />
+                  <Simple name="y0" value="0" />
+                  <Collection name="children">
+                    <Properties>
+                      <Simple name="Capacity" value="4" />
+                    </Properties>
+                    <Items>
+                      <Complex>
+                        <Properties>
+                          <Simple name="name" value="Status of End User" />
+                          <Simple name="value" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="type" value="Condition" />
+                          <Simple name="global_guid" value="c82a2e91-c2f4-4c34-84af-5f4740df7c0c" />
+                          <Simple name="instance_guid" value="af155151-de4a-99d0-7499-7c32e57c9d18" />
+                          <Simple name="depth" value="1" />
+                          <Simple name="x" value="400" />
+                          <Simple name="y" value="250" />
+                          <Simple name="id" value="2" />
+                          <Simple name="x0" value="400" />
+                          <Simple name="y0" value="250" />
+                          <Collection name="children">
+                            <Properties>
+                              <Simple name="Capacity" value="4" />
+                            </Properties>
+                            <Items>
+                              <Complex>
+                                <Properties>
+                                  <Simple name="name" value="Busy" />
+                                  <Simple name="value" value="1" />
+                                  <Simple name="type" value="ConditionValue" />
+                                  <Simple name="global_guid" value="1" />
+                                  <Simple name="instance_guid" value="b88bde17-d77e-f929-5ba2-882aa1eedf77" />
+                                  <Simple name="depth" value="2" />
+                                  <Simple name="x" value="400" />
+                                  <Simple name="y" value="500" />
+                                  <Simple name="id" value="3" />
+                                  <Simple name="x0" value="400" />
+                                  <Simple name="y0" value="500" />
+                                  <Collection name="children">
+                                    <Properties>
+                                      <Simple name="Capacity" value="0" />
+                                    </Properties>
+                                    <Items />
+                                  </Collection>
+                                </Properties>
+                              </Complex>
+                            </Items>
+                          </Collection>
+                        </Properties>
+                      </Complex>
+                    </Items>
+                  </Collection>
+                </Properties>
+              </Complex>
+            </Properties>
+          </Complex>
+        </Items>
+      </Collection>
+    </Item>
+  </Items>
+</Dictionary>
+
+2013-01-11 12:24:44,066 INFO  SIPApp - Received response with code 200 OK
+2013-01-11 12:24:44,067 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=1900572123972390516
+From: <sip:usps@open-ims.test>;tag=6945897861323762407
+CSeq:  2 MESSAGE
+Call-ID: 1841930221@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxODQxOTMwMjIxQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:24:44,067 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=1900572123972390516
+From: <sip:usps@open-ims.test>;tag=6945897861323762407
+CSeq:  2 MESSAGE
+Call-ID: 1841930221@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxODQxOTMwMjIxQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:24:44,067 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 12:29:38,126 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 12:29:38,140 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=757207584817316696
+CSeq:  2 MESSAGE
+Call-ID: 1018865275@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMDE4ODY1Mjc1QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 422
+
+<ArrayOfKeyValueOfstringArrayOfServiceFloww_SFrs0sR xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFloww_SFrs0sR><Key>alice@open-ims.test</Key><Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/LibServiceInfo" /></KeyValueOfstringArrayOfServiceFloww_SFrs0sR></ArrayOfKeyValueOfstringArrayOfServiceFloww_SFrs0sR>
+
+2013-01-11 12:29:38,238 INFO  SIPApp - Received response with code 200 OK
+2013-01-11 12:29:38,238 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=20259500651049200979
+From: <sip:usps@open-ims.test>;tag=757207584817316696
+CSeq:  2 MESSAGE
+Call-ID: 1018865275@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMDE4ODY1Mjc1QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:29:38,238 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=20259500651049200979
+From: <sip:usps@open-ims.test>;tag=757207584817316696
+CSeq:  2 MESSAGE
+Call-ID: 1018865275@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwxMDE4ODY1Mjc1QDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:29:38,238 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 12:31:08,126 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 12:31:08,126 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=757207584615852277
+CSeq:  2 MESSAGE
+Call-ID: 2040078071@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDQwMDc4MDcxQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 422
+
+<ArrayOfKeyValueOfstringArrayOfServiceFloww_SFrs0sR xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFloww_SFrs0sR><Key>alice@open-ims.test</Key><Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/LibServiceInfo" /></KeyValueOfstringArrayOfServiceFloww_SFrs0sR></ArrayOfKeyValueOfstringArrayOfServiceFloww_SFrs0sR>
+
+2013-01-11 12:31:08,219 INFO  SIPApp - Received response with code 200 OK
+2013-01-11 12:31:08,219 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=7873601851805536242
+From: <sip:usps@open-ims.test>;tag=757207584615852277
+CSeq:  2 MESSAGE
+Call-ID: 2040078071@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDQwMDc4MDcxQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:31:08,219 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=7873601851805536242
+From: <sip:usps@open-ims.test>;tag=757207584615852277
+CSeq:  2 MESSAGE
+Call-ID: 2040078071@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0PnwyMDQwMDc4MDcxQDE5Mi4xNjguMjAuMjV8MnxGYWxzZQ..
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:31:08,219 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 
+2013-01-11 12:32:08,153 INFO  SIPApp - Sending request with method MESSAGE
+2013-01-11 12:32:08,153 DEBUG SIPApp - 
+
+MESSAGE sip:scim@open-ims.test SIP/2.0
+To: <sip:scim@open-ims.test>
+From: <sip:usps@open-ims.test>;tag=7572075842052917108
+CSeq:  2 MESSAGE
+Call-ID: 704424069@192.168.20.25
+Max-Forwards: 70
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw3MDQ0MjQwNjlAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+Contact: <sip:usps@192.168.20.25:7202>
+Content-Type: APPLICATION/SERV_DESC+XML
+Content-Length: 2576
+
+<ArrayOfKeyValueOfstringArrayOfServiceFloww_SFrs0sR xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><KeyValueOfstringArrayOfServiceFloww_SFrs0sR><Key>alice@open-ims.test</Key><Value xmlns:d3p1="http://schemas.datacontract.org/2004/07/LibServiceInfo"><d3p1:ServiceFlow><d3p1:Blocks><KeyValueOfstringServiceBlockw_SFrs0sR><Key>12eeafe2-d7eb-97f5-4937-24eae53c82a7</Key><Value><d3p1:BlockType>Condition</d3p1:BlockType><d3p1:GlobalGUID>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:GlobalGUID><d3p1:InstanceGUID>12eeafe2-d7eb-97f5-4937-24eae53c82a7</d3p1:InstanceGUID><d3p1:Name>Status of End User</d3p1:Name><d3p1:NextBlocks><KeyValueOfstringServiceBlockw_SFrs0sR><Key>Busy</Key><Value><d3p1:BlockType>ConditionOption</d3p1:BlockType><d3p1:GlobalGUID>1</d3p1:GlobalGUID><d3p1:InstanceGUID>037128a7-f4f1-0381-5382-2bda2ae30bb6</d3p1:InstanceGUID><d3p1:Name>Busy</d3p1:Name><d3p1:NextBlocks /><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockw_SFrs0sR></d3p1:NextBlocks><d3p1:ParentBlock i:nil="true" /></Value></KeyValueOfstringServiceBlockw_SFrs0sR></d3p1:Blocks><d3p1:FirstBlockGUID>12eeafe2-d7eb-97f5-4937-24eae53c82a7</d3p1:FirstBlockGUID><d3p1:Name>"adgadg"</d3p1:Name><d3p1:RootNode><d3p1:children><d3p1:D3Node><d3p1:children><d3p1:D3Node><d3p1:children /><d3p1:depth>2</d3p1:depth><d3p1:global_guid>1</d3p1:global_guid><d3p1:id>3</d3p1:id><d3p1:instance_guid>037128a7-f4f1-0381-5382-2bda2ae30bb6</d3p1:instance_guid><d3p1:name>Busy</d3p1:name><d3p1:type>ConditionValue</d3p1:type><d3p1:value>1</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>500</d3p1:y><d3p1:y0>500</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>1</d3p1:depth><d3p1:global_guid>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:global_guid><d3p1:id>2</d3p1:id><d3p1:instance_guid>12eeafe2-d7eb-97f5-4937-24eae53c82a7</d3p1:instance_guid><d3p1:name>Status of End User</d3p1:name><d3p1:type>Condition</d3p1:type><d3p1:value>c82a2e91-c2f4-4c34-84af-5f4740df7c0c</d3p1:value><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>250</d3p1:y><d3p1:y0>250</d3p1:y0></d3p1:D3Node></d3p1:children><d3p1:depth>0</d3p1:depth><d3p1:global_guid i:nil="true" /><d3p1:id>1</d3p1:id><d3p1:instance_guid i:nil="true" /><d3p1:name>Start</d3p1:name><d3p1:type>Root</d3p1:type><d3p1:value i:nil="true" /><d3p1:x>400</d3p1:x><d3p1:x0>400</d3p1:x0><d3p1:y>0</d3p1:y><d3p1:y0>0</d3p1:y0></d3p1:RootNode></d3p1:ServiceFlow></Value></KeyValueOfstringArrayOfServiceFloww_SFrs0sR></ArrayOfKeyValueOfstringArrayOfServiceFloww_SFrs0sR>
+
+2013-01-11 12:32:08,199 INFO  SIPApp - Received response with code 200 OK
+2013-01-11 12:32:08,199 DEBUG SIPApp - 
+
+SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=787360185675961389
+From: <sip:usps@open-ims.test>;tag=7572075842052917108
+CSeq:  2 MESSAGE
+Call-ID: 704424069@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw3MDQ0MjQwNjlAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:32:08,199 INFO  SIPApp - Response Received:SIP/2.0 200 OK
+To: <sip:scim@open-ims.test>;tag=787360185675961389
+From: <sip:usps@open-ims.test>;tag=7572075842052917108
+CSeq:  2 MESSAGE
+Call-ID: 704424069@192.168.20.25
+Via: SIP/2.0/UDP 192.168.20.25:7202;branch=z9hG4bKPHNpcDpzY2ltQG9wZW4taW1zLnRlc3Q+fDxzaXA6dXNwc0BvcGVuLWltcy50ZXN0Pnw3MDQ0MjQwNjlAMTkyLjE2OC4yMC4yNXwyfEZhbHNl
+User-Agent: SIPLIB
+Content-Length: 0
+
+
+2013-01-11 12:32:08,199 INFO  SIPApp - Response for Request Type MESSAGE is unhandled 

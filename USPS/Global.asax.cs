@@ -2,6 +2,7 @@
 using System.Threading;
 using Juice.Framework;
 using USPS.Code;
+using LibServiceInfo;
 
 namespace USPS
 {

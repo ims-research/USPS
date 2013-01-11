@@ -7,6 +7,7 @@ using System.Xml;
 using SIPLib;
 using SIPLib.SIP;
 using SIPLib.Utils;
+using LibServiceInfo;
 using USPS_Sip;
 using log4net;
 
