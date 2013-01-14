@@ -66,21 +66,17 @@ namespace USPS
             if (Session != null)
             {
                 UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
-                Dictionary<String, List<ServiceFlow>> dict_flows;
-                String email = Membership.GetUser(User.Identity.Name).Email;
                 try
                 {
-                    dict_flows = profile.ServiceFlows.Deserialize<Dictionary<String, List<ServiceFlow>>>();
-                    flows = dict_flows[email];
+                    flows = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
                     errorMessage = "Success";
                     return true;
                 }
                 catch (Exception)
                 {
                     errorMessage = "Could not retrieve list of service flows from profile";
-                    dict_flows = new Dictionary<String, List<ServiceFlow>>();
-                    dict_flows[email] = flows = new List<ServiceFlow>();
-                    profile.ServiceFlows = dict_flows.Serialize();
+                    flows = new List<ServiceFlow>();
+                    profile.ServiceFlows = flows.Serialize();
                     profile.Save();
                     
                     return false;
@@ -119,11 +115,8 @@ namespace USPS
             try
             {
                 UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
-                String email = Membership.GetUser(User.Identity.Name).Email;
                 serviceFlows.Add(serviceflow);
-                Dictionary<String,List<ServiceFlow>> dict_flows = new Dictionary<String,List<ServiceFlow>>();
-                dict_flows[email] = serviceFlows;
-                profile.ServiceFlows = dict_flows.Serialize();
+                profile.ServiceFlows = serviceFlows.Serialize();
                 profile.Save();
                 return "Chain Saved Successfully";
             }
@@ -255,11 +248,8 @@ namespace USPS
                         {
                             UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
                             List<ServiceFlow> newServiceFlows = new List<ServiceFlow>(sfs);
-                            String email = Membership.GetUser(User.Identity.Name).Email;
                             newServiceFlows.Remove(serviceFlow);
-                            Dictionary<String, List<ServiceFlow>> dict_flows = new Dictionary<String, List<ServiceFlow>>();
-                            dict_flows[email] = newServiceFlows;
-                            profile.ServiceFlows = dict_flows.Serialize();
+                            profile.ServiceFlows = newServiceFlows.Serialize();
                             profile.Save();
                             return jss.Serialize("Chain Deleted Successfully");
                         }

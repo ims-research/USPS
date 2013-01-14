@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Net;
 using System.Text;
@@ -10,6 +11,7 @@ using SIPLib.Utils;
 using LibServiceInfo;
 using USPS_Sip;
 using log4net;
+using USPS;
 
 namespace USPS.Code
 {
@@ -115,7 +117,7 @@ namespace USPS.Code
         {
             try
             {
-                String query = "SELECT username,lastupdateddate,PropertyValuesString ";
+                String query = "SELECT username,email,lastupdateddate,PropertyValuesString ";
                 query += "FROM aspnet_Users ";
                 query += "INNER JOIN aspnet_Profile ";
                 query += "ON aspnet_Users.userid=aspnet_Profile.userid;";
@@ -133,14 +135,14 @@ namespace USPS.Code
         private void SendServicesChains(object sender, ElapsedEventArgs e)
         {
             DataTable serviceFlows = readServiceFlowDB();
-            StringBuilder sb = new StringBuilder();
             bool update_needed = false;
             if (serviceFlows == null) return;
+            Dictionary<string,List<ServiceFlow>> changedFlows = new Dictionary<string, List<ServiceFlow>>();
             foreach (DataRow r in serviceFlows.Rows)
             {
                 DateTime t2 = Convert.ToDateTime(r["LastUpdatedDate"].ToString());
                 if (_lastupdate >= t2) continue;
-                sb.Append(r["PropertyValuesString"].ToString() + "\n");
+                changedFlows[r["email"].ToString()] = r["PropertyValuesString"].ToString().Deserialize<List<ServiceFlow>>();
                 update_needed = true;
             }
             if (update_needed)
@@ -148,11 +150,10 @@ namespace USPS.Code
                 UserAgent serviceChainUA = new UserAgent(_app.Stack) { RemoteParty = new Address("<sip:scim@open-ims.test>"), LocalParty = _localparty };
                 Message request = serviceChainUA.CreateRequest("MESSAGE");
                 _app.Useragents.Add(serviceChainUA);
-                Message m = serviceChainUA.CreateRequest("MESSAGE", sb.ToString());
+                Message m = serviceChainUA.CreateRequest("MESSAGE", changedFlows.Serialize());
                 m.InsertHeader(new Header("APPLICATION/SERV_DESC+XML", "Content-Type"));
                 serviceChainUA.SendRequest(m);
                 //request.InsertHeader(new Header("service.description", "Event"));
-                //request.InsertHeader(new Header("application/SERV_DESC+xml", "Content-Type"));
             }
             _lastupdate = DateTime.Now;
         }
