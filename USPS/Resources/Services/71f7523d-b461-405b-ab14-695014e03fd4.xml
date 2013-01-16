@@ -10,6 +10,7 @@
   <Service_Config>
     <Server_IP>192.168.0.150</Server_IP>
     <Server_Port>7890</Server_Port>
+    <Server_URI>voicemail@open-ims.test</Server_URI>
     <GUID>71f7523d-b461-405b-ab14-695014e03fd4</GUID>
   </Service_Config>
   <SIP_Headers>

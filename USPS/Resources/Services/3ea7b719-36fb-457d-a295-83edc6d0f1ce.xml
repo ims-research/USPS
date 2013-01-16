@@ -10,6 +10,7 @@
 	<Service_Config>
 		<Server_IP>192.168.0.151</Server_IP>
 		<Server_Port>6790</Server_Port>
+        <Server_URI>calllogger@open-ims.test</Server_URI>
 		<GUID>3ea7b719-36fb-457d-a295-83edc6d0f1ce</GUID>
 	</Service_Config>
 	<SIP_Headers>

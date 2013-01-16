@@ -10,6 +10,7 @@
 	<Service_Config>
 		<Server_IP>192.168.0.154</Server_IP>
 		<Server_Port>8974</Server_Port>
+        <Server_URI>missedcallim@open-ims.test</Server_URI>
 		<GUID>3600f74a-a5b1-4e47-a2e7-04b12116a670</GUID>
 	</Service_Config>
 	<SIP_Headers>

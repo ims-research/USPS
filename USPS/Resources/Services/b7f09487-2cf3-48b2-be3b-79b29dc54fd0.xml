@@ -10,6 +10,7 @@
 	<Service_Config>
 		<Server_IP>192.168.0.152</Server_IP>
 		<Server_Port>8765</Server_Port>
+        <Server_URI>missedcallemail@open-ims.test</Server_URI>
 		<GUID>b7f09487-2cf3-48b2-be3b-79b29dc54fd0</GUID>
 	</Service_Config>
 	<SIP_Headers>

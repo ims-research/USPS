@@ -10,6 +10,7 @@
 	<Service_Config>
 		<Server_IP>192.168.0.153</Server_IP>
 		<Server_Port>6278</Server_Port>
+        <Server_URI>im2email@open-ims.test</Server_URI>
 		<GUID>4616f2cd-6471-4d65-8337-5d6e63dbf1c8</GUID>
 	</Service_Config>
 	<SIP_Headers>
