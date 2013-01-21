@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using LibServiceInfo;
-using LibServiceInfo;
-using System.Web.Security;
 using System.Web.Services;
 using System.Web.Script.Serialization;
 using System.Text;
@@ -110,8 +108,9 @@ namespace USPS
         private string SaveServiceFlow(List<ServiceFlow> serviceFlows, ServiceFlow serviceflow)
         {
             string errorMessage;
-            if (DetectConflict(serviceFlows, serviceflow, out errorMessage))
-                return "Conflict Detected - " + errorMessage;
+            //TODO: Re-enable conflict detection
+            //if (DetectConflict(serviceFlows, serviceflow, out errorMessage))
+            //    return "Conflict Detected - " + errorMessage;
             try
             {
                 UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
@@ -129,8 +128,8 @@ namespace USPS
         private bool DetectConflict(List<ServiceFlow> serviceFlows, ServiceFlow serviceFlow, out string errorMessage)
         {
             errorMessage = "Success";
-            ServiceBlock startblock = serviceFlow.Blocks[serviceFlow.FirstBlockGUID];
-            if (startblock.BlockType == ServiceBlock.BlockTypes.Service)
+            Block startblock = serviceFlow.Blocks[serviceFlow.FirstBlockGUID];
+            if (startblock.BlockType == Block.BlockTypes.Service)
             {
                 if (DetectExistingServiceStartPoint(serviceFlows))
                 {
@@ -138,7 +137,7 @@ namespace USPS
                     return true;
                 }
             }
-            else if (startblock.BlockType == ServiceBlock.BlockTypes.Condition)
+            else if (startblock.BlockType == Block.BlockTypes.Condition)
             {
                 if (DetectExistingConditionStartPoint(serviceFlows, startblock))
                 {
@@ -149,13 +148,13 @@ namespace USPS
             return false;
         }
 
-        private bool DetectExistingConditionStartPoint(List<ServiceFlow> serviceFlows, ServiceBlock newStartblock)
+        private bool DetectExistingConditionStartPoint(List<ServiceFlow> serviceFlows, Block newStartblock)
         {
             bool conflictFound = false;
             foreach (ServiceFlow currentserviceFlow in serviceFlows)
             {
-                ServiceBlock startblock = currentserviceFlow.Blocks[currentserviceFlow.FirstBlockGUID];
-                if (startblock.BlockType == ServiceBlock.BlockTypes.Condition)
+                Block startblock = currentserviceFlow.Blocks[currentserviceFlow.FirstBlockGUID];
+                if (startblock.BlockType == Block.BlockTypes.Condition)
                 {
                     if (newStartblock.GlobalGUID == startblock.GlobalGUID)
                     {
@@ -177,8 +176,8 @@ namespace USPS
             int numberServiceStartBlocks = 0;
             foreach (ServiceFlow currentserviceFlow in serviceFlows)
             {
-                ServiceBlock startblock = currentserviceFlow.Blocks[currentserviceFlow.FirstBlockGUID];
-                if (startblock.BlockType == ServiceBlock.BlockTypes.Service)
+                Block startblock = currentserviceFlow.Blocks[currentserviceFlow.FirstBlockGUID];
+                if (startblock.BlockType == Block.BlockTypes.Service)
                 {
                     numberServiceStartBlocks++;
                 }

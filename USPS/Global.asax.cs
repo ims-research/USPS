@@ -17,7 +17,7 @@ namespace USPS
             });
             ServiceManager.LoadServices(Server.MapPath("Resources\\Services\\"));
             ServiceManager.LoadConditions(Server.MapPath("Resources\\Conditions\\Conditions.xml"));
-            SIPHandler sh = new SIPHandler();
+            SIPHandler sh = new SIPHandler(Server.MapPath("Resources\\"));
             _sipThread = new Thread(new ThreadStart(sh.Start));
             _sipThread.Start();
         }

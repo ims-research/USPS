@@ -23,6 +23,12 @@ namespace USPS.Code
         private static Address _localparty;
         private SQLiteDatabase _db;
         private DateTime _lastupdate;
+        private string _resourcePath { get; set; }
+
+        public SIPHandler(string resourcePath)
+        {
+            _resourcePath = resourcePath;
+        }
 
         public SIPStack CreateStack(SIPApp app, string proxyIp = null, int proxyPort = -1)
         {
@@ -100,9 +106,9 @@ namespace USPS.Code
                 xmlDoc.LoadXml(messageBody);
                 XmlNodeList guids = xmlDoc.GetElementsByTagName("GUID");
                 string serviceGUID = guids[0].InnerText;
-                xmlDoc.Save(Server.MapPath("Resources\\Services\\") + serviceGUID + ".xml");
+                xmlDoc.Save(_resourcePath + "Services\\"+ serviceGUID + ".xml");
             }
-            ServiceManager.LoadServices(Server.MapPath("Resources\\Services\\"));
+            ServiceManager.LoadServices(_resourcePath + "Services\\");
         }
 
         private void StartTimer()
