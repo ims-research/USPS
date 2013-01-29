@@ -1,10 +1,16 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using LibServiceInfo;
+
+#endregion
+
 namespace USPS
 {
-    public partial class CreateService : System.Web.UI.Page
+    public partial class CreateService : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -14,10 +20,10 @@ namespace USPS
                 foreach (KeyValuePair<string, Service> kvp in ServiceManager.ServiceList)
                 {
                     ListItem service = new ListItem
-                    {
-                        Text = kvp.Value.ServiceInformation["Name"],
-                        Value = kvp.Value.ServiceConfig["GUID"]
-                    };
+                        {
+                            Text = kvp.Value.ServiceInformation["Name"],
+                            Value = kvp.Value.ServiceConfig["GUID"]
+                        };
                     ddlstService.Items.Add(service);
                 }
 
@@ -25,10 +31,10 @@ namespace USPS
                 foreach (KeyValuePair<string, Condition> kvp in ServiceManager.ConditionList)
                 {
                     ListItem condition = new ListItem
-                    {
-                        Text = kvp.Value.Name,
-                        Value = kvp.Value.GUID
-                    };
+                        {
+                            Text = kvp.Value.Name,
+                            Value = kvp.Value.GUID
+                        };
                     ddlstCondition.Items.Add(condition);
                 }
             }

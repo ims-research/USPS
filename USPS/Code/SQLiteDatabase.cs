@@ -1,16 +1,21 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Diagnostics;
+
+#endregion
 
 // Code written by Brendon Dugan
 // in his SQLite Tutorial
 
-namespace USPS_Sip
+namespace USPS.Code
 {
-    class SQLiteDatabase
+    internal class SQLiteDatabase
     {
-        String dbConnection;
+        private String dbConnection;
 
         /// <summary>
         ///     Default Constructor for SQLiteDatabase Class.
@@ -121,13 +126,13 @@ namespace USPS_Sip
             {
                 foreach (KeyValuePair<String, String> val in data)
                 {
-                    vals += String.Format(" {0} = '{1}',", val.Key.ToString(), val.Value.ToString());
+                    vals += String.Format(" {0} = '{1}',", val.Key, val.Value);
                 }
                 vals = vals.Substring(0, vals.Length - 1);
             }
             try
             {
-                this.ExecuteNonQuery(String.Format("update {0} set {1} where {2};", tableName, vals, where));
+                ExecuteNonQuery(String.Format("update {0} set {1} where {2};", tableName, vals, where));
             }
             catch
             {
@@ -147,11 +152,11 @@ namespace USPS_Sip
             Boolean returnCode = true;
             try
             {
-                this.ExecuteNonQuery(String.Format("delete from {0} where {1};", tableName, where));
+                ExecuteNonQuery(String.Format("delete from {0} where {1};", tableName, where));
             }
             catch (Exception fail)
             {
-                System.Diagnostics.Debug.Assert(false,fail.Message);
+                Debug.Assert(false, fail.Message);
                 returnCode = false;
             }
             return returnCode;
@@ -170,18 +175,18 @@ namespace USPS_Sip
             Boolean returnCode = true;
             foreach (KeyValuePair<String, String> val in data)
             {
-                columns += String.Format(" {0},", val.Key.ToString());
+                columns += String.Format(" {0},", val.Key);
                 values += String.Format(" '{0}',", val.Value);
             }
             columns = columns.Substring(0, columns.Length - 1);
             values = values.Substring(0, values.Length - 1);
             try
             {
-                this.ExecuteNonQuery(String.Format("insert into {0}({1}) values({2});", tableName, columns, values));
+                ExecuteNonQuery(String.Format("insert into {0}({1}) values({2});", tableName, columns, values));
             }
             catch (Exception fail)
             {
-                System.Diagnostics.Debug.Assert(false, fail.Message);
+                Debug.Assert(false, fail.Message);
                 returnCode = false;
             }
             return returnCode;
@@ -196,10 +201,10 @@ namespace USPS_Sip
             DataTable tables;
             try
             {
-                tables = this.GetDataTable("select NAME from SQLITE_MASTER where type='table' order by NAME;");
+                tables = GetDataTable("select NAME from SQLITE_MASTER where type='table' order by NAME;");
                 foreach (DataRow table in tables.Rows)
                 {
-                    this.ClearTable(table["NAME"].ToString());
+                    ClearTable(table["NAME"].ToString());
                 }
                 return true;
             }
@@ -218,8 +223,7 @@ namespace USPS_Sip
         {
             try
             {
-
-                this.ExecuteNonQuery(String.Format("delete from {0};", table));
+                ExecuteNonQuery(String.Format("delete from {0};", table));
                 return true;
             }
             catch
@@ -228,5 +232,4 @@ namespace USPS_Sip
             }
         }
     }
-
 }

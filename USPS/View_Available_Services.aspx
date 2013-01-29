@@ -4,28 +4,28 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:GridView ID="serviceGrid" runat="server" AutoGenerateColumns="false">
-    <Columns>
-     <asp:TemplateField HeaderText="Service Name">
+        <Columns>
+            <asp:TemplateField HeaderText="Service Name">
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"Value.ServiceInformation[\"Name\"]") %>'></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Value.ServiceInformation[\"Name\"]") %>'></asp:Label>
                 </ItemTemplate>
-    </asp:TemplateField>
-     <asp:TemplateField HeaderText="Description">
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Description">
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"Value.ServiceInformation[\"Description\"]") %>'></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Value.ServiceInformation[\"Description\"]") %>'></asp:Label>
                 </ItemTemplate>
-    </asp:TemplateField>
-         <asp:TemplateField HeaderText="Provider">
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Provider">
                 <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"Value.ServiceInformation[\"Provider\"]") %>'></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Value.ServiceInformation[\"Provider\"]") %>'></asp:Label>
                 </ItemTemplate>
-    </asp:TemplateField>
-    <%--<asp:TemplateField HeaderText="rer">
+            </asp:TemplateField>
+            <%--<asp:TemplateField HeaderText="rer">
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text="<%# ((Dictionary<string, USPS.Code.Service>)Container.DataItem).value %>"></asp:Label>
                 </ItemTemplate>
            </asp:TemplateField>--%>
-    </Columns></asp:GridView>
+        </Columns></asp:GridView>
     <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True" 
-        ontextchanged="TextBox1TextChanged"></asp:TextBox>
-    </asp:Content>
+                 ontextchanged="TextBox1TextChanged"></asp:TextBox>
+</asp:Content>

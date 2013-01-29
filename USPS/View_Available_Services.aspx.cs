@@ -1,10 +1,15 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Linq;
+using System.Web.UI;
 using LibServiceInfo;
-using USPS.Code;
+
+#endregion
+
 namespace USPS
 {
-    public partial class ViewAvailableServices : System.Web.UI.Page
+    public partial class ViewAvailableServices : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +30,7 @@ namespace USPS
                                select entry;
                 serviceGrid.DataSource = services;
             }
-          serviceGrid.DataBind();
+            serviceGrid.DataBind();
         }
 
         protected void TextBox1TextChanged(object sender, EventArgs e)

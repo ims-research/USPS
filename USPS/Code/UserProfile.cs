@@ -1,21 +1,16 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Web.Profile;
 using System.Web.Security;
-using System.Collections.Generic;
+
+#endregion
+
 namespace USPS.Code
 {
     [Serializable]
     public class UserProfile : ProfileBase
     {
-        public static UserProfile GetUserProfile(string username)
-        {
-            return Create(username) as UserProfile;
-        }
-        public static UserProfile GetUserProfile()
-        {
-            return Create(Membership.GetUser().UserName) as UserProfile;
-        }
-
         [SettingsAllowAnonymous(false)]
         public string ServiceFlows
         {
@@ -23,5 +18,14 @@ namespace USPS.Code
             set { base["ServiceFlows"] = value; }
         }
 
+        public static UserProfile GetUserProfile(string username)
+        {
+            return Create(username) as UserProfile;
+        }
+
+        public static UserProfile GetUserProfile()
+        {
+            return Create(Membership.GetUser().UserName) as UserProfile;
+        }
     }
 }

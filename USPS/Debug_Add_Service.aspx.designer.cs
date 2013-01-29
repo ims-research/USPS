@@ -10,7 +10,7 @@
 namespace USPS {
     
     
-    public partial class Test_Add_Service {
+    public partial class TestAddService {
         
         /// <summary>
         /// XML_Table_Panel control.

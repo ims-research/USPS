@@ -41,17 +41,17 @@
 
     <div class="centre">
         <juice:Dialog ID="juiceDialogAddNode" TargetControlID="addNodeDialog" AutoOpen="false" runat="server" Modal="true"
-            Buttons="{'Add Service': function() { addServiceClick(); }, 'Add Condition': function() { addConditionClick(); } }"></juice:Dialog>
+                      Buttons="{'Add Service': function() { addServiceClick(); }, 'Add Condition': function() { addConditionClick(); } }"></juice:Dialog>
         <juice:Dialog ID="juiceSelectServiceDialog" TargetControlID="selectServiceDialog" AutoOpen="false" runat="server" Modal="true"
-            Buttons="{'Select Service': function() { selectServiceClick(); } }"></juice:Dialog>
+                      Buttons="{'Select Service': function() { selectServiceClick(); } }"></juice:Dialog>
         <juice:Dialog ID="juiceChooseServiceResponse" TargetControlID="chooseServiceResponses" AutoOpen="false" runat="server" Modal="true" Width="500"
-            Buttons="{'Confirm Service': function() { confirmServiceClick(); } }"></juice:Dialog>
+                      Buttons="{'Confirm Service': function() { confirmServiceClick(); } }"></juice:Dialog>
         <juice:Dialog ID="juiceSelectConditionDialog" TargetControlID="selectConditionDialog" AutoOpen="false" runat="server" Modal="true"
-            Buttons="{'Select Condition': function() { selectConditionClick(); } }"></juice:Dialog>
+                      Buttons="{'Select Condition': function() { selectConditionClick(); } }"></juice:Dialog>
         <juice:Dialog ID="juiceChooseConditionOption" TargetControlID="chooseConditionOptions" AutoOpen="false" runat="server" Modal="true" Width="500"
-            Buttons="{'Confirm Condition': function() { confirmConditionClick(); } }"></juice:Dialog>
+                      Buttons="{'Confirm Condition': function() { confirmConditionClick(); } }"></juice:Dialog>
         <juice:Dialog ID="juiceEnterChainName" TargetControlID="enterChainName" AutoOpen="false" runat="server" Modal="true" Width="500"
-            Buttons="{'Confirm Chain Name': function() { confirmChainNameClick(); } }"></juice:Dialog>
+                      Buttons="{'Confirm Chain Name': function() { confirmChainNameClick(); } }"></juice:Dialog>
         <p>
             <button id="addNodeDialogBtn" class="addNodeDialog" runat="server">Add a new service or condition</button>
             <juice:Button ID="Button1" TargetControlID="addNodeDialogBtn" runat="server" />
@@ -61,10 +61,10 @@
             <juice:Button ID="Button3" TargetControlID="saveChainBtn" runat="server" />
         </p>
     </div>
-    <script src="Scripts/D3/d3.v2.js" type="text/javascript"></script>
+    <script src="Scripts/D3/d3.v2.js" type="text/javascript"> </script>
 
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             $("#MainContent_saveChainBtn").hide();
             $("#selectableSIPResponse").selectable();
             $("#selectableConditionOptions").selectable();
@@ -73,7 +73,6 @@
         });
     </script>
     <script type="text/javascript">
-
 
         function addServiceOrCondition() {
             $("#MainContent_addNodeDialog").dialog("open");
@@ -104,13 +103,13 @@
             var service_guid = $("#MainContent_ddlstService").val();
             var name = $("#MainContent_ddlstService option:selected").text();
             addNodeByName(name, service_guid, "Service", service_guid);
-            var current_responses = []
+            var current_responses = [];
             addNewSipResponse(service_guid, current_responses);
         }
 
         function confirmServiceClick() {
             $("#MainContent_chooseServiceResponses").dialog("close");
-            $(".ui-selected").each(function () {
+            $(".ui-selected").each(function() {
                 var text = this.textContent;
                 var value = this.getAttribute("value");
                 addNodeByName(text, value, "ServiceValue", value);
@@ -128,13 +127,13 @@
             var condition_guid = $("#MainContent_ddlstCondition").val();
             var name = $("#MainContent_ddlstCondition option:selected").text();
             addNodeByName(name, condition_guid, "Condition", condition_guid);
-            var current_options = []
+            var current_options = [];
             addNewConditionOption(condition_guid, current_options);
         }
 
         function confirmConditionClick() {
             $("#MainContent_chooseConditionOptions").dialog("close");
-            $(".ui-selected").each(function () {
+            $(".ui-selected").each(function() {
                 debugger;
                 var text = this.textContent;
                 var value = this.getAttribute("value");
@@ -151,33 +150,33 @@
 
 
         function saveChain(name) {
-            var my_guid = JSON.stringify(guid())
-            seen = []
-            var chain = JSON.stringify(root, function (key, val) {
+            var my_guid = JSON.stringify(guid());
+            seen = [];
+            var chain = JSON.stringify(root, function(key, val) {
                 if (typeof val == "object") {
                     if (seen.indexOf(val) >= 0)
-                        return undefined
-                    seen.push(val)
+                        return undefined;
+                    seen.push(val);
                 }
-                return val
-            })
+                return val;
+            });
             debugger;
             $.ajax({
                 type: "POST",
                 url: "Services.asmx/SaveChain",
                 data: "{'GUID':" + my_guid + ",'Chain':'" + chain + "','Name':'" + JSON.stringify(name) + "'}",
                 contentType: "application/json; charset=utf-8",
-                dataFilter: function (data) {
+                dataFilter: function(data) {
                     var msg = eval('(' + data + ')');
                     if (msg.hasOwnProperty('d'))
                         return msg.d;
                     else
                         return msg;
                 },
-                success: function (data) {
+                success: function(data) {
                     alert(data);
                 },
-                error: function (data) {
+                error: function(data) {
                     alert(data);
                 }
             });
@@ -200,15 +199,16 @@
                 "global_guid": global_guid,
                 "instance_guid": guid(),
                 "children": [],
-            }
-            addNode(newnode, root, currentID)
+            };
+            addNode(newnode, root, currentID);
             update(root);
         }
     </script>
     <script type="text/javascript">
         var root = {
-            "name": "Start", "type": "Root", "children": []
-
+            "name": "Start",
+            "type": "Root",
+            "children": []
         };
 
         var currentNode = root;
@@ -216,10 +216,10 @@
         var currentID = 1;
 
         var w = 960,
-        h = 500,
-        i = 0,
-        duration = 500,
-        root;
+            h = 500,
+            i = 0,
+            duration = 500,
+            root;
 
         var tree = d3.layout.tree()
             .size([w - 160, h]);
@@ -229,12 +229,12 @@
         var vis = d3.select("div.main").append("svg:svg")
             .attr("width", w)
             .attr("height", h + 500)
-          .append("svg:g")
+            .append("svg:g")
             .attr("transform", "translate(40,40)");
 
         d3.select(self.frameElement).style("height", "1000px");
 
-        update(root)
+        update(root);
 
         function update(source) {
 
@@ -242,55 +242,55 @@
             var nodes = tree.nodes(root).reverse();
             // Update the nodes…
             var node = vis.selectAll("g.node")
-              .data(nodes, function (d) { return d.id || (d.id = ++i); });
+                .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
             var nodeEnter = node.enter().append("svg:g")
                 .attr("class", "node")
-                .attr("transform", function (d) { return "translate(" + source.x0 + "," + source.y0 + ")"; });
+                .attr("transform", function(d) { return "translate(" + source.x0 + "," + source.y0 + ")"; });
 
             // Enter any new nodes at the parent's previous position.
             nodeEnter.append("svg:circle")
-              .attr("r", 6)
-              .style("fill", "lightsteelblue")
-              .on("click", click);
+                .attr("r", 6)
+                .style("fill", "lightsteelblue")
+                .on("click", click);
 
             nodeEnter.append("svg:text")
-                .attr("x", function (d) { return -((d.name.length / 2) * 7) })
+                .attr("x", function(d) { return -((d.name.length / 2) * 7); })
                 .attr("y", 30)
-                .text(function (d) { return d.name; });
+                .text(function(d) { return d.name; });
 
             // Transition nodes to their new position.
             nodeEnter.transition()
                 .duration(duration)
-                .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
+                .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
                 .style("opacity", 1)
-              .select("circle")
+                .select("circle")
                 .style("fill", "lightsteelblue");
 
             node.transition()
-              .duration(duration)
-              .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
-              .style("opacity", 1);
+                .duration(duration)
+                .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+                .style("opacity", 1);
 
 
             node.exit().transition()
-              .duration(duration)
-              .attr("transform", function (d) { return "translate(" + source.x + "," + source.y + ")"; })
-              .style("opacity", 1e-6)
-              .remove();
+                .duration(duration)
+                .attr("transform", function(d) { return "translate(" + source.x + "," + source.y + ")"; })
+                .style("opacity", 1e-6)
+                .remove();
 
             // Update the links…
             var link = vis.selectAll("path.link")
-                .data(tree.links(nodes), function (d) { return d.target.id; });
+                .data(tree.links(nodes), function(d) { return d.target.id; });
 
             // Enter any new links at the parent's previous position.
             link.enter().insert("svg:path", "g")
                 .attr("class", "link")
-                .attr("d", function (d) {
+                .attr("d", function(d) {
                     var o = { x: source.x0, y: source.y0 };
                     return diagonal({ source: o, target: o });
                 })
-              .transition()
+                .transition()
                 .duration(duration)
                 .attr("d", diagonal);
 
@@ -302,48 +302,50 @@
             // Transition exiting nodes to the parent's new position.
             link.exit().transition()
                 .duration(duration)
-                .attr("d", function (d) {
+                .attr("d", function(d) {
                     var o = { x: source.x, y: source.y };
                     return diagonal({ source: o, target: o });
                 })
                 .remove();
 
             // Stash the old positions for transition.
-            nodes.forEach(function (d) {
+            nodes.forEach(function(d) {
                 d.x0 = d.x;
                 d.y0 = d.y;
             });
         }
 
         // Toggle children on click.
+
         function click(d) {
             var nodeType = d.type;
             switch (nodeType) {
-                case "Service":
-                    currentID = d.id;
-                    var current_responses = [];
-                    for (var i = 0; i < d.children.length; i++) {
-                        current_responses.push(d.children[i].name);
-                    }
-                    addNewSipResponse(d.global_guid, current_responses);
-                    break;
-                case "Condition":
-                    currentID = d.id;
-                    var current_options = [];
-                    for (var i = 0; i < d.children.length; i++) {
-                        current_options.push(d.children[i].name);
-                    }
-                    addNewConditionOption(d.global_guid, current_options);
-                    break;
-                case "ServiceValue":
-                    currentID = d.id;
-                    addServiceOrCondition();
-                    break;
-                case "ConditionValue":
-                    currentID = d.id;
-                    addServiceOrCondition();
-                    break;
-                default: alert("Unknown Node Type - Cannot add more than one starting point");
+            case "Service":
+                currentID = d.id;
+                var current_responses = [];
+                for (var i = 0; i < d.children.length; i++) {
+                    current_responses.push(d.children[i].name);
+                }
+                addNewSipResponse(d.global_guid, current_responses);
+                break;
+            case "Condition":
+                currentID = d.id;
+                var current_options = [];
+                for (var i = 0; i < d.children.length; i++) {
+                    current_options.push(d.children[i].name);
+                }
+                addNewConditionOption(d.global_guid, current_options);
+                break;
+            case "ServiceValue":
+                currentID = d.id;
+                addServiceOrCondition();
+                break;
+            case "ConditionValue":
+                currentID = d.id;
+                addServiceOrCondition();
+                break;
+            default:
+                alert("Unknown Node Type - Cannot add more than one starting point");
             }
         }
 
@@ -353,14 +355,14 @@
                 url: "Services.asmx/ListServiceResponses",
                 data: "{'ServiceGUID':" + JSON.stringify(service_guid) + "}",
                 contentType: "application/json; charset=utf-8",
-                dataFilter: function (data) {
+                dataFilter: function(data) {
                     var msg = eval('(' + data + ')');
                     if (msg.hasOwnProperty('d'))
                         return msg.d;
                     else
                         return msg;
                 },
-                success: function (data) {
+                success: function(data) {
                     for (var key in data) {
                         var found = $.inArray(key, current_responses) > -1;
                         if (!(found)) {
@@ -369,7 +371,7 @@
                     }
 
                 },
-                error: function (msg) {
+                error: function(msg) {
                     alert(msg);
                 }
             });
@@ -382,14 +384,14 @@
                 url: "Services.asmx/ListConditionOptions",
                 data: "{'ConditionGUID':" + JSON.stringify(condition_guid) + "}",
                 contentType: "application/json; charset=utf-8",
-                dataFilter: function (data) {
+                dataFilter: function(data) {
                     var msg = eval('(' + data + ')');
                     if (msg.hasOwnProperty('d'))
                         return msg.d;
                     else
                         return msg;
                 },
-                success: function (data) {
+                success: function(data) {
                     debugger;
                     for (var key in data) {
                         var found = $.inArray(data[key], current_options) > -1;
@@ -399,7 +401,7 @@
                     }
 
                 },
-                error: function (msg) {
+                error: function(msg) {
                     alert(msg);
                 }
             });
@@ -411,35 +413,32 @@
 
             if (startNode.children) {
                 children = startNode.children;
-            }
-            else {
+            } else {
                 children = startNode._children;
             }
 
             if (startNode.id == parentID) {
                 children.push(newNode);
-                update(root)
+                update(root);
                 var nodeType = newNode.type;
                 switch (nodeType) {
-                    case "Service":
-                    case "Condition":
-                        currentID = newNode.id;
-                        break;
-                    default:
-                        break;
+                case "Service":
+                case "Condition":
+                    currentID = newNode.id;
+                    break;
+                default:
+                    break;
                 }
-            }
-            else {
+            } else {
                 if (children) {
                     for (var i = 0; i < children.length; i++) {
                         var node = children[i];
-                        addNode(newNode, node, parentID)
+                        addNode(newNode, node, parentID);
                     }
                 }
 
             }
         }
-
 
     </script>
 </asp:Content>

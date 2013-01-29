@@ -10,7 +10,7 @@
 namespace USPS {
     
     
-    public partial class Debug_View_Service_From_XML {
+    public partial class DebugViewServiceFromXML {
         
         /// <summary>
         /// Files_Table control.

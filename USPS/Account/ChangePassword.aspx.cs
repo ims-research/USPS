@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿#region
+
+using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+
+#endregion
 
 namespace USPS.Account
 {
-    public partial class ChangePassword : System.Web.UI.Page
+    public partial class ChangePassword : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

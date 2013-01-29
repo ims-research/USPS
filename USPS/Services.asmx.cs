@@ -1,60 +1,57 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using LibServiceInfo;
-using System.Web.Services;
-using System.Web.Script.Serialization;
+using System.ComponentModel;
+using System.Linq;
 using System.Text;
+using System.Web.Script.Serialization;
+using System.Web.Script.Services;
+using System.Web.Services;
+using LibServiceInfo;
 using USPS.Code;
+
+#endregion
 
 namespace USPS
 {
     /// <summary>
-    /// Summary description for WebService1
+    ///     Summary description for WebService1
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    [System.ComponentModel.ToolboxItem(false)]
-    [System.Web.Script.Services.ScriptService]
-    public class WebServices : System.Web.Services.WebService
+    [ToolboxItem(false)]
+    [ScriptService]
+    public class WebServices : WebService
     {
-
         [WebMethod]
         public string ListServices()
         {
-            StringBuilder sb = new StringBuilder();
             var jss = new JavaScriptSerializer();
-            Dictionary<String, String> services = new Dictionary<String, String>();
-            foreach (KeyValuePair<string, Service> kvp in ServiceManager.ServiceList)
-            {
-                services.Add(kvp.Value.ServiceInformation["Name"], kvp.Value.ServiceConfig["GUID"]);
-            }
+            Dictionary<String, String> services = ServiceManager.ServiceList.ToDictionary(kvp => kvp.Value.ServiceInformation["Name"], kvp => kvp.Value.ServiceConfig["GUID"]);
             return jss.Serialize(services);
         }
 
+        [WebMethod]
         public string ListConditions()
         {
-            StringBuilder sb = new StringBuilder();
             var jss = new JavaScriptSerializer();
-            Dictionary<String, String> conditions = new Dictionary<String, String>();
-            foreach (KeyValuePair<string, Condition> kvp in ServiceManager.ConditionList)
-            {
-                conditions.Add(kvp.Value.Name, kvp.Value.GUID);
-            }
+            Dictionary<String, String> conditions = ServiceManager.ConditionList.ToDictionary(kvp => kvp.Value.Name, kvp => kvp.Value.GUID);
             return jss.Serialize(conditions);
         }
 
         [WebMethod]
-        public string ListServiceResponses(String ServiceGUID)
+        public string ListServiceResponses(String serviceGUID)
         {
-            Service service = ServiceManager.ServiceList[ServiceGUID];
+            Service service = ServiceManager.ServiceList[serviceGUID];
             var jss = new JavaScriptSerializer();
             return jss.Serialize(service.SIPResponses);
         }
 
         [WebMethod]
-        public string ListConditionOptions(String ConditionGUID)
+        public string ListConditionOptions(String conditionGUID)
         {
-            Condition condition = ServiceManager.ConditionList[ConditionGUID];
+            Condition condition = ServiceManager.ConditionList[conditionGUID];
             var jss = new JavaScriptSerializer();
             return jss.Serialize(condition.PossibleValues);
         }
@@ -76,7 +73,7 @@ namespace USPS
                     flows = new List<ServiceFlow>();
                     profile.ServiceFlows = flows.Serialize();
                     profile.Save();
-                    
+
                     return false;
                 }
             }
@@ -86,23 +83,19 @@ namespace USPS
         }
 
         [WebMethod(EnableSession = true)]
-        public string SaveChain(Object GUID, String Chain, String Name)
+        public string SaveChain(Object guid, String chain, String name)
         {
             var jss = new JavaScriptSerializer();
-            D3Node rootD3Node = jss.Deserialize<D3Node>(Chain);
-            string newServiceGuid = Guid.NewGuid().ToString();
+            D3Node rootD3Node = jss.Deserialize<D3Node>(chain);
             Node rootNode = new Node(rootD3Node);
             List<ServiceFlow> sfs;
             String errorMessage;
             if (GetServiceFlows(out sfs, out errorMessage))
             {
-                ServiceFlow serviceflow = new ServiceFlow(rootNode, Name);
+                ServiceFlow serviceflow = new ServiceFlow(rootNode, name);
                 return jss.Serialize(SaveServiceFlow(sfs, serviceflow));
             }
-            else
-            {
-                return jss.Serialize(errorMessage);
-            }
+            return jss.Serialize(errorMessage);
         }
 
         private string SaveServiceFlow(List<ServiceFlow> serviceFlows, ServiceFlow serviceflow)
@@ -125,7 +118,7 @@ namespace USPS
             }
         }
 
-        private bool DetectConflict(List<ServiceFlow> serviceFlows, ServiceFlow serviceFlow, out string errorMessage)
+        private bool DetectConflict(IEnumerable<ServiceFlow> serviceFlows, ServiceFlow serviceFlow, out string errorMessage)
         {
             errorMessage = "Success";
             Block startblock = serviceFlow.Blocks[serviceFlow.FirstBlockGUID];
@@ -148,7 +141,7 @@ namespace USPS
             return false;
         }
 
-        private bool DetectExistingConditionStartPoint(List<ServiceFlow> serviceFlows, Block newStartblock)
+        private bool DetectExistingConditionStartPoint(IEnumerable<ServiceFlow> serviceFlows, Block newStartblock)
         {
             bool conflictFound = false;
             foreach (ServiceFlow currentserviceFlow in serviceFlows)
@@ -171,7 +164,7 @@ namespace USPS
             return conflictFound;
         }
 
-        private bool DetectExistingServiceStartPoint(List<ServiceFlow> serviceFlows)
+        private bool DetectExistingServiceStartPoint(IEnumerable<ServiceFlow> serviceFlows)
         {
             int numberServiceStartBlocks = 0;
             foreach (ServiceFlow currentserviceFlow in serviceFlows)
@@ -186,10 +179,7 @@ namespace USPS
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         [WebMethod(EnableSession = true)]
@@ -202,14 +192,11 @@ namespace USPS
             {
                 return jss.Serialize(sfs);
             }
-            else
-            {
-                return jss.Serialize(errorMessage);
-            }
+            return jss.Serialize(errorMessage);
         }
 
         [WebMethod(EnableSession = true)]
-        public string GetExistingChain(String FirstBlockGUID)
+        public string GetExistingChain(String firstBlockGUID)
         {
             var jss = new JavaScriptSerializer();
             List<ServiceFlow> sfs;
@@ -218,21 +205,18 @@ namespace USPS
             {
                 foreach (ServiceFlow serviceFlow in sfs)
                 {
-                    if (serviceFlow.FirstBlockGUID == FirstBlockGUID)
+                    if (serviceFlow.FirstBlockGUID == firstBlockGUID)
                     {
                         return jss.Serialize(serviceFlow.RootNode);
                     }
                 }
                 return jss.Serialize("Error - Chain not found");
             }
-            else
-            {
-                return jss.Serialize(errorMessage);
-            }
+            return jss.Serialize(errorMessage);
         }
 
         [WebMethod(EnableSession = true)]
-        public string DeleteExistingChain(String FirstBlockGUID)
+        public string DeleteExistingChain(String firstBlockGUID)
         {
             var jss = new JavaScriptSerializer();
             List<ServiceFlow> sfs;
@@ -241,7 +225,7 @@ namespace USPS
             {
                 foreach (ServiceFlow serviceFlow in sfs)
                 {
-                    if (serviceFlow.FirstBlockGUID == FirstBlockGUID)
+                    if (serviceFlow.FirstBlockGUID == firstBlockGUID)
                     {
                         try
                         {
@@ -260,11 +244,7 @@ namespace USPS
                 }
                 return jss.Serialize("Error - Chain not found");
             }
-            else
-            {
-                return jss.Serialize(errorMessage);
-            }
+            return jss.Serialize(errorMessage);
         }
-
     }
 }

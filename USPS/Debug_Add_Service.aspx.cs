@@ -1,77 +1,93 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.IO;
 using System.Xml;
+
+#endregion
+
 namespace USPS
 {
-    public partial class Test_Add_Service : System.Web.UI.Page
+    public partial class TestAddService : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Dictionary<string, string> sinfo_keys = new Dictionary<string, string> {{"Name","Voice Mail"}, {"Type","Session Establishment"}, { "Version", ""},{"Provider",""},{ "Description", ""}};
-            Dictionary<string, string> sconfig_keys = new Dictionary<string, string> {{ "Server_IP", ""},{"Server_Port",""},{"GUID",""}};
-            Dictionary<string, string> header_keys = new Dictionary<string, string> {{ "READ",""},{"WRITE",""}};
-            Dictionary<string, string> cap_keys = new Dictionary<string, string> {{ "audio",""},{"video",""},{"duplex",""},{"methods","" }};
+            Dictionary<string, string> sinfoKeys = new Dictionary<string, string>
+                {
+                    {"Name", "Voice Mail"},
+                    {"Type", "Session Establishment"},
+                    {"Version", ""},
+                    {"Provider", ""},
+                    {"Description", ""}
+                };
+            Dictionary<string, string> sconfigKeys = new Dictionary<string, string>
+                {
+                    {"Server_IP", ""},
+                    {"Server_Port", ""},
+                    {"GUID", ""}
+                };
+            Dictionary<string, string> headerKeys = new Dictionary<string, string> {{"READ", ""}, {"WRITE", ""}};
+            Dictionary<string, string> capKeys = new Dictionary<string, string>
+                {
+                    {"audio", ""},
+                    {"video", ""},
+                    {"duplex", ""},
+                    {"methods", ""}
+                };
 
-            Dictionary<string, Dictionary<string, string>> nodes = new Dictionary<string, Dictionary<string, string>>();
-            nodes.Add("Service_Information", sinfo_keys);
-            nodes.Add("Service_Config", sconfig_keys);
-            nodes.Add("SIP_Headers", header_keys);
-            nodes.Add("Capabalities", cap_keys);
+            Dictionary<string, Dictionary<string, string>> nodes = new Dictionary<string, Dictionary<string, string>>
+                {
+                    {"Service_Information", sinfoKeys},
+                    {"Service_Config", sconfigKeys},
+                    {"SIP_Headers", headerKeys},
+                    {"Capabalities", capKeys}
+                };
 
             foreach (KeyValuePair<string, Dictionary<string, string>> kv in nodes)
             {
-                Table table = new Table();
-                table.Caption = kv.Key;
-                table.ID = kv.Key + "_table";
+                Table table = new Table {Caption = kv.Key, ID = kv.Key + "_table"};
 
                 foreach (KeyValuePair<string, string> values in kv.Value)
                 {
-                    TableRow temp_tr = new TableRow();
-                    Label temp_label = new Label();
-                    TextBox temp_box = new TextBox();
+                    TableRow tempTr = new TableRow();
+                    Label tempLabel = new Label();
+                    TextBox tempBox = new TextBox();
                     TableCell tck = new TableCell();
                     TableCell tcv = new TableCell();
-                    
-                    temp_label.Text = values.Key;
+
+                    tempLabel.Text = values.Key;
                     if (values.Key == "GUID")
                     {
-                        temp_box.Text = Guid.NewGuid().ToString();
-                        temp_box.Enabled = false;
+                        tempBox.Text = Guid.NewGuid().ToString();
+                        tempBox.Enabled = false;
                     }
                     else
                     {
-                        temp_box.Text = values.Value;
+                        tempBox.Text = values.Value;
                     }
 
-                    tck.Controls.Add(temp_label);
-                    tcv.Controls.Add(temp_box);
+                    tck.Controls.Add(tempLabel);
+                    tcv.Controls.Add(tempBox);
 
-                    temp_tr.Cells.Add(tck);
-                    temp_tr.Cells.Add(tcv);
-                    table.Rows.Add(temp_tr);
+                    tempTr.Cells.Add(tck);
+                    tempTr.Cells.Add(tcv);
+                    table.Rows.Add(tempTr);
                 }
                 XML_Table_Panel.Controls.Add(table);
             }
         }
 
-        protected void SaveXML_Click(object sender, EventArgs e)
+        protected void SaveXMLClick(object sender, EventArgs e)
         {
-            string GUID = "Error";
-            GUID = Guid.NewGuid().ToString();
+            string guid = Guid.NewGuid().ToString();
 
-            string file = Server.MapPath("Resources\\Services\\") + GUID + ".xml";
+            string file = Server.MapPath("Resources\\Services\\") + guid + ".xml";
 
             FileStream fs = new FileStream(file, FileMode.Create);
-            XmlTextWriter w = new XmlTextWriter(fs, null);
-
-            w.Formatting = Formatting.Indented;
-            w.Indentation = 4;
+            XmlTextWriter w = new XmlTextWriter(fs, null) {Formatting = Formatting.Indented, Indentation = 4};
 
             w.WriteStartDocument();
             w.WriteStartElement("Service");
@@ -79,17 +95,17 @@ namespace USPS
             {
                 if (cntrl is Table)
                 {
-                    Table temp_table = (Table)(cntrl);
-                    w.WriteStartElement(temp_table.Caption);
-                    foreach (TableRow tr in temp_table.Rows)
+                    Table tempTable = (Table) (cntrl);
+                    w.WriteStartElement(tempTable.Caption);
+                    foreach (TableRow tr in tempTable.Rows)
                     {
-                        Label temp_label = (Label)tr.Cells[0].Controls[0];
-                        string name = temp_label.Text;
-                        TextBox temp_box = (TextBox)tr.Cells[1].Controls[0];
-                        string value = temp_box.Text;
+                        Label tempLabel = (Label) tr.Cells[0].Controls[0];
+                        string name = tempLabel.Text;
+                        TextBox tempBox = (TextBox) tr.Cells[1].Controls[0];
+                        string value = tempBox.Text;
                         if (name == "GUID")
                         {
-                            value = GUID;
+                            value = guid;
                         }
                         w.WriteStartElement(name);
                         w.WriteString(value);
@@ -101,7 +117,6 @@ namespace USPS
             w.WriteEndElement();
             w.WriteEndDocument();
             w.Close();
-
         }
     }
 }
