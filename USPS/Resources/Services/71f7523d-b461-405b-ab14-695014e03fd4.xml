@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Service>
   <Service_Information>
     <Name>Voice Mail</Name>
@@ -11,7 +10,7 @@
   <Service_Config>
     <Server_IP>192.168.20.25</Server_IP>
     <Server_Port>7000</Server_Port>
-    <Server_URI>voicemail@open-ims.test</Server_URI>
+    <Server_URI>sip:voicemail@open-ims.test</Server_URI>
     <GUID>71f7523d-b461-405b-ab14-695014e03fd4</GUID>
   </Service_Config>
   <SIP_Headers>
@@ -29,4 +28,10 @@
     <duplex>recv-only</duplex>
     <methods>INVITE</methods>
   </Capabalities>
+  <Metrics>
+    <TotalCPU>94.58398</TotalCPU>
+    <CPU>0</CPU>
+    <TotalMemory>1682</TotalMemory>
+    <Memory>1682</Memory>
+  </Metrics>
 </Service>
