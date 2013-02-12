@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated with LegendSVG, written by Sake Wagenaar (2011)                      -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="160pt"
+   height="197pt"
+   viewBox="0 0 160 197"
+   id="svg2987"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="legend.svg">
+  <metadata
+     id="metadata3059">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3057" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     id="namedview3055"
+     showgrid="false"
+     inkscape:zoom="0.95837563"
+     inkscape:cx="100"
+     inkscape:cy="123.125"
+     inkscape:window-x="1672"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2987" />
+  <!-- Legend frame -->
+  <rect
+     x="-0.22015683"
+     y="-0.22015683"
+     height="92.26236"
+     width="107.01659"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.55968636"
+     id="rect2989" />
+  <!-- Title -->
+  <text
+     x="5"
+     y="19"
+     style="font-family:Arial;font-size:14;font-weight:Bold"
+     id="text2991">Key</text>
+  <!-- Colored boxes with category names -->
+  <g
+     transform="translate(3.3305085,32.194915)"
+     id="g3029">
+    <rect
+       x="0"
+       y="0"
+       height="10"
+       width="14.173"
+       style="fill:#008000;stroke:#000000"
+       id="rect3031" />
+    <rect
+       x="0"
+       y="13"
+       height="10"
+       width="14.173"
+       style="fill:#ffa500;stroke:#000000"
+       id="rect3033" />
+    <rect
+       x="0"
+       y="26"
+       height="10"
+       width="14.173"
+       style="fill:#0000ff;stroke:#000000"
+       id="rect3035" />
+    <rect
+       x="0"
+       y="39"
+       height="10"
+       width="14.173"
+       style="fill:#ff00ff;stroke:#000000"
+       id="rect3037" />
+    <text
+       x="17.173"
+       y="10"
+       style="font-size:10px;font-family:Arial"
+       id="text3043">Condition</text>
+    <text
+       x="17.173"
+       y="23"
+       style="font-size:10px;font-family:Arial"
+       id="text3045">Condition Value</text>
+    <text
+       x="17.173"
+       y="36"
+       style="font-size:10px;font-family:Arial"
+       id="text3047">Service</text>
+    <text
+       x="17.173"
+       y="49"
+       style="font-size:10px;font-family:Arial"
+       id="text3049">Service Response</text>
+  </g>
+</svg>

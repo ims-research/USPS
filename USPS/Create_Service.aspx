@@ -164,7 +164,7 @@
             $.ajax({
                 type: "POST",
                 url: "Services.asmx/SaveChain",
-                data: "{'GUID':" + my_guid + ",'Chain':'" + chain + "','Name':'" + JSON.stringify(name) + "'}",
+                data: "{'guid':" + my_guid + ",'chain':'" + chain + "','name':'" + JSON.stringify(name) + "'}",
                 contentType: "application/json; charset=utf-8",
                 dataFilter: function(data) {
                     var msg = eval('(' + data + ')');
@@ -232,6 +232,23 @@
             .append("svg:g")
             .attr("transform", "translate(40,40)");
 
+        d3.xml("Resources/legend.svg", "image/svg+xml", function(xml) {
+            var importedNode = document.importNode(xml.documentElement, true);
+            vis.node().appendChild(importedNode);
+        });
+
+        //vis.append("svg:defs")
+        //    .append("svg:marker")
+        //    .attr("id", "Triangle")
+        //    .attr("viewbox", "0 0 10 10")
+        //    .attr("refx", 0)
+        //    .attr("refy", 5)
+        //    .attr("markerUnits", "strokeWidth")
+        //    .attr("markerHeight", "3")
+        //    .attr("orient", "auto")
+        //    .append("path")
+        //    .attr("d", "M 0 0 L 10 5 L 0 10 z");
+
         d3.select(self.frameElement).style("height", "1000px");
 
         update(root);
@@ -249,9 +266,56 @@
                 .attr("transform", function(d) { return "translate(" + source.x0 + "," + source.y0 + ")"; });
 
             // Enter any new nodes at the parent's previous position.
+            //nodeEnter.append("svg:circle")
+            //    .attr("r", 6)
+            //    .style("fill", "lightsteelblue")
+            //    .on("click", click);
+            //nodeEnter.append("svg:path")
+            //    .attr("d", function(d){                   
+            //        switch(d.type)
+            //            {
+            //            case 'Service':
+            //                return "M0,0 150,0 150,50 0,50";
+            //                    break;
+            //            case 'ServiceValue':
+            //                return "M0,0 150,0 150,50 0,50";
+            //                    break;
+            //            case 'Condition':
+            //                return "M0,0 150,0 150,50 0,50";
+            //                break;
+            //            case 'ConditionValue':
+            //                return "M0,0 150,0 150,50 0,50";
+            //                break;
+            //                // Double arrows 
+            //            //case 'Root':
+            //            //    return "M21.786,12.876l7.556-4.363l-7.556-4.363v2.598H2.813v3.5h18.973V12.876zM10.368,18.124l-7.556,4.362l7.556,4.362V24.25h18.974v-3.501H10.368V18.124z";
+            //                //    break;
+            //            case 'Root':
+            //                return "M0,0 150,0 150,50 0,50";
+            //                break;
+            //             }   
+            //    })
             nodeEnter.append("svg:circle")
                 .attr("r", 6)
-                .style("fill", "lightsteelblue")
+                .style("fill", function(d) {
+                    switch (d.type) {
+                    case 'Service':
+                        return "#0000ff";
+                        break;
+                    case 'ServiceValue':
+                        return "#ff00ff";
+                        break;
+                    case 'Condition':
+                        return "green";
+                        break;
+                    case 'ConditionValue':
+                        return "orange";
+                        break;
+                    case 'Root':
+                        return "black";
+                        break;
+                    }
+                })
                 .on("click", click);
 
             nodeEnter.append("svg:text")
@@ -264,8 +328,8 @@
                 .duration(duration)
                 .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
                 .style("opacity", 1)
-                .select("circle")
-                .style("fill", "lightsteelblue");
+                .select("circle");
+                //.style("fill", "lightsteelblue");
 
             node.transition()
                 .duration(duration)
@@ -281,7 +345,7 @@
 
             // Update the links…
             var link = vis.selectAll("path.link")
-                .data(tree.links(nodes), function(d) { return d.target.id; });
+                .data(tree.links(nodes), function (d) { return d.target.id; }); 
 
             // Enter any new links at the parent's previous position.
             link.enter().insert("svg:path", "g")
@@ -290,6 +354,7 @@
                     var o = { x: source.x0, y: source.y0 };
                     return diagonal({ source: o, target: o });
                 })
+                //.attr("marker-end","url(#Triangle)")
                 .transition()
                 .duration(duration)
                 .attr("d", diagonal);
@@ -353,7 +418,7 @@
             $.ajax({
                 type: "POST",
                 url: "Services.asmx/ListServiceResponses",
-                data: "{'ServiceGUID':" + JSON.stringify(service_guid) + "}",
+                data: "{'serviceGUID':" + JSON.stringify(service_guid) + "}",
                 contentType: "application/json; charset=utf-8",
                 dataFilter: function(data) {
                     var msg = eval('(' + data + ')');
@@ -382,7 +447,7 @@
             $.ajax({
                 type: "POST",
                 url: "Services.asmx/ListConditionOptions",
-                data: "{'ConditionGUID':" + JSON.stringify(condition_guid) + "}",
+                data: "{'conditionGUID':" + JSON.stringify(condition_guid) + "}",
                 contentType: "application/json; charset=utf-8",
                 dataFilter: function(data) {
                     var msg = eval('(' + data + ')');

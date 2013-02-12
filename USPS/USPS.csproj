@@ -169,6 +169,7 @@
     <Content Include="Create_Service.aspx" />
     <Content Include="Debug_View_Service_From_XML.aspx" />
     <Content Include="Libs\log4net.dll" />
+    <Content Include="Resources\legend.svg" />
     <Content Include="Resources\Services\3600f74a-a5b1-4e47-a2e7-04b12116a670.xml" />
     <Content Include="Resources\Services\3ea7b719-36fb-457d-a295-83edc6d0f1ce.xml" />
     <Content Include="Resources\Services\4616f2cd-6471-4d65-8337-5d6e63dbf1c8.xml" />
