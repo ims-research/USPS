@@ -44,8 +44,9 @@
 
             $.ajax({
                 type: "POST",
-                url: "Services.asmx/DeleteExistingChain",
-                data: "{'FirstBlockGUID':'" + firstGUID + "'}",
+                url: "Services.asmx/DeleteExistingChain" +
+                    "",
+                data: "{'firstBlockGUID':'" + firstGUID + "'}",
                 contentType: "application/json; charset=utf-8",
                 dataFilter: function(data) {
                     var msg = eval('(' + data + ')');
@@ -61,6 +62,7 @@
                     alert(msg);
                 }
             });
+            
             return false;
         }
 
@@ -77,7 +79,7 @@
             $.ajax({
                 type: "POST",
                 url: "Services.asmx/GetExistingChain",
-                data: "{'FirstBlockGUID':" + my_guid + "}",
+                data: "{'firstBlockGUID':" + my_guid + "}",
                 contentType: "application/json; charset=utf-8",
                 dataFilter: function(data) {
                     var msg = eval('(' + data + ')');

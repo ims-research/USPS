@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Service>
+  <Service_Information>
+    <Name>Call Logger</Name>
+    <Type>Notification</Type>
+    <Version>0.1</Version>
+    <Provider>Generic</Provider>
+    <Description>This service records details of incoming calls</Description>
+  </Service_Information>
+  <Service_Config>
+    <Server_IP>192.168.20.25</Server_IP>
+    <Server_Port>9333</Server_Port>
+    <GUID>3e3787c7-2fde-4cb0-9e23-bdd7573c43ff</GUID>
+  </Service_Config>
+  <SIP_Headers>
+    <READ>FROM,CONTENT</READ>
+    <WRITE>
+    </WRITE>
+  </SIP_Headers>
+  <SIP_Responses>
+    <SIP_200_OK>Successfully recorded details</SIP_200_OK>
+  </SIP_Responses>
+  <Capabilities>
+    <audio>false</audio>
+    <video>false</video>
+    <duplex>none</duplex>
+    <methods>INVITE</methods>
+  </Capabilities>
+  <Metrics>
+    <TotalCPU>52.71</TotalCPU>
+    <CPU>1.53</CPU>
+    <TotalMemory>1221 MB</TotalMemory>
+    <Memory>11.8 MB</Memory>
+  </Metrics>
+</Service>

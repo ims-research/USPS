@@ -63,15 +63,21 @@ namespace USPS
                 UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
                 try
                 {
-                    flows = profile.ServiceFlows.Deserialize<List<ServiceFlow>>();
+                    flows = profile.ServiceFlows.UnzipAndDeserialize<List<ServiceFlow>>();
+
+                    /*Delete profile flows
+                    flows = new List<ServiceFlow>();
+                    profile.ServiceFlows = flows.Serialize();
+                    profile.Save();*/
+
                     errorMessage = "Success";
                     return true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     errorMessage = "Could not retrieve list of service flows from profile";
                     flows = new List<ServiceFlow>();
-                    profile.ServiceFlows = flows.Serialize();
+                    profile.ServiceFlows = flows.SerializeAndZip();
                     profile.Save();
 
                     return false;
@@ -108,7 +114,7 @@ namespace USPS
             {
                 UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
                 serviceFlows.Add(serviceflow);
-                profile.ServiceFlows = serviceFlows.Serialize();
+                profile.ServiceFlows = serviceFlows.SerializeAndZip();
                 profile.Save();
                 return "Chain Saved Successfully";
             }
@@ -232,7 +238,7 @@ namespace USPS
                             UserProfile profile = UserProfile.GetUserProfile(User.Identity.Name);
                             List<ServiceFlow> newServiceFlows = new List<ServiceFlow>(sfs);
                             newServiceFlows.Remove(serviceFlow);
-                            profile.ServiceFlows = newServiceFlows.Serialize();
+                            profile.ServiceFlows = newServiceFlows.SerializeAndZip();
                             profile.Save();
                             return jss.Serialize("Chain Deleted Successfully");
                         }

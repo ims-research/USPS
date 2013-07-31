@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Service>
+  <Service_Information>
+    <Name>Missed Call Notification - IM</Name>
+    <Type>Notification</Type>
+    <Version>0.1</Version>
+    <Provider>Call Notification Company</Provider>
+    <Description>This service will send the end user an instant message alerting to an incoming call</Description>
+  </Service_Information>
+  <Service_Config>
+    <Server_IP>192.168.0.154</Server_IP>
+    <Server_Port>8974</Server_Port>
+    <Server_URI>missedcallim@open-ims.test</Server_URI>
+    <GUID>3600f74a-a5b1-4e47-a2e7-04b12116a670</GUID>
+  </Service_Config>
+  <SIP_Headers>
+    <READ>FROM</READ>
+    <WRITE></WRITE>
+  </SIP_Headers>
+  <SIP_Responses>
+    <SIP_200_OK>Successfully accepted notification, will IM end user</SIP_200_OK>
+  </SIP_Responses>
+  <Capabalities>
+    <audio>false</audio>
+    <video>false</video>
+    <duplex>none</duplex>
+    <methods>INVITE</methods>
+  </Capabalities>
+</Service>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Service>
+  <Service_Information>
+    <Name>Drop Session</Name>
+    <Type>Session</Type>
+    <Version>0.3</Version>
+    <Provider>Core operator</Provider>
+    <Description>This is a terminating service which drops any further communication</Description>
+  </Service_Information>
+  <Service_Config>
+    <Server_IP>192.168.20.25</Server_IP>
+    <Server_Port>9999</Server_Port>
+    <Server_URI>sip:anonymous@anonymous.invalid</Server_URI>
+    <GUID>411698d2-4f3b-4f07-a5f2-b815493e822b</GUID>
+  </Service_Config>
+  <SIP_Headers>
+    <READ>TO,FROM</READ>
+    <WRITE>
+    </WRITE>
+  </SIP_Headers>
+  <SIP_Responses>
+    <Default>Drop session</Default>
+  </SIP_Responses>
+  <Capabilities>
+    <audio>false</audio>
+    <video>false</video>
+    <duplex>none</duplex>
+    <methods>INVITE</methods>
+  </Capabilities>
+  <Metrics>
+    <TotalCPU>16.24</TotalCPU>
+    <CPU>3.02</CPU>
+    <TotalMemory>479 MB</TotalMemory>
+    <Memory>12.8 MB</Memory>
+  </Metrics>
+</Service>

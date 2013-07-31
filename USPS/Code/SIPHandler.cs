@@ -141,7 +141,7 @@ namespace USPS.Code
                 DateTime t2 = Convert.ToDateTime(r["LastUpdatedDate"].ToString());
                 if (_lastupdate >= t2) continue;
                 changedFlows[r["email"].ToString()] =
-                    r["PropertyValuesString"].ToString().Deserialize<List<ServiceFlow>>();
+                    r["PropertyValuesString"].ToString().UnzipAndDeserialize<List<ServiceFlow>>();
                 updateNeeded = true;
             }
             if (updateNeeded)
@@ -152,12 +152,12 @@ namespace USPS.Code
                         LocalParty = _localparty
                     };
                 _app.Useragents.Add(serviceChainUA);
-                Message m = serviceChainUA.CreateRequest("MESSAGE", changedFlows.Serialize());
+                Message m = serviceChainUA.CreateRequest("MESSAGE", changedFlows.SerializeAndZip());
                 m.InsertHeader(new Header("APPLICATION/SERV_DESC+XML", "Content-Type"));
                 serviceChainUA.SendRequest(m);
+                _lastupdate = DateTime.Now;
                 //request.InsertHeader(new Header("service.description", "Event"));
             }
-            _lastupdate = DateTime.Now;
         }
 
         public void Start()
